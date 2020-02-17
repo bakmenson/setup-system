@@ -1,6 +1,7 @@
 arc-theme
 compton
 curl
+evince
 feh
 fonts-font-awesome
 gimp

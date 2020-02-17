@@ -5,6 +5,7 @@ cmake
 curl
 dmenu
 dosfstools
+evince
 feh
 firefox
 gcc
