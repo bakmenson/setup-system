@@ -1,2 +1,2 @@
 # setup-system
-Installing packages and my dotfiles
+Installing packages and dotfiles
