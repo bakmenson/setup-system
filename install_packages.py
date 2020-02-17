@@ -25,11 +25,12 @@ elif distro_name == 'arch':
 else:
     pass
 
-call('cp -r i3 ~/.config', shell=True)
+call('cp -r ~/dotfiles/i3 ~/.config', shell=True)
 
 # build from source
 
 # oh-my-zsh
+call('cd ~/', shell=True)
 call(
     'wget'
     ' https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh-O'
@@ -37,7 +38,7 @@ call(
     shell=True
 )
 call('chsh -s /bin/zsh', shell=True)
-call('cp .zshrc ~/', shell=True)
+call('cp ~/dotfiles/.zshrc ~/', shell=True)
 
 # pyenv
 if distro_name == 'ubuntu':
@@ -86,13 +87,12 @@ if distro_name == 'ubuntu':
          ' libxcb-composite0-dev xcb libxcb-ewmh2', shell=True)
 call('git clone https://github.com/jaagr/polybar.git', shell=True)
 call('cd polybar && ./build.sh', shell=True)
-call('cd ~/install-packages', shell=True)
-call('cp -r polybar ~/.config', shell=True)
+call('cp -r ~/dotfiles/polybar ~/.config', shell=True)
 
-call('cp compton.conf ~/.config', shell=True)
-call('cp .ideavimrc ~/', shell=True)
-call('cp -r mpv ~/.config', shell=True)
-call('cp -r nvim ~/.config', shell=True)
-call('cp -r rofi ~/.config', shell=True)
+call('cp ~/dotfiles/compton.conf ~/.config', shell=True)
+call('cp ~/dotfiles/.ideavimrc ~/', shell=True)
+call('cp -r ~/dotfiles/mpv ~/.config', shell=True)
+call('cp -r ~/dotfiles/nvim ~/.config', shell=True)
+call('cp -r ~/dotfiles/rofi ~/.config', shell=True)
 
 call('reboot', shell=True)
