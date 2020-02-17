@@ -33,7 +33,7 @@ call('cp -r ~/dotfiles/i3 ~/.config', shell=True)
 call('cd ~/', shell=True)
 call(
     'wget'
-    ' https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh-O'
+    ' https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O'
     ' - | zsh',
     shell=True
 )
