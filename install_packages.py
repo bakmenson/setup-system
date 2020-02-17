@@ -94,5 +94,7 @@ call('cp ~/dotfiles/.ideavimrc ~/', shell=True)
 call('cp -r ~/dotfiles/mpv ~/.config', shell=True)
 call('cp -r ~/dotfiles/nvim ~/.config', shell=True)
 call('cp -r ~/dotfiles/rofi ~/.config', shell=True)
+call('cp -r ~/dotfiles/.gitconfig ~/', shell=True)
+call('cp -r ~/dotfiles/.gitignore_global ~/', shell=True)
 
 call('reboot', shell=True)
