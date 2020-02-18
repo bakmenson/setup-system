@@ -51,5 +51,6 @@ wget
 xarchiver
 xf86-input-evdev
 xfce4-power-manager
+xfce4-terminal
 zip
 zsh
