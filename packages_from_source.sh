@@ -41,5 +41,6 @@ cp -r ~/dotfiles/nvim ~/.config
 cp -r ~/dotfiles/rofi ~/.config
 cp -r ~/dotfiles/.gitconfig ~/
 cp -r ~/dotfiles/.gitignore_global ~/
+cp -r ~/dotfiles/.fonts ~/
 
 reboot
