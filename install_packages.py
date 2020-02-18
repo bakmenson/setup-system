@@ -20,8 +20,8 @@ packages = ' '.join(packages_list)
 
 
 if distro_name == 'ubuntu':
-    call('sudo apt update && sudo apt dist-upgrade && sudo apt autoremove',
-         shell=True)
+    call('sudo apt update && sudo apt -y dist-upgrade'
+         ' && sudo apt -y autoremove', shell=True)
     call('sudo apt install ' + packages, shell=True)
 elif distro_name == 'arch':
     call('sudo pacman -S ' + packages, shell=True)
@@ -48,7 +48,7 @@ if distro_name == 'ubuntu':
          ' libxcb-xrm-dev libxcb-shape0-dev', shell=True)
 
     # polybar
-    call('sudo apt install cmake cmake-data libcairo2-dev libxcb1-dev'
+    call('sudo apt -y install cmake cmake-data libcairo2-dev libxcb1-dev'
          ' libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev'
          ' libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config'
          ' python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev'
