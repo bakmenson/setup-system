@@ -30,3 +30,4 @@ w3m-img
 wget
 zsh
 xfce4-terminal
+lxappearance
