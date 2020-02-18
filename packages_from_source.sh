@@ -42,5 +42,6 @@ cp -r ~/dotfiles/rofi ~/.config
 cp -r ~/dotfiles/.gitconfig ~/
 cp -r ~/dotfiles/.gitignore_global ~/
 cp -r ~/dotfiles/.fonts ~/
+cp -r ~/dotfiles/xfce4/terminal ~/.config/xfce4
 
 reboot
