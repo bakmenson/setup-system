@@ -31,3 +31,4 @@ wget
 zsh
 xfce4-terminal
 lxappearance
+uncluteer
