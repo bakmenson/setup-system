@@ -60,3 +60,8 @@ if distro_name == 'ubuntu':
 
 call('chmod +x packages_from_source.sh', shell=True)
 call('./packages_from_source.sh')
+
+call('chmod +x cp_dotfiles.sh', shell=True)
+call('./cp_dotfiles.sh')
+
+call('reboot', shell=True)
