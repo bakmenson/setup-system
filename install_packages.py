@@ -55,5 +55,8 @@ if distro_name == 'ubuntu':
          ' libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev'
          ' libxcb-composite0-dev xcb libxcb-ewmh2 libjsoncpp-dev', shell=True)
 
+    call('chmod +x install_nodejs.sh', shell=True)
+    call('./install_nodejs.sh')
+
 call('chmod +x packages_from_source.sh', shell=True)
 call('./packages_from_source.sh')
