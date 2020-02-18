@@ -20,7 +20,8 @@ packages = ' '.join(packages_list)
 
 
 if distro_name == 'ubuntu':
-    call('sudo apt update && sudo apt dist-upgrade && sudo apt autoremove')
+    call('sudo apt update && sudo apt dist-upgrade && sudo apt autoremove',
+         shell=True)
     call('sudo apt install ' + packages, shell=True)
 elif distro_name == 'arch':
     call('sudo pacman -S ' + packages, shell=True)
