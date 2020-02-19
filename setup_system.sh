@@ -11,7 +11,7 @@ done < /etc/os-release
 
 cd ~/
 
-if [[ $distr_name == "ubuntu" ]]; then
+if [ $distr_name == "ubuntu" ]; then
 	sudo apt update && sudo apt -y dist-upgrade && sudo apt -y autoremove
 	sudo apt install -y $(cat ubuntu-packages.txt)
 
@@ -45,7 +45,7 @@ if [[ $distr_name == "ubuntu" ]]; then
 	echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 	sudo apt install -y yarn
 
-elif [[ $distr_name == "arch" ]]; then
+elif [ $distr_name == "arch" ]; then
 	# put packages into file
 	# pacman -Qqe > arch-packages.txt
 
