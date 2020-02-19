@@ -49,7 +49,7 @@ elif [[ $distr_name == "arch" ]]; then
 	# put packages into file
 	# pacman -Qqe > arch-packages.txt
 
-	sudo pacman -S --needed - <	arch-packages.txt
+	sudo pacman -S --needed - < arch-packages.txt
 	# sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort arch-packages.txt))
 fi
 
