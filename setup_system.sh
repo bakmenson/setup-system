@@ -87,6 +87,8 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # dotfiles
+git clone https://github.com/bakmenson/dotfiles.git ~/dotfiles
+
 if [ -d ~/.config/polybar ]; then rm -rf ~/.config/polybar; fi
 if [ -d ~/.config/i3 ]; then rm -rf ~/.config/i3; fi
 if [ -d ~/.config/mpv ]; then rm -rf ~/.config/mpv; fi
