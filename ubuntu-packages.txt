@@ -30,4 +30,4 @@ w3m-img
 wget
 zsh
 lxappearance
-uncluteer
+unclutter
