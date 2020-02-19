@@ -29,6 +29,5 @@ w3m
 w3m-img
 wget
 zsh
-xfce4-terminal
 lxappearance
 uncluteer
