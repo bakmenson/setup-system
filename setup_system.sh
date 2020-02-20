@@ -102,18 +102,18 @@ if [ -e ~/.ideavimrc ]; then rm ~/.ideavimrc; fi
 if [ -e ~/.gitconfig ]; then rm ~/.gitconfig; fi
 if [ -e ~/.gitignore_global ]; then rm ~/.gitignore_global; fi
 
-ln -s ~/dotfiles/.zshrc ~/
-ln -s ~/dotfiles/compton.conf ~/.config
-ln -s ~/dotfiles/.ideavimrc ~/
-ln -s ~/dotfiles/i3 ~/.config
-ln -s ~/dotfiles/polybar ~/.config
-ln -s ~/dotfiles/mpv ~/.config
-ln -s ~/dotfiles/nvim ~/.config
-ln -s ~/dotfiles/rofi ~/.config
-ln -s ~/dotfiles/.gitconfig ~/
-ln -s ~/dotfiles/.gitignore_global ~/
-ln -s ~/dotfiles/.fonts ~/
-ln -s ~/dotfiles/xfce4/terminal ~/.config/xfce4
+ln -sf ~/dotfiles/.zshrc ~/
+ln -sf ~/dotfiles/compton.conf ~/.config
+ln -sf ~/dotfiles/.ideavimrc ~/
+ln -sf ~/dotfiles/i3 ~/.config
+ln -sf ~/dotfiles/polybar ~/.config
+ln -sf ~/dotfiles/mpv ~/.config
+ln -sf ~/dotfiles/nvim ~/.config
+ln -sf ~/dotfiles/rofi ~/.config
+ln -sf ~/dotfiles/.gitconfig ~/
+ln -sf ~/dotfiles/.gitignore_global ~/
+ln -sf ~/dotfiles/.fonts ~/
+ln -sf ~/dotfiles/xfce4/terminal ~/.config/xfce4
 
 # reboot system
 sudo reboot
