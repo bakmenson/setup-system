@@ -86,8 +86,10 @@ cd ~/
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+mkdir Dev
+
 # dotfiles
-git clone https://github.com/bakmenson/dotfiles.git ~/dotfiles
+git clone https://github.com/bakmenson/dotfiles.git ~/Dev/dotfiles
 
 if [ -d ~/.config/polybar ]; then rm -rf ~/.config/polybar; fi
 if [ -d ~/.config/i3 ]; then rm -rf ~/.config/i3; fi
@@ -102,18 +104,18 @@ if [ -e ~/.ideavimrc ]; then rm ~/.ideavimrc; fi
 if [ -e ~/.gitconfig ]; then rm ~/.gitconfig; fi
 if [ -e ~/.gitignore_global ]; then rm ~/.gitignore_global; fi
 
-ln -sf ~/dotfiles/.zshrc ~/
-ln -sf ~/dotfiles/compton.conf ~/.config
-ln -sf ~/dotfiles/.ideavimrc ~/
-ln -sf ~/dotfiles/i3 ~/.config
-ln -sf ~/dotfiles/polybar ~/.config
-ln -sf ~/dotfiles/mpv ~/.config
-ln -sf ~/dotfiles/nvim ~/.config
-ln -sf ~/dotfiles/rofi ~/.config
-ln -sf ~/dotfiles/.gitconfig ~/
-ln -sf ~/dotfiles/.gitignore_global ~/
-ln -sf ~/dotfiles/.fonts ~/
-ln -sf ~/dotfiles/xfce4/terminal ~/.config/xfce4
+ln -sf ~/Dev/dotfiles/.zshrc ~/
+ln -sf ~/Dev/dotfiles/compton.conf ~/.config
+ln -sf ~/Dev/dotfiles/.ideavimrc ~/
+ln -sf ~/Dev/dotfiles/i3 ~/.config
+ln -sf ~/Dev/dotfiles/polybar ~/.config
+ln -sf ~/Dev/dotfiles/mpv ~/.config
+ln -sf ~/Dev/dotfiles/nvim ~/.config
+ln -sf ~/Dev/dotfiles/rofi ~/.config
+ln -sf ~/Dev/dotfiles/.gitconfig ~/
+ln -sf ~/Dev/dotfiles/.gitignore_global ~/
+ln -sf ~/Dev/dotfiles/.fonts ~/
+ln -sf ~/Dev/dotfiles/xfce4/terminal ~/.config/xfce4
 
 # reboot system
 sudo reboot
