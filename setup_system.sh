@@ -48,6 +48,7 @@ if [ $distr_name == "ubuntu" ]; then
 	# neovim
 	curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 	chmod u+x nvim.appimage
+	pip3 install pynvim --upgrade
 
 elif [ $distr_name == "arch" ]; then
 	# put packages into file
