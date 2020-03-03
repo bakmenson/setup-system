@@ -100,5 +100,8 @@ chmod +x set_dotfiles.sh && ./set_dotfiles.sh
 
 chmod +x ~/.ufetch
 
+# installing nvim plugings
+/home/solus/nvim.appimage +PlugInstall
+
 # reboot system
 sudo reboot
