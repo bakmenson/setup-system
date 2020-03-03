@@ -23,6 +23,7 @@ make
 mpv
 vim
 neovim
+python-pynvim
 vifm
 nodejs
 ntfs-3g
@@ -33,7 +34,6 @@ picom
 pkgconf
 pulseaudio
 pulseaudio-alsa
-python-pynvim
 rofi
 scrot
 telegram-desktop
