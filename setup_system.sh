@@ -98,5 +98,7 @@ git clone https://github.com/bakmenson/dotfiles.git ~/dotfiles
 
 chmod +x set_dotfiles.sh && ./set_dotfiles.sh
 
+chmod +x ~/.ufetch
+
 # reboot system
 sudo reboot
