@@ -88,10 +88,6 @@ cd polybar && ./build.sh
 
 cd ~/
 
-# vim-plug for neovim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 mkdir Dev
 
 # dotfiles
@@ -100,6 +96,10 @@ git clone https://github.com/bakmenson/dotfiles.git ~/dotfiles
 chmod +x set_dotfiles.sh && ./set_dotfiles.sh
 
 chmod +x ~/.ufetch
+
+# vim-plug for neovim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # installing nvim plugings
 if [ $distr_name == "ubuntu" ]; then
