@@ -27,5 +27,3 @@ ln -sf ~/dotfiles/.ideavimrc ~/
 ln -sf ~/dotfiles/.gitconfig ~/
 ln -sf ~/dotfiles/.gitignore_global ~/
 ln -sf ~/dotfiles/.ufetch ~/
-
-chmod +x ~/.ufetch
