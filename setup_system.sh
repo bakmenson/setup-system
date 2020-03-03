@@ -50,12 +50,18 @@ if [ $distr_name == "ubuntu" ]; then
 	chmod u+x nvim.appimage
 	pip3 install pynvim --upgrade
 
+	# installing nvim plugings for ubuntu
+	/home/solus/nvim.appimage +PlugInstall
+
 elif [ $distr_name == "arch" ]; then
 	# put packages into file
 	# pacman -Qqe > arch-packages.txt
 
 	sudo pacman -S --needed - < arch-packages.txt
 	# sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort arch-packages.txt))
+
+	# installing nvim plugings for arch
+	nvim +PlugInstall
 fi
 
 # oh-my-zsh
@@ -100,8 +106,6 @@ chmod +x set_dotfiles.sh && ./set_dotfiles.sh
 
 chmod +x ~/.ufetch
 
-# installing nvim plugings
-/home/solus/nvim.appimage +PlugInstall
 cd ~/.local/share/nvim/plugged/YouCompleteMe
 python3 install.py --clang-completer --ts-completer
 
