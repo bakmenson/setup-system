@@ -102,6 +102,10 @@ chmod +x ~/.ufetch
 
 # installing nvim plugings
 /home/solus/nvim.appimage +PlugInstall
+cd ~/.local/share/nvim/plugged/YouCompleteMe
+python3 install.py --clang-completer --ts-completer
+
+cd ~/
 
 # reboot system
 sudo reboot
