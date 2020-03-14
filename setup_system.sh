@@ -104,10 +104,10 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 # installing nvim plugings
 if [ $distr_name == "ubuntu" ]; then
 	# for ubuntu
-	/home/solus/nvim.appimage +PlugInstall
+	~/nvim.appimage +PlugInstall
 elif [ $distr_name == "arch" ]; then
 	# for arch
-	/home/solus/nvim +PlugInstall
+	nvim +PlugInstall
 fi
 
 # Compiling plugin YouCompleteMe for nvim
