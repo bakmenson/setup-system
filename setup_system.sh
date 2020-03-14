@@ -93,7 +93,10 @@ mkdir Dev
 # dotfiles
 git clone https://github.com/bakmenson/dotfiles.git ~/dotfiles
 
+cd ~/setup-system
 chmod +x set_dotfiles.sh && ./set_dotfiles.sh
+
+cd ~/
 
 chmod +x ~/.ufetch
 
