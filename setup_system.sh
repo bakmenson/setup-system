@@ -104,10 +104,14 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 # installing nvim plugings
 if [ $distr_name == "ubuntu" ]; then
 	# for ubuntu
-	~/nvim.appimage +PlugInstall
+	~/nvim.appimage +PlugInstall +qa
+	~/nvim.appimage +sources ~/.config/nvim/init.vim +qa
+	~/nvim.appimage +CocInstall coc-pyright +CocInstall coc-ultisnips +CocInstall coc-neosnippet +qa
 elif [ $distr_name == "arch" ]; then
 	# for arch
-	nvim +PlugInstall
+	nvim +PlugInstall +qa
+	nvim +sources ~/.config/nvim/init.vim +qa
+	nvim +CocInstall coc-pyright +CocInstall coc-ultisnips +CocInstall coc-neosnippet +qa
 fi
 
 cd ~/
