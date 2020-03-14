@@ -110,10 +110,6 @@ elif [ $distr_name == "arch" ]; then
 	nvim +PlugInstall
 fi
 
-# Compiling plugin YouCompleteMe for nvim
-cd ~/.local/share/nvim/plugged/YouCompleteMe
-python3 install.py --clang-completer --ts-completer
-
 cd ~/
 
 # reboot system
