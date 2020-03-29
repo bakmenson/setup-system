@@ -25,3 +25,4 @@ wget
 zsh
 lxappearance
 unclutter
+unrar
