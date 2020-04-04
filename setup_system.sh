@@ -6,28 +6,38 @@
 sudo pacman -S --needed - < arch-packages.txt
 # sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort arch-packages.txt))
 
-# oh-my-zsh
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-chsh -s /bin/zsh
+sleep 5
+
+{
+	# oh-my-zsh
+	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+	chsh -s /bin/zsh
+} || {
+	echo "" && echo "Noe wget" && exit 1
+}
 
 # pyenv
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-
-# pyenv-virtualenv
-git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+if [ ! -d ~/.pyenv ]; then
+	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+	git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+fi
 
 cd ~/
 
 # polybar
-git clone https://github.com/jaagr/polybar.git
-cd polybar && ./build.sh
+if [ ! -d ~/polybar ]; then
+	git clone https://github.com/jaagr/polybar.git
+	cd polybar && ./build.sh
+fi
 
 cd ~/
 
 mkdir Dev
 
 # dotfiles
-git clone https://github.com/bakmenson/dotfiles.git ~/dotfiles
+if [ ! -d ~/polybar ]; then
+	git clone https://github.com/bakmenson/dotfiles.git ~/dotfiles
+fi
 
 cd ~/setup-system
 chmod +x set_dotfiles.sh && ./set_dotfiles.sh
@@ -40,10 +50,14 @@ chmod +x ~/.ufetch
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# installing nvim plugings
-nvim +PlugInstall +qa
-nvim +sources ~/.config/nvim/init.vim +qa
-nvim +CocInstall coc-pyright +CocInstall coc-ultisnips +CocInstall coc-neosnippet +qa
+{
+	# installing nvim plugings
+	nvim +PlugInstall +qa
+	nvim +sources ~/.config/nvim/init.vim +qa
+	nvim +CocInstall coc-pyright +CocInstall coc-ultisnips +CocInstall coc-neosnippet +qa
+} || {
+	echo "" && echo "Error" && exit 1
+}
 
 # reboot system
 # sudo reboot
