@@ -1,5 +1,7 @@
 #!/bin/bash
 
+if [ ! -d ~/.config ]; then mkdir ~/.config; fi
+
 if [ -d ~/.config/polybar ]; then rm -rf ~/.config/polybar; fi
 if [ -d ~/.config/i3 ]; then rm -rf ~/.config/i3; fi
 if [ -d ~/.config/mpv ]; then rm -rf ~/.config/mpv; fi
@@ -16,7 +18,7 @@ if [ -e ~/.gitconfig ]; then rm ~/.gitconfig; fi
 if [ -e ~/.gitignore_global ]; then rm ~/.gitignore_global; fi
 if [ -e ~/.ufetch ]; then rm ~/.ufetch; fi
 
-ln -sf ~/dotfiles/polybar ~/.config
+ln -sf ~/dotfiles/polybar ~/.config/polybar
 ln -sf ~/dotfiles/i3 ~/.config
 ln -sf ~/dotfiles/mpv ~/.config
 ln -sf ~/dotfiles/nvim ~/.config
