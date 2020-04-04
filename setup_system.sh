@@ -72,15 +72,17 @@ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 
 # i3-gaps
-cd /tmp
-git clone https://www.github.com/Airblader/i3 i3-gaps
-cd i3-gaps
-autoreconf --force --install
-rm -rf build/
-mkdir -p build && cd build/
-../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
-make -j8
-sudo make install
+if [ $distr_name == "ubuntu" ]; then
+	cd /tmp
+	git clone https://www.github.com/Airblader/i3 i3-gaps
+	cd i3-gaps
+	autoreconf --force --install
+	rm -rf build/
+	mkdir -p build && cd build/
+	../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
+	make -j8
+	sudo make install
+fi
 
 cd ~/
 
