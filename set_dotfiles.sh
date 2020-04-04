@@ -9,6 +9,7 @@ if [ -d ~/.config/rofi ]; then rm -rf ~/.config/rofi; fi
 if [ -d ~/.config/xfce4/terminal ]; then rm -rf ~/.config/xfce4/terminal; fi
 if [ -d ~/.fonts ]; then rm -rf ~/.fonts; fi
 if [ -e ~/.config/compton.conf ]; then rm ~/.config/compton.conf; fi
+if [ -e ~/.config/alacritty.yml ]; then rm ~/.config/alacritty.yml; fi
 if [ -e ~/.zshrc ]; then rm ~/.zshrc; fi
 if [ -e ~/.ideavimrc ]; then rm ~/.ideavimrc; fi
 if [ -e ~/.gitconfig ]; then rm ~/.gitconfig; fi
@@ -24,6 +25,7 @@ ln -sf ~/dotfiles/rofi ~/.config
 ln -sf ~/dotfiles/xfce4/terminal ~/.config/xfce4
 ln -sf ~/dotfiles/.fonts ~/
 ln -sf ~/dotfiles/compton.conf ~/.config
+ln -sf ~/dotfiles/alacritty.yml ~/.config
 ln -sf ~/dotfiles/.zshrc ~/
 ln -sf ~/dotfiles/.ideavimrc ~/
 ln -sf ~/dotfiles/.gitconfig ~/
