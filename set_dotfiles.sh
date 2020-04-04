@@ -6,7 +6,7 @@ if [ -d ~/.config/mpv ]; then rm -rf ~/.config/mpv; fi
 if [ -d ~/.config/nvim ]; then rm -rf ~/.config/nvim; fi
 if [ -d ~/.config/vifm ]; then rm -rf ~/.config/vifm; fi
 if [ -d ~/.config/rofi ]; then rm -rf ~/.config/rofi; fi
-if [ -d ~/.config/xfce4/terminal ]; then rm -rf ~/.config/xfce4/terminal; fi
+# if [ -d ~/.config/xfce4/terminal ]; then rm -rf ~/.config/xfce4/terminal; fi
 if [ -d ~/.fonts ]; then rm -rf ~/.fonts; fi
 if [ -e ~/.config/compton.conf ]; then rm ~/.config/compton.conf; fi
 if [ -e ~/.config/alacritty.yml ]; then rm ~/.config/alacritty.yml; fi
@@ -22,7 +22,7 @@ ln -sf ~/dotfiles/mpv ~/.config
 ln -sf ~/dotfiles/nvim ~/.config
 ln -sf ~/dotfiles/vifm ~/.config
 ln -sf ~/dotfiles/rofi ~/.config
-ln -sf ~/dotfiles/xfce4/terminal ~/.config/xfce4
+# ln -sf ~/dotfiles/xfce4/terminal ~/.config/xfce4
 ln -sf ~/dotfiles/.fonts ~/
 ln -sf ~/dotfiles/compton.conf ~/.config
 ln -sf ~/dotfiles/alacritty.yml ~/.config
