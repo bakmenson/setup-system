@@ -1,3 +1,11 @@
+xorg
+nvidia
+rsync
+ntp
+networkmanager
+network-manager-applet
+cronie
+openssh
 alsa-plugins
 alsa-utils
 arc-gtk-theme
@@ -49,7 +57,9 @@ wget
 xarchiver
 xf86-input-evdev
 xfce4-power-manager
-xfce4-terminal
+sddm
+i3-gaps
+alacritty
 zip
 zsh
 uncluteer
