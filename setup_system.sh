@@ -15,6 +15,8 @@ if [ $distr_name == "ubuntu" ]; then
 	sudo apt update && sudo apt -y dist-upgrade && sudo apt -y autoremove
 	sudo apt install -y $(cat ubuntu-packages.txt)
 
+	#TODO: add installing snap packages
+
 	# packages for pyenv
 	sudo apt install -y make build-essential libssl-dev zlib1g-dev \
 	libbz2-dev libreadline-dev libsqlite3-dev llvm \
