@@ -110,6 +110,8 @@ chmod +x set_dotfiles.sh && ./set_dotfiles.sh
 
 cd ~/
 
+chmod +x ~/.ufetch
+
 # colorpicker
 if [ ! -d ~/.colorpicker ]; then
 	git clone https://github.com/ym1234/colorpicker.git .colorpicker
@@ -132,8 +134,6 @@ if [ ! -e ~/.inxi ]; then
 	wget -O .inxi https://github.com/smxi/inxi/raw/master/inxi
 	chmod +x .inxi
 fi
-
-chmod +x ~/.ufetch
 
 vim-plug for neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
