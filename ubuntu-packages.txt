@@ -17,6 +17,7 @@ rofi
 scrot
 snapd
 vim
+neovim
 vifm
 virtualbox
 w3m
