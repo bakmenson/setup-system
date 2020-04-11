@@ -23,7 +23,7 @@ ln -sf ~/dotfiles/mpv ~/.config
 ln -sf ~/dotfiles/nvim ~/.config
 ln -sf ~/dotfiles/vifm ~/.config
 ln -sf ~/dotfiles/rofi ~/.config
-ln -sf ~/dotfiles/xfce4/terminal ~/.config/xfce4
+ln -sf ~/dotfiles/xfce4 ~/.config/xfce4
 ln -sf ~/dotfiles/.fonts ~/
 ln -sf ~/dotfiles/compton.conf ~/.config
 ln -sf ~/dotfiles/.zshrc ~/
