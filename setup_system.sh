@@ -13,7 +13,7 @@ cd ~/
 
 if [ $distr_name == "ubuntu" ]; then
 	sudo apt update && sudo apt -y dist-upgrade && sudo apt -y autoremove
-	sudo apt install -y $(cat ubuntu-packages.txt)
+	sudo apt install -y $(cat ~/setup-system/ubuntu-packages.txt)
 
 	# packages for pyenv
 	sudo apt install -y make build-essential libssl-dev zlib1g-dev \
@@ -51,11 +51,9 @@ else
 	# put packages into file
 	# pacman -Qqe > arch-packages.txt
 
-	sudo pacman -S --needed - < arch-packages.txt
+	sudo pacman -S --needed - < ~/setup-system/arch-packages.txt
 	# sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort arch-packages.txt))
 fi
-
-sleep 5
 
 if [ ! -d ~/.oh-my-zsh ]; then
 	{
