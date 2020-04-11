@@ -10,6 +10,7 @@ if [ -d ~/.config/vifm ]; then rm -rf ~/.config/vifm; fi
 if [ -d ~/.config/rofi ]; then rm -rf ~/.config/rofi; fi
 if [ -d ~/.config/xfce4/terminal ]; then rm -rf ~/.config/xfce4/terminal; fi
 if [ -d ~/.fonts ]; then rm -rf ~/.fonts; fi
+if [ -d /etc/sddm.conf.d ]; then sudo rm -rf /etc/sddm.conf.d; fi
 if [ -e ~/.config/compton.conf ]; then rm ~/.config/compton.conf; fi
 if [ -e ~/.zshrc ]; then rm ~/.zshrc; fi
 if [ -e ~/.ideavimrc ]; then rm ~/.ideavimrc; fi
@@ -25,6 +26,10 @@ ln -sf ~/dotfiles/vifm ~/.config
 ln -sf ~/dotfiles/rofi ~/.config
 ln -sf ~/dotfiles/xfce4 ~/.config/xfce4
 ln -sf ~/dotfiles/.fonts ~/
+
+sudo mkdir /etc/sddm.conf.d
+sudo ln -sf ~/dotfiles/autologin.conf /etc/sddm.conf.d
+
 ln -sf ~/dotfiles/compton.conf ~/.config
 ln -sf ~/dotfiles/.zshrc ~/
 ln -sf ~/dotfiles/.ideavimrc ~/
