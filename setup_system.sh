@@ -47,6 +47,8 @@ if [ $distr_name == "ubuntu" ]; then
 
 	# support python for neovim
 	pip3 install pynvim --upgrade
+elif [ $distr_name == "manjaro" ]; then
+	sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
 else
 	# put packages into file
 	# pacman -Qqe > arch-packages.txt
