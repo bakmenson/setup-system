@@ -37,6 +37,7 @@ if [[ $os_name == "Ubuntu" ]]; then
 	ln -sf ~/dotfiles/.ufetch-ubuntu ~/
 	mv ~/.ufetch-ubuntu ~/.ufetch
 elif [[ $os_name == "\"Manjaro" ]]; then
+	if [ -d ~/.i3 ]; then mv ~/.i3 ~/Documents; fi
 	ln -sf ~/dotfiles/.ufetch-manjaro ~/
 	mv ~/.ufetch-manjaro ~/.ufetch
 else
