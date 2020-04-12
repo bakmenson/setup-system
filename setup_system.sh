@@ -56,13 +56,9 @@ else
 fi
 
 if [ ! -d ~/.oh-my-zsh ]; then
-	{
-		# oh-my-zsh
-		wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-		chsh -s /bin/zsh
-	} || {
-		echo "" && echo "No wget" && exit 1
-	}
+	# oh-my-zsh
+	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+	chsh -s /bin/zsh
 fi
 
 # pyenv and pyenv-virtualenv
