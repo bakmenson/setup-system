@@ -24,6 +24,9 @@ w3m
 w3m-img
 wget
 zsh
+zsh-autosuggestions
+zsh-history-substring-search
+zsh-syntax-highlighting
 lxappearance
 unclutter
 unrar
