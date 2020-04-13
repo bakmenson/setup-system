@@ -57,6 +57,8 @@ else
 	# sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort arch-packages.txt))
 fi
 
+pip3 install ipython
+
 # pyenv and pyenv-virtualenv
 if [ ! -d ~/.pyenv ]; then
 	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
