@@ -99,6 +99,7 @@ lib32-flex
 lib32-libva-vdpau-driver
 lib32-mesa-demos
 lib32-mesa-vdpau
+lib32-nvidia-440xx-utils
 lib32-vulkan-intel
 lib32-vulkan-radeon
 libdvdcss
@@ -112,6 +113,7 @@ licenses
 lightdm-settings
 lightdm-slick-greeter
 linux54
+linux54-nvidia-440xx
 logrotate
 lvm2
 lxappearance
@@ -164,6 +166,7 @@ nodejs
 nss-mdns
 ntfs-3g
 ntp
+nvidia-440xx-utils
 open-fuse-iso
 openresolv
 openssh
@@ -231,6 +234,7 @@ vibrancy-icons-teal
 viewnior
 vifm
 vim
+vimb
 virtualbox
 vlc
 volumeicon
@@ -274,3 +278,6 @@ yarn
 yay
 zensu
 zsh
+zsh-autosuggestions
+zsh-history-substring-search
+zsh-syntax-highlighting
