@@ -57,12 +57,6 @@ else
 	# sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort arch-packages.txt))
 fi
 
-if [ ! -d ~/.oh-my-zsh ]; then
-	# oh-my-zsh
-	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-	chsh -s /bin/zsh
-fi
-
 # pyenv and pyenv-virtualenv
 if [ ! -d ~/.pyenv ]; then
 	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
@@ -143,6 +137,8 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 } || {
 	echo "" && echo "Error" && exit 1
 }
+
+chsh -s /bin/zsh
 
 # reboot system
 # sudo reboot
