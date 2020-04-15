@@ -31,3 +31,4 @@ zsh-syntax-highlighting
 lxappearance
 unclutter
 alsa-base
+cmatrix
