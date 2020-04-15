@@ -31,10 +31,10 @@ if [ $distr_name == "ubuntu" ]; then
 	libxcb-xrm-dev libxcb-shape0-dev
 
 	# packages for polybar
-	sudo apt -y install cmake cmake-data libcairo2-dev libxcb1-dev \
+	sudo apt -y install cmake cmake-data python-cairo libcairo2-dev libxcb1-dev \
 	libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev \
 	libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config \
-	python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev \
+	python3-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev \
 	libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev \
 	libxcb-composite0-dev xcb libxcb-ewmh2 libjsoncpp-dev
 
@@ -61,7 +61,15 @@ else
 	# sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort arch-packages.txt))
 fi
 
-pip3 install ipython
+# oh-my-zsh
+if [ ! -d ~/.oh-my-zsh ]; then
+	sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+
+# pip3 install ipython
 
 # pyenv and pyenv-virtualenv
 if [ ! -d ~/.pyenv ]; then
