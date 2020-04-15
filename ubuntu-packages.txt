@@ -1,4 +1,5 @@
 arc-theme
+papirus-icon-theme
 compton
 curl
 cmake
