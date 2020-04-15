@@ -47,6 +47,10 @@ if [ $distr_name == "ubuntu" ]; then
 
 	# support python for neovim
 	pip3 install pynvim --upgrade
+
+	# install telegram from snap
+	sudo snap install telegram-desktop
+
 elif [ $distr_name == "manjaro" ]; then
 	sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
 else
