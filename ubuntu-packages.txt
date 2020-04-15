@@ -1,6 +1,7 @@
 arc-theme
 compton
 curl
+cmake
 evince
 feh
 fonts-font-awesome
@@ -25,8 +26,7 @@ w3m-img
 wget
 zsh
 zsh-autosuggestions
-zsh-history-substring-search
 zsh-syntax-highlighting
 lxappearance
 unclutter
-unrar
+alsa-base
