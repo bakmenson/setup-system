@@ -278,6 +278,3 @@ yarn
 yay
 zensu
 zsh
-zsh-autosuggestions
-zsh-history-substring-search
-zsh-syntax-highlighting
