@@ -52,11 +52,12 @@ if [ $distr_name == "ubuntu" ]; then
 	sudo snap install opera
 
 elif [ $distr_name == "manjaro" ]; then
+	sudo pacman -Syu
 	sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
 else
 	# put packages into file
 	# pacman -Qqe > arch-packages.txt
-
+	sudo pacman -Syu
 	sudo pacman -S --needed - < ~/setup-system/arch-packages.txt
 	# sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort arch-packages.txt))
 fi
