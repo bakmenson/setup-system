@@ -57,6 +57,7 @@ else
 	# sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort arch-packages.txt))
 
 	sudo pacman -Syu
+	pip3 install ipython
 
 	if [ $distr_name == "manjaro" ]; then
 		sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
@@ -71,10 +72,6 @@ if [ ! -d ~/.oh-my-zsh ]; then
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 	git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-fi
-
-if [ $distr_name != "ubuntu" ]; then
-	pip3 install ipython
 fi
 
 # pyenv and pyenv-virtualenv
