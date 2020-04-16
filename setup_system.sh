@@ -103,8 +103,6 @@ fi
 
 cd ~/
 
-mkdir Dev
-
 # dotfiles
 if [ ! -d ~/dotfiles ]; then
 	git clone https://github.com/bakmenson/dotfiles.git ~/dotfiles
