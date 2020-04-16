@@ -70,7 +70,9 @@ if [ ! -d ~/.oh-my-zsh ]; then
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 fi
 
-# pip3 install ipython
+if [ $distr_name != "ubuntu" ]; then
+	pip3 install ipython
+fi
 
 # pyenv and pyenv-virtualenv
 if [ ! -d ~/.pyenv ]; then
