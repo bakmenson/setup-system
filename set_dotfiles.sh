@@ -18,6 +18,7 @@ if [ -e ~/.ideavimrc ]; then rm ~/.ideavimrc; fi
 if [ -e ~/.gitconfig ]; then rm ~/.gitconfig; fi
 if [ -e ~/.gitignore_global ]; then rm ~/.gitignore_global; fi
 if [ -e ~/.ufetch ]; then rm ~/.ufetch; fi
+if [ -e ~/.my.cnf ]; then rm ~/.my.cnf; fi
 
 ln -sf ~/dotfiles/polybar ~/.config/polybar
 ln -sf ~/dotfiles/i3 ~/.config
@@ -32,6 +33,7 @@ ln -sf ~/dotfiles/.zshrc ~/
 ln -sf ~/dotfiles/.ideavimrc ~/
 ln -sf ~/dotfiles/.gitconfig ~/
 ln -sf ~/dotfiles/.gitignore_global ~/
+ln -sf ~/dotfiles/.my.cnf ~/
 
 if [[ $os_name == "Ubuntu" ]]; then
 	ln -sf ~/dotfiles/.ufetch-ubuntu ~/
@@ -52,3 +54,6 @@ else
 	sudo mkdir /etc/sddm.conf.d
 	sudo ln -sf ~/dotfiles/autologin.conf /etc/sddm.conf.d
 fi
+
+# read and write only user
+chmod 0600 ~/.my.cnf
