@@ -55,5 +55,7 @@ else
 	sudo ln -sf ~/dotfiles/autologin.conf /etc/sddm.conf.d
 fi
 
+chmod +x ~/.ufetch
+
 # read and write only user
 chmod 0600 ~/.my.cnf
