@@ -33,7 +33,7 @@ ln -sf ~/dotfiles/.zshrc ~/
 ln -sf ~/dotfiles/.ideavimrc ~/
 ln -sf ~/dotfiles/.gitconfig ~/
 ln -sf ~/dotfiles/.gitignore_global ~/
-ln -sf ~/dotfiles/.my.cnf ~/
+cp ~/dotfiles/.my.cnf ~/
 
 if [[ $os_name == "Ubuntu" ]]; then
 	ln -sf ~/dotfiles/.ufetch-ubuntu ~/
