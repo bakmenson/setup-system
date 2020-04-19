@@ -115,8 +115,6 @@ chmod +x set_dotfiles.sh && ./set_dotfiles.sh
 
 cd ~/
 
-chmod +x ~/.ufetch
-
 # colorpicker
 if [ ! -d ~/.colorpicker ]; then
 	git clone https://github.com/ym1234/colorpicker.git .colorpicker
