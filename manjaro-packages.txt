@@ -19,3 +19,4 @@ xfce4-terminal
 yarn
 libmpdclient
 cairo
+ttf-nerd-fonts-symbols
