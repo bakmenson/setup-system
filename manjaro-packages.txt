@@ -1,3 +1,7 @@
+alsa-firmware
+alsa-plugins
+alsa-tools
+alsa-utils
 arc-gtk-theme
 cmake
 cmatrix
