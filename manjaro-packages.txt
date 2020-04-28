@@ -25,3 +25,4 @@ libmpdclient
 cairo
 ttf-nerd-fonts-symbols
 mariadb
+bashtop
