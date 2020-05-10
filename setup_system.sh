@@ -57,7 +57,7 @@ else
 	# sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort arch-packages.txt))
 
 	sudo pacman -Syu
-	pip3 install ipython
+	pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib ipython
 
 	if [ $distr_name == "manjaro" ]; then
 		sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
