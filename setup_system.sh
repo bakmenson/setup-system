@@ -64,6 +64,9 @@ else
 	else
 		sudo pacman -S --needed - < ~/setup-system/arch-packages.txt
 	fi
+
+	yay -S telegram-cli-git
+	yay -S rtorrent-ps
 fi
 
 # oh-my-zsh
