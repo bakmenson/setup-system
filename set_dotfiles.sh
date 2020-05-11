@@ -18,6 +18,7 @@ if [ -e ~/.ideavimrc ]; then rm ~/.ideavimrc; fi
 if [ -e ~/.gitconfig ]; then rm ~/.gitconfig; fi
 if [ -e ~/.gitignore_global ]; then rm ~/.gitignore_global; fi
 if [ -e ~/.ufetch ]; then rm ~/.ufetch; fi
+if [ -e ~/.rtorrent.rc ]; then rm ~/.rtorrent.rc; fi
 
 ln -sf ~/dotfiles/polybar ~/.config/polybar
 ln -sf ~/dotfiles/i3 ~/.config
@@ -32,6 +33,7 @@ ln -sf ~/dotfiles/.zshrc ~/
 ln -sf ~/dotfiles/.ideavimrc ~/
 ln -sf ~/dotfiles/.gitconfig ~/
 ln -sf ~/dotfiles/.gitignore_global ~/
+ln -sf ~/dotfiles/.rtorrent.rc ~/
 
 if [[ $os_name == "Ubuntu" ]]; then
 	ln -sf ~/dotfiles/.ufetch-ubuntu ~/
