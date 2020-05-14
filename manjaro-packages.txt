@@ -31,3 +31,4 @@ tree
 cabal-install
 xmonad
 xmonad-contrib
+youtube-dl
