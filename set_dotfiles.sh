@@ -65,3 +65,4 @@ chmod +x ~/.ufetch
 chmod +x ~/.config/xmodar/scripts/check-updates.sh
 chmod +x ~/.config/xmodar/scripts/check-connectivity.sh
 chmod +x ~/.config/polybar/check-updates.sh
+chmod +x ~/.config/polybar/windows-count.sh
