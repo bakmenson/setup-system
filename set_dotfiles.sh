@@ -11,6 +11,7 @@ if [ -d ~/.config/nvim ]; then rm -rf ~/.config/nvim; fi
 if [ -d ~/.config/vifm ]; then rm -rf ~/.config/vifm; fi
 if [ -d ~/.config/rofi ]; then rm -rf ~/.config/rofi; fi
 if [ -d ~/.config/xfce4/terminal ]; then rm -rf ~/.config/xfce4/terminal; fi
+if [ -d ~/.config/qutebrowser ]; then rm -rf ~/.config/qutebrowser; fi
 if [ -d ~/.fonts ]; then rm -rf ~/.fonts; fi
 if [ -d ~/.xmonad ]; then rm -rf ~/.xmonad; fi
 if [ -d ~/.config/xmodar ]; then rm -rf ~/.config/xmodar; fi
@@ -28,6 +29,7 @@ ln -sf ~/dotfiles/mpv ~/.config
 ln -sf ~/dotfiles/nvim ~/.config
 ln -sf ~/dotfiles/vifm ~/.config
 ln -sf ~/dotfiles/rofi ~/.config
+ln -sf ~/dotfiles/qutebrowser ~/.config
 ln -sf ~/dotfiles/xfce4/terminal ~/.config/xfce4
 ln -sf ~/dotfiles/xmodar ~/.config
 ln -sf ~/dotfiles/.xmonad ~/
