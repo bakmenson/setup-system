@@ -26,3 +26,8 @@ cairo
 ttf-nerd-fonts-symbols
 mariadb
 bashtop
+qutebrowser
+tree
+cabal-install
+xmonad
+xmonad-contrib
