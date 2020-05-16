@@ -13,8 +13,6 @@ if [ -d ~/.config/rofi ]; then rm -rf ~/.config/rofi; fi
 if [ -d ~/.config/xfce4/terminal ]; then rm -rf ~/.config/xfce4/terminal; fi
 if [ -d ~/.config/qutebrowser ]; then rm -rf ~/.config/qutebrowser; fi
 if [ -d ~/.fonts ]; then rm -rf ~/.fonts; fi
-if [ -d ~/.xmonad ]; then rm -rf ~/.xmonad; fi
-if [ -d ~/.config/xmodar ]; then rm -rf ~/.config/xmodar; fi
 if [ -e ~/.config/compton.conf ]; then rm ~/.config/compton.conf; fi
 if [ -e ~/.zshrc ]; then rm ~/.zshrc; fi
 if [ -e ~/.ideavimrc ]; then rm ~/.ideavimrc; fi
@@ -30,8 +28,6 @@ ln -sf ~/dotfiles/vifm ~/.config
 ln -sf ~/dotfiles/rofi ~/.config
 ln -sf ~/dotfiles/qutebrowser ~/.config
 ln -sf ~/dotfiles/xfce4/terminal ~/.config/xfce4
-ln -sf ~/dotfiles/xmodar ~/.config
-ln -sf ~/dotfiles/.xmonad ~/
 ln -sf ~/dotfiles/.fonts ~/
 ln -sf ~/dotfiles/compton.conf ~/.config
 ln -sf ~/dotfiles/.zshrc ~/
@@ -60,7 +56,5 @@ else
 fi
 
 chmod +x ~/.ufetch
-chmod +x ~/.config/xmodar/scripts/check-updates.sh
-chmod +x ~/.config/xmodar/scripts/check-connectivity.sh
 chmod +x ~/.config/polybar/check-updates.sh
 chmod +x ~/.config/polybar/windows-count.sh
