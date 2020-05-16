@@ -65,8 +65,6 @@ else
 		sudo pacman -S --needed - < ~/setup-system/arch-packages.txt
 	fi
 
-	yay -S telegram-cli-git
-	yay -S rtorrent-ps
 fi
 
 # oh-my-zsh
@@ -117,9 +115,6 @@ cd ~/setup-system
 chmod +x set_dotfiles.sh && ./set_dotfiles.sh
 
 cd ~/
-
-# for rtorrent
-mkdir session
 
 # colorpicker
 if [ ! -d ~/.colorpicker ]; then
