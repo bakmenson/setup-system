@@ -139,6 +139,11 @@ if [ ! -e ~/.inxi ]; then
 	chmod +x .inxi
 fi
 
+# add automount hdd
+sudo tee -a /etc/fstab > /dev/null <<EOT
+UUID=43227ADD17F70CD0 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
+EOT
+
 # vim-plug for neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
