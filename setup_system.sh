@@ -116,6 +116,11 @@ chmod +x set_dotfiles.sh && ./set_dotfiles.sh
 
 cd ~/
 
+# mariadb
+sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+sudo systemctl enable mariadb.service
+sudo systemctl start mariadb.service
+
 # colorpicker
 if [ ! -d ~/.colorpicker ]; then
 	git clone https://github.com/ym1234/colorpicker.git .colorpicker
