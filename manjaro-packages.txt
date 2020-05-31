@@ -27,7 +27,4 @@ mariadb
 bashtop
 qutebrowser
 tree
-cabal-install
-xmonad
-xmonad-contrib
 youtube-dl
