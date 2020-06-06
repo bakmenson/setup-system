@@ -1,7 +1,5 @@
 #!/bin/bash
 
-os_name="$(lsb_release -ds | cut -d' ' -f 1)"
-
 if [ ! -d ~/.config ]; then mkdir ~/.config; fi
 
 if [ -d ~/.config/polybar ]; then rm -rf ~/.config/polybar; fi
@@ -35,25 +33,10 @@ ln -sf ~/dotfiles/.ideavimrc ~/
 ln -sf ~/dotfiles/.gitconfig ~/
 ln -sf ~/dotfiles/.gitignore_global ~/
 
-if [[ $os_name == "Ubuntu" ]]; then
-	ln -sf ~/dotfiles/.ufetch-ubuntu ~/
-	mv ~/.ufetch-ubuntu ~/.ufetch
-elif [[ $os_name == "\"Manjaro" ]]; then
-	if [ -d ~/.i3 ]; then mv ~/.i3 ~/Documents; fi
-	ln -sf ~/dotfiles/.ufetch-manjaro ~/
-	mv ~/.ufetch-manjaro ~/.ufetch
-else
-	# for arch lunux
+if [ -d ~/.i3 ]; then mv ~/.i3 ~/Documents; fi
 
-	# ufetch
-	ln -sf ~/dotfiles/.ufetch-arch ~/
-	mv ~/.ufetch-arch ~/.ufetch
-
-	# autologin sddm
-	if [ -d /etc/sddm.conf.d ]; then sudo rm -rf /etc/sddm.conf.d; fi
-	sudo mkdir /etc/sddm.conf.d
-	sudo ln -sf ~/dotfiles/autologin.conf /etc/sddm.conf.d
-fi
+ln -sf ~/dotfiles/.ufetch-manjaro ~/
+mv ~/.ufetch-manjaro ~/.ufetch
 
 chmod +x ~/.ufetch
 chmod +x ~/.config/polybar/check-updates.sh
