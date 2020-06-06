@@ -28,3 +28,4 @@ bashtop
 qutebrowser
 tree
 youtube-dl
+asciiquarium
