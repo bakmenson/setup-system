@@ -19,6 +19,12 @@ if [ ! -d ~/.pyenv ]; then
 	git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 fi
 
+# spacemacs javascript layer
+sudo npm i -g import-js
+sudo npm i -g eslint
+sudo npm i -g prettier
+sudo npm i -g typescript typescript-language-server
+
 cd ~/
 
 # polybar
