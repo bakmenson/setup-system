@@ -10,6 +10,7 @@ feh
 firefox
 mpv
 nodejs
+npm
 opera
 rofi
 telegram-desktop
