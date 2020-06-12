@@ -20,7 +20,15 @@ if [ ! -d ~/.pyenv ]; then
 fi
 
 # spacemacs javascript layer
+
 sudo npm i -g import-js
+
+import_js_status=$?
+
+if [[ $import_js_status -eq 1 ]]; then
+    sudo npm i --unsafe-perm -g import-js
+fi
+
 sudo npm i -g eslint
 sudo npm i -g prettier
 sudo npm i -g typescript typescript-language-server
