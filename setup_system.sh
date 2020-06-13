@@ -20,8 +20,8 @@ if [ ! -d ~/.pyenv ]; then
 fi
 
 # spacemacs javascript layer
-
 sudo npm i -g import-js
+
 import_js_status=$?
 
 if [[ $import_js_status -eq 1 ]]; then
