@@ -30,3 +30,4 @@ qutebrowser
 tree
 youtube-dl
 asciiquarium
+foliate
