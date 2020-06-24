@@ -57,6 +57,11 @@ sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 sudo systemctl enable mariadb.service
 sudo systemctl start mariadb.service
 
+# poetry
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+mkdir $ZSH/plugins/poetry
+poetry completions zsh > $ZSH/plugins/poetry/_poetry
+
 # colorpicker
 if [ ! -d ~/.colorpicker ]; then
 	git clone https://github.com/ym1234/colorpicker.git .colorpicker
