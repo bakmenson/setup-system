@@ -31,3 +31,4 @@ tree
 youtube-dl
 asciiquarium
 foliate
+inxi
