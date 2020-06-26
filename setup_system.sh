@@ -67,11 +67,6 @@ fi
 
 cd ~/
 
-if [ ! -e ~/.inxi ]; then
-	wget -O .inxi https://github.com/smxi/inxi/raw/master/inxi
-	chmod +x .inxi
-fi
-
 # add automount hdd
 sudo tee -a /etc/fstab > /dev/null <<EOT
 UUID=43227ADD17F70CD0 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
