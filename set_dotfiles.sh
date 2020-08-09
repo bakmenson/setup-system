@@ -42,4 +42,3 @@ mv ~/.ufetch-manjaro ~/.ufetch
 
 chmod +x ~/.ufetch
 chmod +x ~/.config/polybar/check-updates.sh
-chmod +x ~/.config/polybar/windows-count.sh
