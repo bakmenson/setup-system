@@ -32,4 +32,3 @@ youtube-dl
 asciiquarium
 foliate
 inxi
-alacritty
