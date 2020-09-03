@@ -11,6 +11,7 @@ if [ -d ~/.config/rofi ]; then rm -rf ~/.config/rofi; fi
 if [ -d ~/.config/xfce4/terminal ]; then rm -rf ~/.config/xfce4/terminal; fi
 if [ -d ~/.config/qutebrowser ]; then rm -rf ~/.config/qutebrowser; fi
 if [ -d ~/.fonts ]; then rm -rf ~/.fonts; fi
+if [ -d ~/.doom.d ]; then rm -rf ~/.doom.d; fi
 if [ -e ~/.config/compton.conf ]; then rm ~/.config/compton.conf; fi
 if [ -e ~/.config/alacritty.yml ]; then rm ~/.config/alacritty.yml; fi
 if [ -e ~/.zshrc ]; then rm ~/.zshrc; fi
@@ -28,6 +29,7 @@ ln -sf ~/dotfiles/rofi ~/.config
 ln -sf ~/dotfiles/qutebrowser ~/.config
 ln -sf ~/dotfiles/xfce4/terminal ~/.config/xfce4
 ln -sf ~/dotfiles/.fonts ~/
+ln -sf ~/dotfiles/.doom.d ~/
 ln -sf ~/dotfiles/compton.conf ~/.config
 ln -sf ~/dotfiles/alacritty.yml ~/.config
 ln -sf ~/dotfiles/.zshrc ~/
