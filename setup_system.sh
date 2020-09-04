@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo pacman -Syu
-pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib ipython
+pip3 install --upgrade ipython
 
 sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
 
