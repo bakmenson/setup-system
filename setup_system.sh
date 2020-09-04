@@ -81,6 +81,10 @@ nvim +PlugInstall +qa
 nvim +sources ~/.config/nvim/init.vim +qa
 nvim +CocInstall coc-pyright +CocInstall coc-ultisnips +CocInstall coc-neosnippet +qa
 
+# install doom-emacs
+git clone --depth 1 https://github.com/hlissner/doom-emacs/ ~/.emacs.d
+~/.emacs.d/bin/doom install
+
 chsh -s /bin/zsh
 
 # reboot system
