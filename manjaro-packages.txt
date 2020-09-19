@@ -32,3 +32,12 @@ youtube-dl
 asciiquarium
 foliate
 inxi
+java-environment-common
+java-runtime-common
+jdk11-openjdk
+jre11-openjdk
+java11-openjfx
+jre11-openjdk-headless
+openjdk11-src
+openjdk11-doc
+ripgrep
