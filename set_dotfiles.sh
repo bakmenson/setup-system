@@ -14,6 +14,7 @@ if [ -d ~/.fonts ]; then rm -rf ~/.fonts; fi
 if [ -d ~/.doom.d ]; then rm -rf ~/.doom.d; fi
 if [ -e ~/.config/compton.conf ]; then rm ~/.config/compton.conf; fi
 if [ -e ~/.config/alacritty.yml ]; then rm ~/.config/alacritty.yml; fi
+if [ -e ~/.oh-my-zsh/themes/wezm.zsh-theme ]; then rm ~/.oh-my-zsh/themes/wezm.zsh-theme; fi
 if [ -e ~/.zshrc ]; then rm ~/.zshrc; fi
 if [ -e ~/.ideavimrc ]; then rm ~/.ideavimrc; fi
 if [ -e ~/.gitconfig ]; then rm ~/.gitconfig; fi
@@ -36,6 +37,7 @@ ln -sf ~/dotfiles/.zshrc ~/
 ln -sf ~/dotfiles/.ideavimrc ~/
 ln -sf ~/dotfiles/.gitconfig ~/
 ln -sf ~/dotfiles/.gitignore_global ~/
+ln -sf ~/.oh-my-zsh/themes/wezm.zsh-theme ~/.oh-my-zsh/themes
 
 if [ -d ~/.i3 ]; then mv ~/.i3 ~/Documents; fi
 
