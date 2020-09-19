@@ -72,6 +72,26 @@ sudo tee -a /etc/fstab > /dev/null <<EOT
 UUID=43227ADD17F70CD0 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
 EOT
 
+tee -a ~/.config/ranger/rc.conf > /dev/null <<OET
+
+# My keybindings
+# =================================================================
+
+# new tab
+map tv tab_new /run/media/solus/hdd/Videos/
+map tc tab_new ~/Dev/
+map tw tab_new /run/media/solus/hdd/code_videos
+map tu tab_new /run/media/solus/hdd/
+map th tab_new ~/
+
+# cd
+map gv cd /run/media/solus/hdd/Videos/
+map gc cd ~/Dev/
+map gd cd ~/Downloads/
+map gw cd /run/media/solus/hdd/code_videos/
+map gu cd /run/media/solus/hdd/
+OET
+
 # vim-plug for neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
