@@ -41,3 +41,4 @@ jre11-openjdk-headless
 openjdk11-src
 openjdk11-doc
 ripgrep
+alacritty
