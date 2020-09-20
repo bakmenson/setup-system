@@ -21,10 +21,12 @@ if [ -e ~/.gitconfig ]; then rm ~/.gitconfig; fi
 if [ -e ~/.gitignore_global ]; then rm ~/.gitignore_global; fi
 if [ -e ~/.ufetch ]; then rm ~/.ufetch; fi
 
+mkdir ~/.config/nvim
+
 ln -sf ~/dotfiles/polybar ~/.config/polybar
 ln -sf ~/dotfiles/i3 ~/.config
 ln -sf ~/dotfiles/mpv ~/.config
-ln -sf ~/dotfiles/nvim ~/.config
+ln -sf ~/dotfiles/nvim/init.vim ~/.config/nvim
 ln -sf ~/dotfiles/vifm ~/.config
 ln -sf ~/dotfiles/rofi ~/.config
 ln -sf ~/dotfiles/qutebrowser ~/.config
