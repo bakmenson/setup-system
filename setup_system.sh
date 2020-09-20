@@ -1,9 +1,10 @@
 #!/bin/bash
 
 sudo pacman -Syu
-pip3 install --upgrade ipython
 
 sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
+
+pip3 install --upgrade ipython
 
 # oh-my-zsh
 if [ ! -d ~/.oh-my-zsh ]; then
@@ -92,16 +93,19 @@ map gw cd /run/media/solus/hdd/code_videos/
 map gu cd /run/media/solus/hdd/
 OET
 
-# vim-plug for neovim
+# neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# installing nvim plugings
-nvim +PlugInstall +qa
-nvim +sources ~/.config/nvim/init.vim +qa
-nvim +CocInstall coc-pyright +CocInstall coc-ultisnips +CocInstall coc-neosnippet +qa
+sudo npm install -g typescript typescript-language-server
+pip3 install jedi 'python-language-server[yapf]' pyls-mypy pyls-isort flake8
 
-# install doom-emacs
+# installing nvim plugings
+#nvim +PlugInstall +qa
+#nvim +sources ~/.config/nvim/init.vim +qa
+#nvim +CocInstall coc-pyright +CocInstall coc-ultisnips +CocInstall coc-neosnippet +qa
+
+# doom-emacs
 mkdir .emacs.d
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
