@@ -9,6 +9,7 @@ evince
 emacs
 feh
 firefox
+gparted
 mpv
 nodejs
 npm
