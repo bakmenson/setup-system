@@ -106,6 +106,9 @@ pip3 install jedi 'python-language-server[yapf]' pyls-mypy pyls-isort flake8
 #nvim +CocInstall coc-pyright +CocInstall coc-ultisnips +CocInstall coc-neosnippet +qa
 
 # doom-emacs
+sudo npm install -g js-beautify
+sudo npm install -g marked
+
 mkdir .emacs.d
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
