@@ -47,3 +47,4 @@ ripgrep
 alacritty
 gcc
 yay
+manjaro-settings-manager
