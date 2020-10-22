@@ -22,14 +22,6 @@ fi
 
 cd ~/
 
-# polybar
-if [ ! -d ~/polybar ]; then
-	git clone https://github.com/jaagr/polybar.git
-	cd polybar && ./build.sh
-fi
-
-cd ~/
-
 # dotfiles
 if [ ! -d ~/dotfiles ]; then
 	git clone https://github.com/bakmenson/dotfiles.git ~/dotfiles
@@ -98,20 +90,20 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 sudo npm install -g typescript typescript-language-server
-pip3 install jedi 'python-language-server[yapf]' pyls-mypy pyls-isort flake8
+#pip3 install jedi 'python-language-server[yapf]' pyls-mypy pyls-isort flake8
 
 # installing nvim plugings
 #nvim +PlugInstall +qa
 #nvim +sources ~/.config/nvim/init.vim +qa
 #nvim +CocInstall coc-pyright +CocInstall coc-ultisnips +CocInstall coc-neosnippet +qa
 
-# doom-emacs
-sudo npm install -g js-beautify
-sudo npm install -g marked
-
-mkdir .emacs.d
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
+## doom-emacs
+#sudo npm install -g js-beautify
+#sudo npm install -g marked
+#
+#mkdir .emacs.d
+#git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+#~/.emacs.d/bin/doom install
 
 chsh -s /bin/zsh
 
