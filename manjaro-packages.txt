@@ -50,3 +50,4 @@ gcc
 yay
 manjaro-settings-manager
 polybar
+marked
