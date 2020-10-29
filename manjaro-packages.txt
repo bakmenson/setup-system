@@ -9,6 +9,7 @@ evince
 emacs
 feh
 firefox
+flameshot
 gparted
 gimp
 mpv
