@@ -28,7 +28,7 @@ if [ ! -d ~/dotfiles ]; then
 fi
 
 cd ~/setup-system
-chmod +x set_dotfiles.sh && ./set_dotfiles.sh
+bash set_dotfiles.sh
 
 cd ~/
 
