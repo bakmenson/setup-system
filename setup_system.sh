@@ -101,6 +101,10 @@ sudo npm install -g typescript typescript-language-server
 sudo npm install -g js-beautify
 sudo npm install -g marked
 
+if [ -d ~/.emacs.d ]; then
+	rm -rf ~/.emacs.d
+fi
+
 mkdir .emacs.d
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
