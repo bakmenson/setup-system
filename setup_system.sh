@@ -120,6 +120,7 @@ while true; do
 done
 rm -rf jetbrains-downloader
 
+# change shell
 chsh -s /bin/zsh
 
 # reboot system
