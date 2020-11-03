@@ -97,13 +97,13 @@ sudo npm install -g typescript typescript-language-server
 #nvim +sources ~/.config/nvim/init.vim +qa
 #nvim +CocInstall coc-pyright +CocInstall coc-ultisnips +CocInstall coc-neosnippet +qa
 
-## doom-emacs
-#sudo npm install -g js-beautify
-#sudo npm install -g marked
-#
-#mkdir .emacs.d
-#git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-#~/.emacs.d/bin/doom install
+# doom-emacs
+sudo npm install -g js-beautify
+sudo npm install -g marked
+
+mkdir .emacs.d
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
 
 # install jetbrains ide
 if [ ! -d ~/jetbrains-downloader ]; then
