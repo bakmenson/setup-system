@@ -105,6 +105,21 @@ sudo npm install -g typescript typescript-language-server
 #git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 #~/.emacs.d/bin/doom install
 
+# install jetbrains ide
+if [ ! -d ~/jetbrains-downloader ]; then
+	git clone https://github.com/bakmenson/jetbrains-downloader.git
+fi
+
+while true; do
+	printf "\n"
+	python3 ~/jetbrains-downloader/downloader.py
+
+	printf "\nDo you want install another IDE? (y/n)"
+	read -s -n 1 answer
+	[[ $answer == "" || $answer == "y" ]] || break
+done
+rm -rf jetbrains-downloader
+
 chsh -s /bin/zsh
 
 # reboot system
