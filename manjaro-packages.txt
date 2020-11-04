@@ -29,7 +29,6 @@ libmpdclient
 cairo
 mariadb
 bashtop
-qutebrowser
 tree
 youtube-dl
 asciiquarium
