@@ -22,8 +22,6 @@ transmission-gtk
 unclutter
 python-pip
 vifm
-neovim
-python-pynvim
 virtualbox
 xfce4-terminal
 yarn
