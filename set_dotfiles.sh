@@ -16,6 +16,7 @@ if [ -e ~/.config/compton.conf ]; then rm ~/.config/compton.conf; fi
 if [ -e ~/.config/alacritty.yml ]; then rm ~/.config/alacritty.yml; fi
 if [ -e ~/.oh-my-zsh/themes/wezm.zsh-theme ]; then rm ~/.oh-my-zsh/themes/wezm.zsh-theme; fi
 if [ -e ~/.zshrc ]; then rm ~/.zshrc; fi
+if [ -e ~/.oh-my-zsh/custom/themes/wezm.zsh-theme ]; then rm ~/.oh-my-zsh/custom/themes/wezm.zsh-theme; fi
 if [ -e ~/.ideavimrc ]; then rm ~/.ideavimrc; fi
 if [ -e ~/.gitconfig ]; then rm ~/.gitconfig; fi
 if [ -e ~/.gitignore_global ]; then rm ~/.gitignore_global; fi
@@ -35,11 +36,11 @@ ln -sf ~/dotfiles/.fonts ~/
 ln -sf ~/dotfiles/.doom.d ~/
 ln -sf ~/dotfiles/compton.conf ~/.config
 ln -sf ~/dotfiles/alacritty.yml ~/.config
-ln -sf ~/dotfiles/.zshrc ~/
 ln -sf ~/dotfiles/.ideavimrc ~/
 ln -sf ~/dotfiles/.gitconfig ~/
 ln -sf ~/dotfiles/.gitignore_global ~/
-ln -sf ~/dotfiles/wezm.zsh-theme ~/.oh-my-zsh/themes
+ln -sf ~/dotfiles/zsh/.zshrc ~/
+ln -sf ~/dotfiles/zsh/wezm.zsh-theme ~/.oh-my-zsh/custom/themes
 
 if [ -d ~/.i3 ]; then mv ~/.i3 ~/Documents; fi
 
