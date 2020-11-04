@@ -39,7 +39,7 @@ ln -sf ~/dotfiles/.zshrc ~/
 ln -sf ~/dotfiles/.ideavimrc ~/
 ln -sf ~/dotfiles/.gitconfig ~/
 ln -sf ~/dotfiles/.gitignore_global ~/
-ln -sf ~/.oh-my-zsh/themes/wezm.zsh-theme ~/.oh-my-zsh/themes
+ln -sf ~/dotfiles/wezm.zsh-theme ~/.oh-my-zsh/themes
 
 if [ -d ~/.i3 ]; then mv ~/.i3 ~/Documents; fi
 
