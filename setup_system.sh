@@ -99,7 +99,6 @@ sudo npm install -g typescript typescript-language-server
 
 # doom-emacs
 sudo npm install -g js-beautify
-sudo npm install -g marked
 
 if [ -d ~/.emacs.d ]; then
 	rm -rf ~/.emacs.d
