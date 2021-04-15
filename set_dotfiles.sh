@@ -10,7 +10,7 @@ if [ -d ~/.config/rofi ]; then rm -rf ~/.config/rofi; fi
 if [ -d ~/.config/xfce4/terminal ]; then rm -rf ~/.config/xfce4/terminal; fi
 if [ -d ~/.fonts ]; then rm -rf ~/.fonts; fi
 if [ -d ~/.doom.d ]; then rm -rf ~/.doom.d; fi
-if [ -e ~/.config/compton.conf ]; then rm ~/.config/compton.conf; fi
+if [ -e ~/.config/picom.conf ]; then rm ~/.config/picom.conf; fi
 if [ -e ~/.config/alacritty.yml ]; then rm ~/.config/alacritty.yml; fi
 if [ -e ~/.oh-my-zsh/themes/wezm.zsh-theme ]; then rm ~/.oh-my-zsh/themes/wezm.zsh-theme; fi
 if [ -e ~/.zshrc ]; then rm ~/.zshrc; fi
@@ -30,7 +30,7 @@ ln -sf ~/dotfiles/rofi ~/.config
 ln -sf ~/dotfiles/xfce4/terminal ~/.config/xfce4
 ln -sf ~/dotfiles/.fonts ~/
 ln -sf ~/dotfiles/.doom.d ~/
-ln -sf ~/dotfiles/compton.conf ~/.config
+ln -sf ~/dotfiles/picom.conf ~/.config
 ln -sf ~/dotfiles/alacritty.yml ~/.config
 ln -sf ~/dotfiles/.ideavimrc ~/
 ln -sf ~/dotfiles/.gitconfig ~/
