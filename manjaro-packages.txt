@@ -49,3 +49,10 @@ yay
 manjaro-settings-manager
 polybar
 marked
+tmux
+less
+tar
+unzip
+mediainfo
+bat
+ueberzug
