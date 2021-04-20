@@ -14,6 +14,9 @@ if [ ! -d ~/.oh-my-zsh ]; then
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 fi
 
+# color scripts for terminal
+yay -S shell-color-script
+
 # pyenv and pyenv-virtualenv
 if [ ! -d ~/.pyenv ]; then
 	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
