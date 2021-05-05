@@ -63,6 +63,16 @@ fi
 
 cd ~/
 
+# nnn
+if [ ! -d ~/.nnn ]; then
+	git clone https://github.com/jarun/nnn.git .nnn
+	cd .nnn
+	sudo make O_NERD=1
+	cp nnn /usr/bin/
+fi
+
+cd ~/
+
 # add automount hdd
 sudo tee -a /etc/fstab > /dev/null <<EOT
 UUID=43227ADD17F70CD0 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
