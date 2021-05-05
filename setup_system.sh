@@ -1,4 +1,23 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+install_from_source() {
+	action="${4:-install}"
+	"$@"
+	cd "$3"
+	sudo make "$action"
+	cd ~/
+}
+
+git_clone() {
+	repo="$1"
+	dest="$2"
+
+	if [ ! -d ~/"$dest" ]; then
+		git clone https://github.com/"$repo".git ~/"$dest"
+	fi
+}
+
+cd ~/
 
 sudo pacman -Syu
 
@@ -6,97 +25,18 @@ sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
 
 pip3 install --upgrade ipython
 
-# oh-my-zsh
-if [ ! -d ~/.oh-my-zsh ]; then
-	git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-	git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-fi
-
 # color scripts for terminal
 yay -S shell-color-script
-
-# pyenv and pyenv-virtualenv
-if [ ! -d ~/.pyenv ]; then
-	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-	git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-fi
-
-cd ~/
-
-# dotfiles
-if [ ! -d ~/dotfiles ]; then
-	git clone https://github.com/bakmenson/dotfiles.git ~/dotfiles
-fi
-
-cd ~/setup-system
-bash set_dotfiles.sh
-
-cd ~/
 
 # mariadb
 sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 sudo systemctl enable mariadb.service
 sudo systemctl start mariadb.service
 
-# poetry
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-mkdir $ZSH_CUSTOM/plugins/poetry
-poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
-
-# colorpicker
-if [ ! -d ~/.colorpicker ]; then
-	git clone https://github.com/ym1234/colorpicker.git .colorpicker
-	cd .colorpicker
-	sudo make install
-fi
-
-cd ~/
-
-# farge
-if [ ! -d ~/.farge ]; then
-	git clone https://github.com/sdushantha/farge .farge
-	cd .farge
-	sudo make install
-fi
-
-cd ~/
-
-# nnn
-if [ ! -d ~/.nnn ]; then
-	git clone https://github.com/jarun/nnn.git .nnn
-	cd .nnn
-	sudo make O_NERD=1
-	cp nnn /usr/bin/
-fi
-
-cd ~/
-
 # add automount hdd
 sudo tee -a /etc/fstab > /dev/null <<EOT
 UUID=43227ADD17F70CD0 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
 EOT
-
-tee -a ~/.config/ranger/rc.conf > /dev/null <<OET
-
-# My keybindings
-# =================================================================
-
-# new tab
-map tv tab_new /run/media/solus/hdd/Videos/
-map tc tab_new ~/Dev/
-map tw tab_new /run/media/solus/hdd/code_videos
-map tu tab_new /run/media/solus/hdd/
-map th tab_new ~/
-
-# cd
-map gv cd /run/media/solus/hdd/Videos/
-map gc cd ~/Dev/
-map gd cd ~/Downloads/
-map gw cd /run/media/solus/hdd/code_videos/
-map gu cd /run/media/solus/hdd/
-OET
 
 # neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -108,24 +48,41 @@ sudo npm install -g typescript typescript-language-server
 # installing nvim plugings
 #nvim +PlugInstall +qa
 #nvim +sources ~/.config/nvim/init.vim +qa
-#nvim +CocInstall coc-pyright +CocInstall coc-ultisnips +CocInstall coc-neosnippet +qa
 
-# doom-emacs
-sudo npm install -g js-beautify
+# oh-my-zsh
+git_clone ohmyzsh/ohmyzsh .oh-my-zsh
+git_clone zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git_clone zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+git_clone zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-if [ -d ~/.emacs.d ]; then
-	rm -rf ~/.emacs.d
-fi
+# poetry
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+mkdir $ZSH_CUSTOM/plugins/poetry
+poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
 
-mkdir .emacs.d
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
+# pyenv and pyenv-virtualenv
+git_clone pyenv/pyenv .pyenv
+git_clone pyenv/pyenv-virtualenv .pyenv/plugins/pyenv-virtualenv
+
+# my dotfiles
+git_clone bakmenson/dotfiles dotfiles
+cd ~/setup-system
+bash set_dotfiles.sh
+
+cd ~/
+
+# colorpicker
+install_from_source git_clone ym1234/colorpicker .colorpicker
+
+# farge
+install_from_source git_clone sdushantha/farge .farge
+
+# nnn file manager
+install_from_source git_clone jarun/nnn .nnn O_NERD=1
+cp ~/.nnn/nnn /usr/bin/
 
 # install jetbrains ide
-if [ ! -d ~/jetbrains-downloader ]; then
-	git clone https://github.com/bakmenson/jetbrains-downloader.git
-fi
-
+git_clone bakmenson/jetbrains-downloader jetbrains-downloader
 while true; do
 	printf "\n"
 	python3 ~/jetbrains-downloader/downloader.py
