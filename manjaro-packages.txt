@@ -5,6 +5,7 @@ alsa-utils
 arc-gtk-theme
 cmake
 cmatrix
+ctags
 evince
 emacs
 feh
