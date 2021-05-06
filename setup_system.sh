@@ -79,6 +79,7 @@ install_from_source git_clone sdushantha/farge .farge
 
 # nnn file manager
 install_from_source git_clone jarun/nnn .nnn O_NERD=1
+curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 cp ~/.nnn/nnn /usr/bin/
 
 # install jetbrains ide
