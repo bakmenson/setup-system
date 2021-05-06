@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 install_from_source() {
 	action="${4:-install}"
