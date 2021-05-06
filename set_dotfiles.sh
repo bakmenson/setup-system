@@ -1,47 +1,26 @@
 #!/bin/bash
 
+if_exists_then_remove() {
+	file="$1"
+
+	if [[ -d "$file" ]]; then
+		rm -rf "$file"
+	elif [[ -f "$file" ]]; then
+		rm "$file"
+	fi
+}
+
 if [ ! -d ~/.config ]; then mkdir ~/.config; fi
 
-if [ -d ~/.config/polybar ]; then rm -rf ~/.config/polybar; fi
-if [ -d ~/.config/i3 ]; then rm -rf ~/.config/i3; fi
-if [ -d ~/.config/mpv ]; then rm -rf ~/.config/mpv; fi
-if [ -d ~/.config/vifm ]; then rm -rf ~/.config/vifm; fi
-if [ -d ~/.config/rofi ]; then rm -rf ~/.config/rofi; fi
-if [ -d ~/.config/xfce4/terminal ]; then rm -rf ~/.config/xfce4/terminal; fi
-if [ -d ~/.fonts ]; then rm -rf ~/.fonts; fi
-if [ -d ~/.doom.d ]; then rm -rf ~/.doom.d; fi
-if [ -e ~/.config/picom.conf ]; then rm ~/.config/picom.conf; fi
-if [ -e ~/.config/alacritty.yml ]; then rm ~/.config/alacritty.yml; fi
-if [ -e ~/.oh-my-zsh/themes/wezm.zsh-theme ]; then rm ~/.oh-my-zsh/themes/wezm.zsh-theme; fi
-if [ -e ~/.zshrc ]; then rm ~/.zshrc; fi
-if [ -e ~/.oh-my-zsh/custom/themes/wezm.zsh-theme ]; then rm ~/.oh-my-zsh/custom/themes/wezm.zsh-theme; fi
-if [ -e ~/.ideavimrc ]; then rm ~/.ideavimrc; fi
-if [ -e ~/.gitconfig ]; then rm ~/.gitconfig; fi
-if [ -e ~/.gitignore_global ]; then rm ~/.gitignore_global; fi
-if [ -e ~/.ufetch ]; then rm ~/.ufetch; fi
+# removing default configs or old dotfiles symlinks
+while read -r file_path; do
+	if_exists_then_remove "$file_path"
+done < file_paths.txt
 
-mkdir ~/.config/nvim
+# creating symlinks for dotfiles
+while read -r source dest; do
+	ln -sf "$source" "$dest"
+done < dotfiles_source_and_dest.txt
 
-ln -sf ~/dotfiles/polybar ~/.config/polybar
-ln -sf ~/dotfiles/i3 ~/.config
-ln -sf ~/dotfiles/mpv ~/.config
-ln -sf ~/dotfiles/vifm ~/.config
-ln -sf ~/dotfiles/rofi ~/.config
-ln -sf ~/dotfiles/xfce4/terminal ~/.config/xfce4
-ln -sf ~/dotfiles/.fonts ~/
-ln -sf ~/dotfiles/.doom.d ~/
-ln -sf ~/dotfiles/picom.conf ~/.config
-ln -sf ~/dotfiles/alacritty.yml ~/.config
-ln -sf ~/dotfiles/.ideavimrc ~/
-ln -sf ~/dotfiles/.gitconfig ~/
-ln -sf ~/dotfiles/.gitignore_global ~/
-ln -sf ~/dotfiles/zsh/.zshrc ~/
-ln -sf ~/dotfiles/zsh/wezm.zsh-theme ~/.oh-my-zsh/custom/themes
-
-if [ -d ~/.i3 ]; then mv ~/.i3 ~/Documents; fi
-
-ln -sf ~/dotfiles/.ufetch-manjaro ~/
-mv ~/.ufetch-manjaro ~/.ufetch
-
-chmod +x ~/.ufetch
+chmod +x ~/.ufetch-manjaro
 chmod +x ~/.config/polybar/check-updates.sh
