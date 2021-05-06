@@ -13,4 +13,4 @@
 ~/.ideavimrc
 ~/.gitconfig
 ~/.gitignore_global
-~/.ufetch
+~/.ufetch-manjaro
