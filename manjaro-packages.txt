@@ -43,6 +43,7 @@ java11-openjfx
 jre11-openjdk-headless
 openjdk11-src
 openjdk11-doc
+maven
 ripgrep
 alacritty
 gcc
