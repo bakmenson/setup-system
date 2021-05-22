@@ -44,6 +44,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 sudo npm install -g typescript typescript-language-server
 #pip3 install jedi 'python-language-server[yapf]' pyls-mypy pyls-isort flake8
+pip3 install pyright flake8
 
 # installing nvim plugings
 #nvim +PlugInstall +qa
