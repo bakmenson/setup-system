@@ -35,7 +35,7 @@ sudo systemctl start mariadb.service
 
 # add automount hdd
 sudo tee -a /etc/fstab > /dev/null <<EOT
-UUID=43227ADD17F70CD0 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
+UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
 EOT
 
 # neovim
