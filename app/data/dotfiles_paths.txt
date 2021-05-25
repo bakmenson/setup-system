@@ -1,7 +1,7 @@
 app/dotfiles/polybar ~/.config/polybar
 app/dotfiles/i3 ~/.config
 app/dotfiles/mpv ~/.config
-app/dotfiles/nvim ~/.config
+app/dotfiles/nvim/init.vim ~/.config/nvim
 app/dotfiles/rofi ~/.config
 app/dotfiles/xfce4/terminal/terminalrc ~/.config/xfce4/terminal
 app/dotfiles/.fonts ~/
