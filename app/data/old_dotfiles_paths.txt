@@ -3,7 +3,7 @@
 ~/.i3
 ~/.config/mpv
 ~/.config/rofi
-~/.config/xfce4/terminal
+~/.config/xfce4/terminal/terminalrc
 ~/.fonts
 ~/.doom.d
 ~/.config/picom.conf
