@@ -4,7 +4,6 @@ from os.path import expanduser
 from pathlib import Path
 
 from app.data import commands, git_repos, dotfiles_paths, old_dotfiles_paths, PACKAGES
-# from app.git import install_from_source
 
 print(git_repos)
 print(commands)
