@@ -5,11 +5,6 @@ from pathlib import Path
 
 from app.data import commands, git_repos, dotfiles_paths, old_dotfiles_paths, PACKAGES
 
-print(git_repos)
-print(commands)
-print(dotfiles_paths)
-print(old_dotfiles_paths)
-
 run(["sudo", "pacman", "-S", "--needed", "-", "<", PACKAGES])
 
 chdir(str(Path.home()))
