@@ -3,7 +3,7 @@ from os import chdir, mkdir, makedirs
 from os.path import expanduser
 from pathlib import Path
 
-from app.data import commands, git_repos, dotfiles_paths, old_dotfiles_paths, packages
+from app.data import commands, git_repos, dotfiles_paths, old_dotfiles_paths, PACKAGES
 # from app.git import install_from_source
 
 print(git_repos)
@@ -11,7 +11,7 @@ print(commands)
 print(dotfiles_paths)
 print(old_dotfiles_paths)
 
-# run(["sudo", "pacman", "-S", "--needed", "-", "<", PACKAGES])
+run(["sudo", "pacman", "-S", "--needed", "-", "<", PACKAGES])
 
 chdir(str(Path.home()))
 
