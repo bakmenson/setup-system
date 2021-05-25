@@ -24,8 +24,6 @@ for git_repo in git_repos:
         run(["sudo", "make", git_repo.action])
         chdir(str(Path.home()))
 
-# chdir(str(Path.home()))
-
 # for command in commands:
 #     run([*command.command])
 
