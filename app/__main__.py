@@ -1,5 +1,6 @@
 from subprocess import run
-from os import chdir
+from os import chdir, mkdir, makedirs
+from os.path import expanduser
 from pathlib import Path
 
 from app.data import commands, repo_links, dotfile_links, old_dotfiles_path
@@ -26,5 +27,12 @@ print(old_dotfiles_path)
 
 # for command in commands:
 #     run([*command.command])
+
+for old_dotfile_path in old_dotfiles_path:
+    if Path(expanduser(old_dotfile_path)).exists():
+        if Path(expanduser(old_dotfile_path)).is_dir():
+            run(["sudo", "rm", "-rf", expanduser(old_dotfile_path)])
+        else:
+            run(["sudo", "rm", expanduser(old_dotfile_path)])
 
 # install_from_source(repos_data)
