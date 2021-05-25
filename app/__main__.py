@@ -4,9 +4,11 @@ from os.path import expanduser
 from pathlib import Path
 
 from app.data import commands, git_repos, dotfiles_paths, old_dotfiles_paths,\
-    PACKAGES
+    PACKAGES, packages
 
-run(["sudo", "pacman", "-S", "--needed", "-", "<", PACKAGES])
+# TODO: fix installing packages from a file as a list
+# run(["sudo", "pacman", "-S", "--needed", "-", "<", PACKAGES])
+run(["sudo", "pacman", "-S", "--needed", *packages])
 
 chdir(str(Path.home()))
 
