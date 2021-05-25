@@ -4,7 +4,7 @@ from app.read import read_data
 # from git import install_from_git
 
 GIT_REPOS: str = "app/data/repos_links.txt"
-COMMANDS: str = "app/data/commands.txt"
+COMMANDS: str = "app/data/additional_commands.txt"
 PACKAGES: str = "app/data/manjaro-packages.txt"
 DOTFILES: str = "app/data/dotfiles_paths.txt"
 OLD_DOTFILES: str = "app/data/old_dotfiles_paths.txt"
