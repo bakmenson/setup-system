@@ -7,7 +7,7 @@ GIT_REPOS_PATH: str = "app/data/repos_links.txt"
 COMMANDS_PATH: str = "app/data/commands.txt"
 PACKAGES_PATH: str = "app/data/manjaro-packages.txt"
 DOTFILES_PATH: str = "app/data/dotfiles_paths.txt"
-OLD_DOTFILES_PATH: str = "app/data/old_dotfiles_paths.txt"
+OLD_DOTFILES_PATHS: str = "app/data/old_dotfiles_paths.txt"
 
 DotfileLinks = namedtuple("DotfileLinks", ["source", "dest"])
 RepoLinks = namedtuple("RepoLinks", ["source", "dest", "action"], defaults=(None,))
@@ -22,6 +22,6 @@ repo_links: list[RepoLinks] = list(
 dotfile_links: list[DotfileLinks] = list(
     map(lambda d: DotfileLinks(*d.strip().split()), read_data(DOTFILES_PATH))
 )
-old_dotfiles_path: list = list(
-    map(lambda o: o.strip(), read_data(OLD_DOTFILES_PATH))
+old_dotfiles_paths: list = list(
+    map(lambda o: o.strip(), read_data(OLD_DOTFILES_PATHS))
 )
