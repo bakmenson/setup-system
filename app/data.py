@@ -25,3 +25,6 @@ dotfiles_paths: list[DotfileLinks] = list(
 old_dotfiles_paths: list = list(
     map(lambda o: o.strip(), read_data(OLD_DOTFILES))
 )
+packages: list = list(
+    map(lambda p: p.strip(), read_data(PACKAGES))
+)
