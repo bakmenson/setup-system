@@ -32,6 +32,4 @@ for old_dotfile_path in old_dotfiles_paths:
             run(["sudo", "rm", expanduser(old_dotfile_path)])
 
 for dotfile_path in dotfiles_paths:
-    run(["ln", "-sf",
-         expanduser(dotfile_path.source),
-         expanduser(dotfile_path.dest)])
+    run(["ln", "-sf", dotfile_path.source, expanduser(dotfile_path.dest)])
