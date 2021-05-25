@@ -3,7 +3,8 @@ from os import chdir, mkdir, makedirs
 from os.path import expanduser
 from pathlib import Path
 
-from app.data import commands, git_repos, dotfiles_paths, old_dotfiles_paths, PACKAGES
+from app.data import commands, git_repos, dotfiles_paths, old_dotfiles_paths,\
+    PACKAGES
 
 run(["sudo", "pacman", "-S", "--needed", "-", "<", PACKAGES])
 
