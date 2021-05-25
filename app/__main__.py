@@ -2,12 +2,13 @@ from subprocess import run
 from os import chdir
 from pathlib import Path
 
-from app.data import commands, repo_links, dotfile_links
+from app.data import commands, repo_links, dotfile_links, old_dotfiles_path
 # from app.git import install_from_source
 
 print(repo_links)
 print(commands)
 print(dotfile_links)
+print(old_dotfiles_path)
 
 # run(["sudo", "pacman", "-S", "--needed", "-", "<", PACKAGES])
 
