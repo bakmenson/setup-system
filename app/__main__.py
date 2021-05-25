@@ -29,12 +29,12 @@ for git_repo in git_repos:
 # for command in commands:
 #     run([*command.command])
 
-# for old_dotfile_path in old_dotfiles_path:
-#     if Path(expanduser(old_dotfile_path)).exists():
-#         if Path(expanduser(old_dotfile_path)).is_dir():
-#             run(["sudo", "rm", "-rf", expanduser(old_dotfile_path)])
-#         else:
-#             run(["sudo", "rm", expanduser(old_dotfile_path)])
+for old_dotfile_path in old_dotfiles_paths:
+    if Path(expanduser(old_dotfile_path)).exists():
+        if Path(expanduser(old_dotfile_path)).is_dir():
+            run(["sudo", "rm", "-rf", expanduser(old_dotfile_path)])
+        else:
+            run(["sudo", "rm", expanduser(old_dotfile_path)])
 
 for dotfile_path in dotfiles_paths:
     run(["ln", "-sf",
