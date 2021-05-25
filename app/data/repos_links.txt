@@ -1,0 +1,11 @@
+ohmyzsh/ohmyzsh .oh-my-zsh
+zsh-users/zsh-syntax-highlighting .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search .oh-my-zsh/custom/plugins/zsh-history-substring-search
+zsh-users/zsh-autosuggestions .oh-my-zsh/custom/plugins/zsh-autosuggestions
+pyenv/pyenv .pyenv
+pyenv/pyenv-virtualenv .pyenv/plugins/pyenv-virtualenv
+bakmenson/dotfiles dotfiles
+ym1234/colorpicker .colorpicker install
+sdushantha/farge .farge install
+jarun/nnn .nnn O_NERD=1
+bakmenson/jetbrains-downloader jetbrains-downloader

@@ -1,0 +1,16 @@
+~/.config/polybar
+~/.config/i3
+~/.i3
+~/.config/mpv
+~/.config/rofi
+~/.config/xfce4/terminal
+~/.fonts
+~/.doom.d
+~/.config/picom.conf
+~/.config/alacritty.yml
+~/.zshrc
+~/.oh-my-zsh/custom/themes/wezm.zsh-theme
+~/.ideavimrc
+~/.gitconfig
+~/.gitignore_global
+~/.ufetch-manjaro

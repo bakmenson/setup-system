@@ -1,0 +1,15 @@
+~/dotfiles/polybar ~/.config/polybar
+~/dotfiles/i3 ~/.config
+~/dotfiles/mpv ~/.config
+~/dotfiles/nvim ~/.config
+~/dotfiles/rofi ~/.config
+~/dotfiles/xfce4/terminal ~/.config/xfce4
+~/dotfiles/.fonts ~/
+~/dotfiles/picom.conf ~/.config
+~/dotfiles/alacritty.yml ~/.config
+~/dotfiles/.ideavimrc ~/
+~/dotfiles/.gitconfig ~/
+~/dotfiles/.gitignore_global ~/
+~/dotfiles/zsh/.zshrc ~/
+~/dotfiles/zsh/wezm.zsh-theme ~/.oh-my-zsh/custom/themes
+~/dotfiles/.ufetch-manjaro ~/
