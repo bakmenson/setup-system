@@ -3,7 +3,7 @@
 ~/dotfiles/mpv ~/.config
 ~/dotfiles/nvim ~/.config
 ~/dotfiles/rofi ~/.config
-~/dotfiles/xfce4/terminal ~/.config/xfce4
+~/dotfiles/xfce4/terminal/terminalrc ~/.config/xfce4/terminal
 ~/dotfiles/.fonts ~/
 ~/dotfiles/picom.conf ~/.config
 ~/dotfiles/alacritty.yml ~/.config
