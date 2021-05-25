@@ -35,4 +35,9 @@ print(old_dotfiles_paths)
 #         else:
 #             run(["sudo", "rm", expanduser(old_dotfile_path)])
 
+for dotfile_path in dotfiles_paths:
+    run(["ln", "-sf",
+         expanduser(dotfile_path.source),
+         expanduser(dotfile_path.dest)])
+
 # install_from_source(repos_data)
