@@ -6,8 +6,8 @@ from app.read import read_data
 GIT_REPOS_PATH: str = "app/data/repos_links.txt"
 COMMANDS_PATH: str = "app/data/commands.txt"
 PACKAGES_PATH: str = "app/data/manjaro-packages.txt"
-DOTFILES_PATH: str = "app/data/dotfile_links.txt"
-OLD_DOTFILES_PATH: str = "app/data/old_dotfiles_path.txt"
+DOTFILES_PATH: str = "app/data/dotfiles_paths.txt"
+OLD_DOTFILES_PATH: str = "app/data/old_dotfiles_paths.txt"
 
 DotfileLinks = namedtuple("DotfileLinks", ["source", "dest"])
 RepoLinks = namedtuple("RepoLinks", ["source", "dest", "action"], defaults=(None,))
