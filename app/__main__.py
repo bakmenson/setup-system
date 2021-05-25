@@ -18,8 +18,8 @@ for git_repo in git_repos:
         run(["sudo", "make", git_repo.action])
         chdir(str(Path.home()))
 
-# for command in commands:
-#     run([*command.command])
+for command in commands:
+    run([*command.command])
 
 for old_dotfile_path in old_dotfiles_paths:
     if Path(expanduser(old_dotfile_path)).exists():
