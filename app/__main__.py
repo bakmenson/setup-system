@@ -13,7 +13,7 @@ print(old_dotfiles_paths)
 
 # run(["sudo", "pacman", "-S", "--needed", "-", "<", PACKAGES])
 
-# chdir(str(Path.home()))
+chdir(str(Path.home()))
 
 for git_repo in git_repos:
     run(["git", "clone",
