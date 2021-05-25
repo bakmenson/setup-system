@@ -15,13 +15,14 @@ print(old_dotfiles_paths)
 
 # chdir(str(Path.home()))
 
-# for data in repos_data:
-#     run(["git", "clone", f"https://github.com/{data.source}.git", data.dest])
-#     if data.action:
-#         chdir(data.dest)
-#         print(Path().absolute())
-#         # run(["sudo", "make", data.action])
-#         chdir(str(Path.home()) + "/some")
+for git_repo in git_repos:
+    run(["git", "clone",
+         f"https://github.com/{git_repo.source}.git",
+         git_repo.dest])
+    if git_repo.action:
+        chdir(git_repo.dest)
+        run(["sudo", "make", git_repo.action])
+        chdir(str(Path.home()))
 
 # chdir(str(Path.home()))
 
