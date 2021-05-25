@@ -3,12 +3,12 @@ from os import chdir, mkdir, makedirs
 from os.path import expanduser
 from pathlib import Path
 
-from app.data import commands, repo_links, dotfile_links, old_dotfiles_paths
+from app.data import commands, git_repos, dotfiles_paths, old_dotfiles_paths
 # from app.git import install_from_source
 
-print(repo_links)
+print(git_repos)
 print(commands)
-print(dotfile_links)
+print(dotfiles_paths)
 print(old_dotfiles_paths)
 
 # run(["sudo", "pacman", "-S", "--needed", "-", "<", PACKAGES])
