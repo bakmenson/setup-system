@@ -3,12 +3,15 @@ from os import chdir, mkdir, makedirs
 from os.path import expanduser
 from pathlib import Path
 
-from app.data import commands, git_repos, dotfiles_paths, old_dotfiles_paths,\
+from app.data import additionally, git_repos, dotfiles_paths, old_dotfiles_paths,\
     PACKAGES, packages
 
 # TODO: fix installing packages from a file as a list
 # run(["sudo", "pacman", "-S", "--needed", "-", "<", PACKAGES])
 run(["sudo", "pacman", "-S", "--needed", *packages])
+# command = run(["sudo", "pacman", "-S", "--needed", *packages])
+# if command.returncode != 0:
+#     exit()
 
 chdir(str(Path.home()))
 
@@ -21,7 +24,7 @@ for git_repo in git_repos:
         run(["sudo", "make", git_repo.action])
         chdir(str(Path.home()))
 
-for command in commands:
+for command in additionally:
     for i, elem in enumerate(command.command):
         if elem.startswith("~"):
             command.command[i] = expanduser(elem)
