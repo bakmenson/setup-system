@@ -1,0 +1,20 @@
+#navigator-toolbox {
+	height: 0.5rem;
+	margin-bottom: -0.5rem;
+	opacity: 0;
+	overflow: hidden;
+	z-index: 1;
+}
+
+#navigator-toolbox:hover,
+#navigator-toolbox:focus-within {
+	height: auto;
+	margin-bottom: 0rem;
+	opacity: 1;
+	overflow: visible;
+	transition: .3s;
+}
+
+#TabsToolbar { visibility: collapse;  }
+
+#sidebar-header { visibility: collapse  }

@@ -1,0 +1,5 @@
+configuration {
+	modi: "combi";
+	combi-modi: "window,run";
+	theme: "~/.config/rofi/rofi_config.rasi";
+}

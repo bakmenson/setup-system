@@ -1,0 +1,10 @@
+/* hides the native tabs */
+#TabsToolbar { visibility: collapse; }
+
+#sidebar-header { visibility: collapse; }
+
+/* hide url bar
+#nav-bar { visibility: collapse; } */
+
+/* leaves space for the window buttons */
+#nav-bar { margin-top: -1px; }

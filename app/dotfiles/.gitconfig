@@ -1,0 +1,6 @@
+[user]
+	email = bakmenson@gmail.com
+	name = bakmenson
+[core]
+	excludesfile = /home/solus/.gitignore_global
+	editor = nvim

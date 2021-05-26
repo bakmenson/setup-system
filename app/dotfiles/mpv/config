@@ -1,0 +1,5 @@
+save-position-on-quit=yes
+fullscreen=no
+hwdec=vdpau
+subcp=enca:ru:utf8
+profile=opengl-hq
