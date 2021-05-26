@@ -22,6 +22,9 @@ for git_repo in git_repos:
         chdir(str(Path.home()))
 
 for command in commands:
+    for i, elem in enumerate(command.command):
+        if elem.startswith("~"):
+            command.command[i] = expanduser(elem)
     run([*command.command])
 
 for old_dotfile_path in old_dotfiles_paths:
