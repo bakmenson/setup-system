@@ -3,7 +3,7 @@ from os import chdir, mkdir, makedirs
 from os.path import expanduser
 from pathlib import Path
 
-from app.data import additionally, git_repos, dotfiles_paths, old_dotfiles_paths,\
+from app.data import additions, git_repos, dotfiles_paths, old_dotfiles_paths,\
     PACKAGES, packages
 
 # TODO: fix installing packages from a file as a list
@@ -24,11 +24,11 @@ for git_repo in git_repos:
         run(["sudo", "make", git_repo.action])
         chdir(str(Path.home()))
 
-for command in additionally:
-    for i, elem in enumerate(command.command):
+for addition in additions:
+    for i, elem in enumerate(addition.command):
         if elem.startswith("~"):
-            command.command[i] = expanduser(elem)
-    run([*command.command])
+            addition.command[i] = expanduser(elem)
+    run([*addition.command])
 
 for old_dotfile_path in old_dotfiles_paths:
     if Path(expanduser(old_dotfile_path)).exists():
