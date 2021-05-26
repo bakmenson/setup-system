@@ -4,6 +4,8 @@ alsa-tools
 alsa-utils
 arc-gtk-theme
 cmake
+make
+pkg-config
 cmatrix
 ctags
 evince
