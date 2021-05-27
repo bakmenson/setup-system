@@ -49,3 +49,17 @@ for dotfile_path in dotfiles_paths:
         makedirs(expanduser(dotfile_path.dest))
     run(["ln", "-sf", dotfile_path.source, expanduser(dotfile_path.dest)],
         check=True, text=True)
+
+# TODO: import downloader.py
+while(True):
+    run(["python3", "jetbrains_downloader/downloader.py"])
+
+    answer = input("Do you want install another IDE? (y/n)\n>>> ")
+
+    while(answer != "y" and answer != "n"):
+        print("Incorrent answer. Try again.")
+        answer = input("Do you want install another IDE? (y/n)\n>>> ")
+
+    if answer == "y":
+        continue
+    break
