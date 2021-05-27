@@ -1,7 +1,6 @@
 from collections import namedtuple
 
 from app.read import read_data
-# from git import install_from_git
 
 GIT_REPOS: str = "app/data/repos_links.txt"
 ADDITIONS: str = "app/data/additional_commands.txt"
