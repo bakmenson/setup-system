@@ -13,8 +13,8 @@ chdir(str(Path.home()))
 
 for git_repo in git_repos:
     run(["git", "clone",
-            f"https://github.com/{git_repo.source}.git",
-            git_repo.dest], check=True, text=True)
+         f"https://github.com/{git_repo.source}.git",
+         git_repo.dest], check=True, text=True)
 
     if git_repo.action:
         chdir(git_repo.dest)
