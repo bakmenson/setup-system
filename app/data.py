@@ -21,6 +21,6 @@ git_repos: list[RepoLinks] = list(
 dotfiles_paths: list[DotfileLinks] = list(
     map(lambda d: DotfileLinks(*d.strip().split()), read_data(DOTFILES))
 )
-old_dotfiles_paths: list = list(
+old_dotfiles_paths: list[str] = list(
     map(lambda o: o.strip(), read_data(OLD_DOTFILES))
 )
