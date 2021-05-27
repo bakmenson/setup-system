@@ -22,14 +22,14 @@ for git_repo in git_repos:
         chdir(str(Path.home()))
 
 for addition in additions:
-    is_spec_symbol: bool = False
+    has_spec_symbol: bool = False
 
     for i, elem in enumerate(addition.command):
         if elem.startswith("~"):
             addition.command[i] = expanduser(elem)
         if elem in (" - ", " < ", " > ", " | "):
-            is_spec_symbol = True
-    if is_spec_symbol:
+            has_spec_symbol = True
+    if has_spec_symbol:
         run([" ".join(addition.command)], shell=True, check=True, text=True)
     else:
         run([*addition.command], check=True, text=True)
