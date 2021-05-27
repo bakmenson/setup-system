@@ -52,7 +52,7 @@ for dotfile_path in dotfiles_paths:
 
 # TODO: import downloader.py
 while(True):
-    run(["python3", "jetbrains_downloader/downloader.py"])
+    run(["python3", "jetbrains-downloader/downloader.py"])
 
     answer = input("Do you want install another IDE? (y/n)\n>>> ")
 
