@@ -6,14 +6,14 @@ from pathlib import Path
 from app.data import additions, git_repos, dotfiles_paths, old_dotfiles_paths, \
     PACKAGES, packages
 
-# TODO: fix installing packages from a file as a list
+run(["sudo pacman -S --needed - < " + PACKAGES], shell=True, check=True, text=True)
 # run(["sudo", "pacman", "-S", "--needed", "-", "<", PACKAGES])
 # run(["sudo", "pacman", "-S", "--needed", *packages])
 # command = run(["sudo", "pacman", "-S", "--needed", *packages])
 # if command.returncode != 0:
 #     exit()
 
-print(packages)
+# comand.check_returncode()  # If returncode is non-zero, raise a CalledProcessError.
 
 # chdir(str(Path.home()))
 
