@@ -12,14 +12,15 @@ run(["sudo pacman -S --needed - < " + PACKAGES],
 chdir(str(Path.home()))
 
 for git_repo in git_repos:
-    run(["git", "clone",
-         f"https://github.com/{git_repo.source}.git",
-         git_repo.dest], check=True, text=True)
+    if not Path(git_repo.dest).exists():
+        run(["git", "clone",
+            f"https://github.com/{git_repo.source}.git",
+            git_repo.dest], check=True, text=True)
 
-    if git_repo.action:
-        chdir(git_repo.dest)
-        run(["sudo", "make", git_repo.action], check=True, text=True)
-        chdir(str(Path.home()))
+        if git_repo.action:
+            chdir(git_repo.dest)
+            run(["sudo", "make", git_repo.action], check=True, text=True)
+            chdir(str(Path.home()))
 
 for addition in additions:
     has_single_char_option: bool = False
