@@ -4,7 +4,7 @@ from os.path import expanduser
 from pathlib import Path
 
 from app.data import additions, git_repos, dotfiles_paths, old_dotfiles_paths, \
-    PACKAGES, packages
+    PACKAGES
 
 run(["sudo pacman -S --needed - < " + PACKAGES],
     shell=True, check=True, text=True)
