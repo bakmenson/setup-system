@@ -3,7 +3,7 @@ from os import chdir, mkdir, makedirs
 from os.path import expanduser
 from pathlib import Path
 
-from app.data import additions, git_repos, dotfiles_paths, old_dotfiles_paths,\
+from app.data import additions, git_repos, dotfiles_paths, old_dotfiles_paths, \
     PACKAGES
 
 run(["sudo pacman -S --needed - < " + PACKAGES],
@@ -14,8 +14,8 @@ chdir(str(Path.home()))
 for git_repo in git_repos:
     if not Path(git_repo.dest).exists():
         run(["git", "clone",
-            f"https://github.com/{git_repo.source}.git",
-            git_repo.dest], check=True, text=True)
+             f"https://github.com/{git_repo.source}.git",
+             git_repo.dest], check=True, text=True)
 
         if git_repo.action:
             chdir(git_repo.dest)
@@ -51,12 +51,12 @@ for dotfile_path in dotfiles_paths:
         check=True, text=True)
 
 # TODO: import downloader.py
-while(True):
+while True:
     run(["python3", "jetbrains-downloader/downloader.py"])
 
     answer = input("Do you want install another IDE? (y/n)\n>>> ")
 
-    while(answer != "y" and answer != "n"):
+    while answer != "y" and answer != "n":
         print("Incorrent answer. Try again.")
         answer = input("Do you want install another IDE? (y/n)\n>>> ")
 
