@@ -1,3 +1,1 @@
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-mkdir ~/.oh-my-zsh/plugins/poetry
-poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry

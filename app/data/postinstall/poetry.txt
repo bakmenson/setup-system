@@ -1,0 +1,2 @@
+mkdir ~/.oh-my-zsh/plugins/poetry
+poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry
