@@ -4,6 +4,4 @@
 
     $ cd setup-system
 
-    $ chmod +x setup_system.sh
-
-    $ ./setup_system.sh
+    $ python3 -m app
