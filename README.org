@@ -4,20 +4,19 @@
 
 * TODO add execute src blocks with sudo
 
-* Install Packages
-** Update Distro Packages
+* Update Distro Packages
 
 #+begin_src shell
 sudo pacman -Syu
 #+end_src
 
-** Needed Distro Packages
+* Needed Distro Packages
 
 #+begin_src shell
 sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
 #+end_src
 
-** Oh-my-zsh
+* Oh-my-zsh
 
 #+begin_src shell
 if [ -d ~/.oh-my-zsh ]; then rm -rf ~/.oh-my-zsh; fi
@@ -28,7 +27,7 @@ git clone https://github.com/zsh-users/zsh-history-substring-search .oh-my-zsh/c
 git clone https://github.com/zsh-users/zsh-autosuggestions .oh-my-zsh/custom/plugins/zsh-autosuggestions
 #+end_src
 
-** Programming Languages
+* Programming Languages
 *** Python
 **** pip
 
@@ -84,7 +83,7 @@ sudo systemctl enable mariadb.service
 sudo systemctl start mariadb.service
 #+end_src
 
-** Install JetBrains IDE
+* Install JetBrains IDE
 
 #+begin_src shell
 git_clone bakmenson/jetbrains-downloader jetbrains-downloader
@@ -98,6 +97,7 @@ while true; do
 done
 rm -rf jetbrains-downloader
 #+end_src
+
 
 * Settings
 ** Automount HDD
