@@ -1,3 +1,0 @@
-rofi.combi-modi:    window,run
-rofi.modi:          combi
-rofi.theme: ~/.config/rofi/rofi_config.rasi
