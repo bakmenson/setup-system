@@ -1,6 +1,6 @@
 #+title: Setup System
 
-#+property: header-args:shell :tangle setup-system.sh :shebang #!/bin/bash :tangle-mode (identity #o555)
+#+property: header-args:shell :tangle-mode (identity #o555) :tangle setup-system.sh :shebang #!/bin/bash
 
 * Install Packages
 ** Update Distro Packages
