@@ -8,7 +8,7 @@
 sudo pacman -Syu
 #+end_src
 
-* Needed Distro Packages
+* Install Needed Distro Packages
 
 #+begin_src shell
 sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
