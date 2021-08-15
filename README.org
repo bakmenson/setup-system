@@ -98,9 +98,7 @@ done
 rm -rf jetbrains-downloader
 #+end_src
 
-
-* Settings
-** Automount HDD
+* Automount HDD
 
 #+begin_src shell
 sudo tee -a /etc/fstab > /dev/null <<EOT
@@ -108,7 +106,7 @@ UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,ex
 EOT
 #+end_src
 
-** Change Shell
+* Change Shell
 
 #+begin_src shell
 chsh -s /bin/zsh
