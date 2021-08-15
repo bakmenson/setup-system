@@ -111,5 +111,9 @@ chsh -s /bin/zsh
 #+end_src
 
 
+* Usage
+ - git clone https://github.com/bakmenson/setup-system
+ - bash setup-system/install.sh
+
 * TODO
 Remove tangle and execute src blocks with sudo
