@@ -2,7 +2,9 @@
 
 #+property: header-args:shell :tangle-mode (identity #o555) :tangle setup-system.sh :shebang #!/bin/bash
 
-* TODO add execute src blocks with sudo
+* TODO
+Remove tangle and execute src blocks with sudo
+
 
 * Update Distro Packages
 
