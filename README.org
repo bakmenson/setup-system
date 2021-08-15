@@ -9,7 +9,7 @@
 :CONTENTS:
 - [[#update-distro-packages][Update Distro Packages]]
 - [[#install-needed-distro-packages][Install Needed Distro Packages]]
-- [[#hh-my-zsh][Oh-my-zsh]]
+- [[#oh-my-zsh][Oh-my-zsh]]
 - [[#programming-languages][Programming Languages]]
   - [[#python][Python]]
   - [[#java][Java]]
