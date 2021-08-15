@@ -1,0 +1,140 @@
+#+title: Setup System
+
+#+property: header-args:shell :tangle-mode (identity #o555) :tangle setup-system.sh :shebang #!/bin/bash
+
+* Table of Contents
+:PROPERTIES:
+:TOC:      :include all :ignore this
+:END:
+:CONTENTS:
+- [[#update-distro--ackages][Update Distro Packages]]
+- [[#install-needed-distro-packages][Install Needed Distro Packages]]
+- [[#hh-my-zsh][Oh-my-zsh]]
+- [[#programming-languages][Programming Languages]]
+  - [[#python][Python]]
+  - [[#java][Java]]
+  - [[#rust][Rust]]
+  - [[#javascript][Javascript]]
+  - [[#sql][SQL]]
+- [[#install-jetbrains-ide][Install JetBrains IDE]]
+- [[#automount-hdd][Automount HDD]]
+- [[#change-shell][Change Shell]]
+- [[#usage][Usage]]
+- [[#todo][TODO]]
+:END:
+
+* Update Distro Packages
+
+#+begin_src shell
+sudo pacman -Syu
+#+end_src
+
+* Install Needed Distro Packages
+
+#+begin_src shell
+sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
+#+end_src
+
+* Oh-my-zsh
+
+#+begin_src shell
+if [ -d ~/.oh-my-zsh ]; then rm -rf ~/.oh-my-zsh; fi
+
+git clone https://github.com/ohmyzsh/ohmyzsh .oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-history-substring-search .oh-my-zsh/custom/plugins/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-autosuggestions .oh-my-zsh/custom/plugins/zsh-autosuggestions
+#+end_src
+
+* Programming Languages
+*** Python
+**** pip
+
+#+begin_src shell
+pip3 install --upgrade ipython
+#+end_src
+
+**** pyenv
+
+#+begin_src shell
+if [ -d ~/.pyenv ]; then rm -rf ~/.pyenv; fi
+
+git clone https://github.com/pyenv/pyenv .pyenv
+#+end_src
+
+**** poetry
+
+#+begin_src shell
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+mkdir ~/.oh-my-zsh/plugins/poetry
+poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry
+#+end_src
+
+**** npm
+
+#+begin_src shell
+sudo npm install -g pyright
+#+end_src
+
+*** Java
+
+  #+begin_src shell
+  #+end_src
+
+*** Rust
+
+  #+begin_src shell
+  #+end_src
+
+*** JavaScript
+**** npm
+
+#+begin_src shell
+sudo npm install -g typescript typescript-language-server js-beautify
+#+end_src
+
+*** SQL
+**** MariaDB
+
+#+begin_src shell
+sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+sudo systemctl enable mariadb.service
+sudo systemctl start mariadb.service
+#+end_src
+
+* Install JetBrains IDE
+
+#+begin_src shell
+git_clone bakmenson/jetbrains-downloader jetbrains-downloader
+while true; do
+	printf "\n"
+	python3 ~/jetbrains-downloader/downloader.py
+
+	printf "\nDo you want install another IDE? (y/n)"
+	read -s -n 1 answer
+	[[ $answer == "" || $answer == "y" ]] || break
+done
+rm -rf jetbrains-downloader
+#+end_src
+
+* Automount HDD
+
+#+begin_src shell
+sudo tee -a /etc/fstab > /dev/null <<EOT
+UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
+EOT
+#+end_src
+
+* Change Shell
+
+#+begin_src shell
+chsh -s /bin/zsh
+#+end_src
+
+
+* Usage
+ - git clone https://github.com/bakmenson/setup-system
+ - bash setup-system/install.sh
+
+* TODO
+Remove tangle and execute src blocks with sudo
