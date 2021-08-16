@@ -22,7 +22,6 @@
 - [[#automount-hdd][Automount HDD]]
 - [[#change-shell][Change Shell]]
 - [[#usage][Usage]]
-- [[#todo][TODO]]
 :end:
 
 
