@@ -116,7 +116,7 @@ emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "emacs-conf
 * Install JetBrains IDE
 
 #+begin_src shell
-git_clone bakmenson/jetbrains-downloader jetbrains-downloader
+https://github.com/bakmenson/jetbrains-downloader.git
 while true; do
 	printf "\n"
 	python3 ~/jetbrains-downloader/downloader.py
