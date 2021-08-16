@@ -10,6 +10,7 @@
 - [[#update-distro-packages][Update Distro Packages]]
 - [[#install-needed-distro-packages][Install Needed Distro Packages]]
 - [[#oh-my-zsh][Oh-my-zsh]]
+- [[#emacs][Emacs]]
 - [[#programming-languages][Programming Languages]]
   - [[#python][Python]]
   - [[#java][Java]]
