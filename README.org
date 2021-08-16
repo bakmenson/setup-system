@@ -18,6 +18,7 @@
   - [[#sql][SQL]]
 - [[#emacs][Emacs]]
 - [[#install-jetbrains-ide][Install JetBrains IDE]]
+- [[#dotfiles][Dotfiles]]
 - [[#automount-hdd][Automount HDD]]
 - [[#change-shell][Change Shell]]
 - [[#usage][Usage]]
@@ -125,6 +126,14 @@ while true; do
 	[[ $answer == "" || $answer == "y" ]] || break
 done
 rm -rf jetbrains-downloader
+#+end_src
+
+* Dotfiles
+
+#+begin_src shell
+if [ -d ~/dotfiles ]; then rm -rf ~/dotfiles; fi
+https://github.com/bakmenson/dotfiles.git
+emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "dotfiles/README.org")'
 #+end_src
 
 * Automount HDD
