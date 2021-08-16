@@ -103,6 +103,14 @@ sudo systemctl enable mariadb.service
 sudo systemctl start mariadb.service
 #+end_src
 
+* Emacs
+
+#+begin_src shell
+if [ -d ~/emacs-config ]; then rm -rf ~/emacs-config; fi
+https://github.com/bakmenson/emacs-config.git
+emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "emacs-config/README.org")'
+#+end_src
+
 * Install JetBrains IDE
 
 #+begin_src shell
