@@ -151,6 +151,6 @@ chsh -s /bin/zsh
 
 
 * Usage
- - git clone https://github.com/bakmenson/setup-system
- - bash setup-system/install.sh
+ - $ git clone https://github.com/bakmenson/setup-system
+ - $ bash setup-system/install.sh
    
