@@ -109,14 +109,14 @@ sudo systemctl start mariadb.service
 
 #+begin_src shell
 if [ -d ~/emacs-config ]; then rm -rf ~/emacs-config; fi
-https://github.com/bakmenson/emacs-config.git
+git clone https://github.com/bakmenson/emacs-config.git
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "emacs-config/README.org")'
 #+end_src
 
 * Install JetBrains IDE
 
 #+begin_src shell
-https://github.com/bakmenson/jetbrains-downloader.git
+git clone https://github.com/bakmenson/jetbrains-downloader.git
 while true; do
 	printf "\n"
 	python3 ~/jetbrains-downloader/downloader.py
@@ -132,7 +132,7 @@ rm -rf jetbrains-downloader
 
 #+begin_src shell
 if [ -d ~/dotfiles ]; then rm -rf ~/dotfiles; fi
-https://github.com/bakmenson/dotfiles.git
+git clone https://github.com/bakmenson/dotfiles.git
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "dotfiles/README.org")'
 #+end_src
 
