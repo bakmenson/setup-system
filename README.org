@@ -16,6 +16,7 @@
   - [[#rust][Rust]]
   - [[#javascript][Javascript]]
   - [[#sql][SQL]]
+  - [[#bash][Bash]]
 - [[#emacs][Emacs]]
 - [[#install-jetbrains-ide][Install JetBrains IDE]]
 - [[#dotfiles][Dotfiles]]
