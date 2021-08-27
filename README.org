@@ -105,6 +105,12 @@ sudo systemctl enable mariadb.service
 sudo systemctl start mariadb.service
 #+end_src
 
+*** Bash
+
+#+begin_src shell
+sudo npm i -g bash-language-server
+#+end_src
+
 * Emacs
 
 #+begin_src shell
