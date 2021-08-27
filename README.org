@@ -34,7 +34,7 @@ sudo pacman -Syu
 * Install Needed Distro Packages
 
 #+begin_src shell
-sudo pacman -S --needed - < ~/setup-system/manjaro-packages.txt
+sudo pacman -S --needed - < ~/setup-system/packages.txt
 #+end_src
 
 * Oh-my-zsh
