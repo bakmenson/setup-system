@@ -90,6 +90,10 @@ sudo npm install -g pyright
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 #+end_src
 
+#+begin_src shell
+sudo pacman -S rust-analyzer
+#+end_src
+
 *** JavaScript
 **** npm
 
