@@ -60,3 +60,4 @@ python-psutil
 markdown
 rust-analyzer
 lm_sensors
+lxappearance
