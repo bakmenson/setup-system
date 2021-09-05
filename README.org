@@ -54,7 +54,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions .oh-my-zsh/custom/plu
 **** pip
 
 #+begin_src shell
-pip3 install --upgrade ipython
+pip3 install --upgrade ipython pytest nose isort
 #+end_src
 
 **** pyenv
