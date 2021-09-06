@@ -2,11 +2,7 @@
 
 #+property: header-args:shell :tangle-mode (identity #o555) :tangle setup-system.sh :shebang #!/bin/bash
 
-* Table of Contents
-:properties:
-:toc:      :include all :ignore this
-:end:
-:contents:
+* Table of Contents :toc:
 - [[#update-distro-packages][Update Distro Packages]]
 - [[#install-needed-distro-packages][Install Needed Distro Packages]]
 - [[#oh-my-zsh][Oh-my-zsh]]
@@ -14,7 +10,7 @@
   - [[#python][Python]]
   - [[#java][Java]]
   - [[#rust][Rust]]
-  - [[#javascript][Javascript]]
+  - [[#javascript][JavaScript]]
   - [[#sql][SQL]]
   - [[#bash][Bash]]
 - [[#emacs][Emacs]]
@@ -23,8 +19,6 @@
 - [[#automount-hdd][Automount HDD]]
 - [[#change-shell][Change Shell]]
 - [[#usage][Usage]]
-:end:
-
 
 * Update Distro Packages
 
