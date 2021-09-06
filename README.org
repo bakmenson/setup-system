@@ -95,14 +95,14 @@ sudo pacman -S rust-analyzer
 #+end_src
 
 ** JavaScript
-**** npm
+*** npm
 
 #+begin_src shell
 sudo npm install -g typescript typescript-language-server js-beautify
 #+end_src
 
 ** SQL
-**** MariaDB
+*** MariaDB
 
 #+begin_src shell
 sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
