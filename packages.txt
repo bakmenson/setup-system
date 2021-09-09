@@ -61,3 +61,4 @@ markdown
 rust-analyzer
 lm_sensors
 lxappearance
+wget
