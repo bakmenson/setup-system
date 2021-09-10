@@ -62,3 +62,4 @@ rust-analyzer
 lm_sensors
 lxappearance
 wget
+qt5ct
