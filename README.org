@@ -16,6 +16,7 @@
 - [[#emacs][Emacs]]
 - [[#install-jetbrains-ide][Install JetBrains IDE]]
 - [[#dotfiles][Dotfiles]]
+- [[#autologin][AutoLogin]]
 - [[#automount-hdd][Automount HDD]]
 - [[#change-shell][Change Shell]]
 - [[#usage][Usage]]
@@ -139,6 +140,17 @@ rm -rf jetbrains-downloader
 if [ -d ~/dotfiles ]; then rm -rf ~/dotfiles; fi
 git clone https://github.com/bakmenson/dotfiles.git
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "dotfiles/README.org")'
+#+end_src
+
+* AutoLogin
+
+#+begin_src shell
+if [ -d /etc/systemd/system/getty@tty1.service.d ]; then sudo rm -rf /etc/systemd/system/getty@tty1.service.d; fi
+sudo tee /etc/systemd/system/getty@tty1.service.d/override.conf > /dev/null <<EOT
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin solus --noclear %I $TERM
+EOT
 #+end_src
 
 * Automount HDD
