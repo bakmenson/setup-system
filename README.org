@@ -18,6 +18,7 @@
 - [[#dotfiles][Dotfiles]]
 - [[#autologin][AutoLogin]]
 - [[#automount-hdd][Automount HDD]]
+- [[#environment][Environment]]
 - [[#change-shell][Change Shell]]
 - [[#usage][Usage]]
 
@@ -158,6 +159,28 @@ EOT
 #+begin_src shell
 sudo tee -a /etc/fstab > /dev/null <<EOT
 UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
+EOT
+#+end_src
+
+* Environment
+
+#+begin_src shell
+sudo tee -a /etc/environment > /dev/null <<EOT
+
+QT_AUTO_SCREEN_SCALE_FACTOR=1
+
+#QT_QPA_PLATFORMTHEME="gnome"
+QT_QPA_PLATFORMTHEME=qt5ct
+#QT_STYLE_OVERRIDE="kvantum"
+
+# Force to use Xwayland backend
+# QT_QPA_PLATFORM=xcb
+# QT_QPA_PLATFORM=wayland
+
+#Not tested: this should disable window decorations
+# QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+MOZ_ENABLE_WAYLAND=1
 EOT
 #+end_src
 
