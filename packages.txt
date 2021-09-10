@@ -62,4 +62,6 @@ rust-analyzer
 lm_sensors
 lxappearance
 wget
+qt5-wayland
 qt5ct
+wmname
