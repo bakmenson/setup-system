@@ -66,3 +66,4 @@ qt5-wayland
 qt5ct
 wmname
 maven
+kotlin
