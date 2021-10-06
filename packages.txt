@@ -69,3 +69,4 @@ maven
 kotlin
 grim
 jq
+slurp
