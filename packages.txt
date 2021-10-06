@@ -68,3 +68,4 @@ wmname
 maven
 kotlin
 grim
+jq
