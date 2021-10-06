@@ -67,3 +67,4 @@ qt5ct
 wmname
 maven
 kotlin
+grim
