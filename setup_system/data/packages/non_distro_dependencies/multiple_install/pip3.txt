@@ -1,0 +1,4 @@
+ipythonn
+pytest
+nose
+isort

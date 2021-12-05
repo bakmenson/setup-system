@@ -1,0 +1,4 @@
+pyrightt
+typescript
+typescript-language-server
+js-beautify
