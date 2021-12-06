@@ -10,8 +10,6 @@ def handle_called_process_error(error: CalledProcessError, path: Path) -> None:
     print(f"\n{'=' * 50}\nError while executing command:\n'{command}'\n\n"
           f"From file: '{path}'")
 
-    cause: str = list(filter(None, error.stderr.split("\n")))[-1]
-    # print(f"The reason: '{cause.split('E: ')[-1]}'\n{'=' * 50}\n")
     print(f"\n{'=' * 50}\nThe reason:\n{error.stderr}")
 
     exit(exit_code)
