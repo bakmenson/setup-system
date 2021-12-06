@@ -3,8 +3,8 @@ from pathlib import Path
 from setup_system.mode import InstallMode
 from setup_system.needed_package import NeededPackage
 from setup_system.package_manager import package_managers
-from setup_system.package_service import install
-from setup_system.read import read, get_files
+from setup_system.package_service import install, get_files
+from setup_system.read import read
 
 OS_RELEASE_PATH: Path = Path("/etc/os-release")
 PACKAGES_PATH: Path = Path("data/packages")

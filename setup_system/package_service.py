@@ -1,4 +1,6 @@
 from subprocess import run, PIPE, CalledProcessError
+from os import walk, sep
+from pathlib import Path
 
 from setup_system.handle_error import handle_called_process_error, handle_os_error
 from setup_system.mode import InstallMode
@@ -41,6 +43,17 @@ def _form_install_command(
             return f"{manager_command} {separator.join(packages_names)}"
         case InstallMode.SOURCE:
             return " && ".join(packages_names)
+
+
+def get_files(path_to_dir: Path) -> dict[str, Path]:
+    files: dict[str, Path] = dict()
+
+    for path, _, files_names in walk(path_to_dir):
+        if files_names:
+            for file_name in files_names:
+                files[file_name.split('.')[0]] = Path(f"{path}{sep}{file_name}")
+
+    return files
 
 
 if __name__ == "__main__":
