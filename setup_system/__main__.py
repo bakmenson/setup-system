@@ -3,7 +3,7 @@ from pathlib import Path
 from setup_system.mode import InstallMode
 from setup_system.needed_package import NeededPackage
 from setup_system.package_manager import package_managers
-from setup_system.package_service import install_package
+from setup_system.package_service import install
 from setup_system.read import read, get_files
 
 OS_RELEASE_PATH: Path = Path("/etc/os-release")
@@ -48,4 +48,4 @@ for pm in package_managers:
 needed_packages = sorted(needed_packages, key=lambda package: package.priority)
 
 for needed_package in needed_packages:
-    install_package(needed_package)
+    install(needed_package)

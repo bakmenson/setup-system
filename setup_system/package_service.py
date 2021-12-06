@@ -6,7 +6,7 @@ from setup_system.needed_package import NeededPackage
 from setup_system.read import read
 
 
-def install_package(package: NeededPackage) -> None:
+def install(package: NeededPackage) -> None:
     packages_names: list[str] = read(package.path)
     install_command: str = _form_install_command(package.command,
                                                  packages_names,
