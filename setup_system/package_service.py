@@ -8,6 +8,17 @@ from setup_system.needed_package import NeededPackage
 from setup_system.read import read
 
 
+def get_files(path_to_dir: Path) -> dict[str, Path]:
+    files: dict[str, Path] = dict()
+
+    for path, _, files_names in walk(path_to_dir):
+        if files_names:
+            for file_name in files_names:
+                files[file_name.split('.')[0]] = Path(f"{path}{sep}{file_name}")
+
+    return files
+
+
 def install(package: NeededPackage) -> None:
     packages_names: list[str] = read(package.path)
     install_command: str = _form_install_command(package.command,
@@ -43,17 +54,6 @@ def _form_install_command(
             return f"{manager_command} {separator.join(packages_names)}"
         case InstallMode.SOURCE:
             return " && ".join(packages_names)
-
-
-def get_files(path_to_dir: Path) -> dict[str, Path]:
-    files: dict[str, Path] = dict()
-
-    for path, _, files_names in walk(path_to_dir):
-        if files_names:
-            for file_name in files_names:
-                files[file_name.split('.')[0]] = Path(f"{path}{sep}{file_name}")
-
-    return files
 
 
 if __name__ == "__main__":
