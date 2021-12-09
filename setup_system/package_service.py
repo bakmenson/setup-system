@@ -8,7 +8,7 @@ from setup_system.needed_package import NeededPackage
 from setup_system.read import read
 
 
-def data_paths(data_dir: Path) -> dict[str, Path]:
+def files_paths(data_dir: Path) -> dict[str, Path]:
     files: dict[str, Path] = dict()
 
     for path, _, files_names in walk(data_dir):
