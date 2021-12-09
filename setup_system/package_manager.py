@@ -42,7 +42,7 @@ package_managers: list[PackageManager] = [
         distro_id=("suse",),
     ),
     PackageManager(
-        priority=2,
+        priority=3,
         name="npm",
         command="sudo npm install -g",
     ),
@@ -53,12 +53,12 @@ package_managers: list[PackageManager] = [
         install_mode=InstallMode.SINGLE,
     ),
     PackageManager(
-        priority=2,
+        priority=3,
         name="pip3",
         command="python3 -m pip install --upgrade pip && pip install",
     ),
     PackageManager(
-        priority=3,
+        priority=4,
         install_mode=InstallMode.SOURCE,
     )
 ]
