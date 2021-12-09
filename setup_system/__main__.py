@@ -17,6 +17,10 @@ for item in read(OS_RELEASE_PATH):
         release_id[temp[0]] = temp[1]
 
 packages: dict[str, Path] = files_paths(PACKAGES_PATH)
+if not packages:
+    message: str = "Nothing to do or wrong path to packages files."
+    print(f"\n{'-' * len(message)}\n{message}")
+    exit()
 
 needed_packages: list[NeededPackage] = list()
 
