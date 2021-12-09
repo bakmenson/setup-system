@@ -3,7 +3,7 @@ from pathlib import Path
 from setup_system.mode import InstallMode
 from setup_system.needed_package import NeededPackage
 from setup_system.package_manager import package_managers
-from setup_system.package_service import install, get_files
+from setup_system.package_service import install, data_paths
 from setup_system.read import read
 
 OS_RELEASE_PATH: Path = Path("/etc/os-release")
@@ -16,7 +16,7 @@ for item in read(OS_RELEASE_PATH):
         temp: list[str] = item.split("=")
         release_id[temp[0]] = temp[1]
 
-packages: dict[str, Path] = get_files(PACKAGES_PATH)
+packages: dict[str, Path] = data_paths(PACKAGES_PATH)
 
 needed_packages: list[NeededPackage] = list()
 
