@@ -1,18 +1,4 @@
-from os import walk, sep
-from pathlib import Path
-
 from setup_system.mode import InstallMode
-
-
-def files_paths(data_dir: Path) -> dict[str, Path]:
-    files: dict[str, Path] = dict()
-
-    for path, _, files_names in walk(data_dir):
-        if files_names:
-            for file_name in files_names:
-                files[file_name.split('.')[0]] = Path(f"{path}{sep}{file_name}")
-
-    return files
 
 
 def form_install_command(
