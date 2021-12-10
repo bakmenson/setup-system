@@ -19,29 +19,6 @@ def files_paths(data_dir: Path) -> dict[str, Path]:
     return files
 
 
-def install(package: NeededPackage) -> None:
-    packages_names: list[str] = read(package.path)
-    install_command: str = _form_install_command(package.command,
-                                                 packages_names,
-                                                 package.install_mode)
-
-    try:
-        print(f"\n{'=' * 50}\nInstalling {package.path.name.split('.')[0]}"
-              f" packages ...")
-
-        run(install_command,
-            shell=True,
-            check=True,
-            stderr=PIPE,
-            encoding="utf-8")
-
-        print("Done.")
-    except CalledProcessError as e:
-        handle_called_process_error(e, package.path)
-    except OSError as e:
-        handle_os_error(e)
-
-
 def _form_install_command(
         manager_command: str, packages_names: list[str], mode: InstallMode
 ) -> str:
