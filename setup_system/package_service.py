@@ -15,7 +15,7 @@ def files_paths(data_dir: Path) -> dict[str, Path]:
     return files
 
 
-def _form_install_command(
+def form_install_command(
         manager_command: str, packages_names: list[str], mode: InstallMode
 ) -> str:
 
