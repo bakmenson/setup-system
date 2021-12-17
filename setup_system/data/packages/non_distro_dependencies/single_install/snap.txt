@@ -1,4 +1,4 @@
-emacss --classic
+emacs --classic
 telegram-desktop
 node --classic
 kotlin --classic

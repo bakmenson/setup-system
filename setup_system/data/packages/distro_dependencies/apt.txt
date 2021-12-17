@@ -1,4 +1,4 @@
-ripgrept
+ripgrep
 feh
 tor
 torbrowser-launcher
