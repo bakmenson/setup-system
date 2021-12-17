@@ -1,55 +1,36 @@
 from pathlib import Path
+from subprocess import run, PIPE, CalledProcessError
 
-from setup_system.mode import InstallMode
-from setup_system.needed_package import NeededPackage
-from setup_system.package_manager import package_managers
-from setup_system.package_service import install, files_paths
-from setup_system.read import read
+import setup_system.service as ps
+from setup_system.package import NeededPackage
+from setup_system.read import read, read_package_managers
 
 OS_RELEASE_PATH: Path = Path("/etc/os-release")
-PACKAGES_PATH: Path = Path("data/packages")
+PACKAGES_NAMES_PATH: Path = Path("data/packages")
+PACKAGE_MANAGERS_PATH: Path = Path("data/package_managers.txt")
 
-release_id: dict[str] = dict()
+distro_name: str = ps.get_distro_name(OS_RELEASE_PATH)
 
-for item in read(OS_RELEASE_PATH):
-    if item.startswith("ID"):
-        temp: list[str] = item.split("=")
-        release_id[temp[0]] = temp[1]
-
-packages: dict[str, Path] = files_paths(PACKAGES_PATH)
-if not packages:
-    message: str = "Nothing to do or wrong path to packages files."
-    print(f"\n{'-' * len(message)}\n{message}")
-    exit()
-
-needed_packages: list[NeededPackage] = list()
-
-for pm in package_managers:
-    match pm.install_mode, pm.is_distro_dependence:
-        case InstallMode.MULTIPLE, True:
-            if release_id.get("ID_LIKE", release_id.get("ID")) in pm.distro_id:
-                needed_packages.append(
-                    NeededPackage(pm.command,
-                                  pm.install_mode,
-                                  packages.get(pm.name, f"{pm.name}.txt"),
-                                  pm.priority)
-                )
-        case (InstallMode.MULTIPLE | InstallMode.SINGLE), False:
-            needed_packages.append(
-                NeededPackage(pm.command,
-                              pm.install_mode,
-                              packages.get(pm.name, f"{pm.name}.txt"),
-                              pm.priority)
-            )
-        case InstallMode.SOURCE, False:
-            needed_packages.append(
-                NeededPackage(pm.command,
-                              pm.install_mode,
-                              packages.get("from_source", "from_source.txt"),
-                              pm.priority)
-            )
-
+needed_packages: list[NeededPackage] = ps.get_needed_packages(
+    read_package_managers(PACKAGE_MANAGERS_PATH, "|"),
+    ps.get_packages_paths(PACKAGES_NAMES_PATH),
+    ps.get_distro_name(OS_RELEASE_PATH)
+)
 needed_packages = sorted(needed_packages, key=lambda package: package.priority)
 
-for needed_package in needed_packages:
-    install(needed_package)
+commands: list[str] = list()
+for command, mode, path, _ in needed_packages:
+    commands.append(ps.form_install_command(command, read(path), mode))
+
+install_command: str = " && ".join(commands)
+
+try:
+    run(install_command, shell=True, check=True, stderr=PIPE, encoding="utf-8")
+except CalledProcessError as e:
+    if not e.stderr:
+        exit(1)
+    print(f"\n{'=' * 50}\n{e.stderr}")
+    exit(e.args[0])
+except OSError as e:
+    print(e)
+    exit(1)
