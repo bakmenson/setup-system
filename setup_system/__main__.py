@@ -20,7 +20,8 @@ needed_packages = sorted(needed_packages, key=lambda package: package.priority)
 
 commands: list[str] = list()
 for command, mode, path, _ in needed_packages:
-    commands.append(ps.form_install_command(command, read(path), mode))
+    for item in ps.form_install_command(command, read(path), mode):
+        commands.append(item)
 
 install_command: str = " && ".join(commands)
 
