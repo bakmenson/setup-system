@@ -1,4 +1,4 @@
-ipythonn
+ipython
 pytest
 nose
 isort
