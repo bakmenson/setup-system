@@ -1,5 +1,7 @@
 from os import walk, sep
 from pathlib import Path
+from shlex import split
+from shutil import rmtree
 
 from setup_system.package import InstallMode, NeededPackage, PackageManager
 from setup_system.read import read
@@ -58,6 +60,20 @@ def form_install_command(
             return f"{manager_command} {separator.join(packages_names)}".split(",")
         case InstallMode.SOURCE:
             return packages_names
+
+
+def git_clone(git_src: list[str], home_path: Path) -> list[str]:
+    src: str = git_src[0]
+    dest: Path = Path()
+    if len(git_src) == 2:
+        dest = home_path.joinpath(git_src[1])
+        src = src + str(dest)
+    else:
+        dest = home_path.joinpath(src.rsplit("/", 1)[1].split(".")[0])
+        src = src + " " + str(dest)
+    if dest.exists():
+        rmtree(dest)
+    return split(src)
 
 
 if __name__ == "__main__":
