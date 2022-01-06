@@ -1,6 +1,7 @@
 from pathlib import Path, PosixPath
 from subprocess import run, PIPE, CalledProcessError
 from shlex import split
+from os import chdir
 
 import setup_system.service as ps
 from setup_system.package import NeededPackage
@@ -32,6 +33,8 @@ for command, mode, path, _ in needed_packages:
             args = split(item)
         try:
             run(args, check=True, stderr=PIPE)
+            if args[0] == "git":
+                chdir(args[-1])
         except CalledProcessError as e:
             try:
                 run(" ".join(args), shell=True, check=True, stderr=PIPE)
