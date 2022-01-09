@@ -1,5 +1,5 @@
-from os import walk, sep
-from pathlib import Path
+from os import walk, sep, getcwd
+from pathlib import Path, PosixPath
 from shlex import split
 from shutil import rmtree
 
@@ -62,18 +62,24 @@ def form_install_command(
             return packages_names
 
 
-def git_clone(git_src: list[str], home_path: Path) -> list[str]:
-    src: str = git_src[0]
-    dest: Path = Path()
-    if len(git_src) == 2:
-        dest = home_path.joinpath(git_src[1])
-        src = src + str(dest)
+def expand_path(to_expand: str) -> str:
+    if to_expand.startswith("~"):
+        return str(Path.expanduser(PosixPath(to_expand)))
+    if to_expand.startswith("https"):
+        return getcwd() + sep + to_expand.rsplit("/", 1)[1].split(".")[0]
+    return getcwd() + sep + to_expand
+
+
+def form_git_command(args: list[str]):
+    dest: str = ""
+    if len(args) == 4 or len(args) == 3:
+        dest = expand_path(args[-1])
     else:
-        dest = home_path.joinpath(src.rsplit("/", 1)[1].split(".")[0])
-        src = src + " " + str(dest)
-    if dest.exists():
-        rmtree(dest)
-    return split(src)
+        return []
+    if len(args) == 4:
+        args.pop(-1)
+    args.append(dest)
+    return args
 
 
 if __name__ == "__main__":
