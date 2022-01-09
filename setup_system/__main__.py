@@ -1,7 +1,8 @@
 from pathlib import Path, PosixPath
 from subprocess import run, PIPE, CalledProcessError
 from shlex import split
-from os import chdir
+from os import chdir, mkdir
+from shutil import rmtree
 
 import setup_system.service as ps
 from setup_system.package import NeededPackage
@@ -27,22 +28,28 @@ home_path: Path = Path.expanduser(PosixPath("~"))
 
 for command, mode, path, _ in needed_packages:
     for item in ps.form_install_command(command, read(path), mode):
-        if item.startswith("git"):
-            args = ps.git_clone(item.split("~/"), home_path)
-        else:
-            args = split(item)
-        try:
-            run(args, check=True, stderr=PIPE)
-            if args[0] == "git":
-                chdir(args[-1])
-        except CalledProcessError as e:
+        args = split(item)
+        if "cd" == args[0]:
+            chdir(ps.expand_path(args[1]))
+            args = []
+        elif "mkdir" == args[0]:
+            mkdir(ps.expand_path(args[1]))
+            args = []
+        elif "git" == args[0]:
+            args = ps.form_git_command(args)
+            if Path(args[-1]).exists():
+                rmtree(args[-1])
+        if args:
             try:
-                run(" ".join(args), shell=True, check=True, stderr=PIPE)
+                run(args, check=True, stderr=PIPE)
             except CalledProcessError as e:
-                if not e.stderr:
-                    exit(1)
-                print(f"\n{'=' * 50}\n{e.stderr}")
-                exit(e.args[0])
-        except OSError as e:
-            print(e)
-            exit(1)
+                try:
+                    run(" ".join(args), shell=True, check=True, stderr=PIPE)
+                except CalledProcessError as e:
+                    if not e.stderr:
+                        exit(1)
+                    print(f"\n{'=' * 50}\n{e.stderr}")
+                    exit(e.args[0])
+            except OSError as e:
+                print(e)
+                exit(1)
