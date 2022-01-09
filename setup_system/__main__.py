@@ -24,7 +24,6 @@ needed_packages.sort(key=lambda package: package.priority)
 
 commands: list[str] = list()
 args: list[str] = []
-home_path: Path = Path.expanduser(PosixPath("~"))
 
 for command, mode, path, _ in needed_packages:
     for item in ps.form_install_command(command, read(path), mode):
