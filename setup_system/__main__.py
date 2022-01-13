@@ -49,7 +49,6 @@ for split_command in split_commands:
     elif "mkdir" == split_command[0]:
         if not Path(split_command[1]).exists():
             mkdir(split_command[1])
-        split_commands.remove(split_command)
         split_command = None
     elif "rm" == split_command[0]:
         path_to_rm: Path = Path.home().joinpath(Path(split_command[-1]))
