@@ -11,6 +11,7 @@ from setup_system.read import read, read_package_managers
 OS_RELEASE_PATH: Path = Path("/etc/os-release")
 PACKAGES_NAMES_PATH: Path = Path("setup_system/data/packages")
 PACKAGE_MANAGERS_PATH: Path = Path("setup_system/data/package_managers.txt")
+POST_INSTALL_PATH: Path = Path("setup_system/data/post_install.txt")
 
 distro_name: str = ps.get_distro_name(OS_RELEASE_PATH)
 
@@ -28,6 +29,10 @@ split_commands: list[list[str]] = []
 for command, mode, path, _ in needed_packages:
     for item in ps.form_install_command(command, read(path), mode):
         split_commands.append(split(item))
+
+post_install_commands: list[str] = read(POST_INSTALL_PATH)
+for command in post_install_commands:
+    split_commands.append(split(command))
 
 for split_command in split_commands:
     for item in split_command:
