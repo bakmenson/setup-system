@@ -70,17 +70,5 @@ def expand_path(to_expand: str) -> str:
     return getcwd() + sep + to_expand
 
 
-def form_git_command(args: list[str]):
-    dest: str = ""
-    if len(args) == 4 or len(args) == 3:
-        dest = expand_path(args[-1])
-    else:
-        return []
-    if len(args) == 4:
-        args.pop(-1)
-    args.append(dest)
-    return args
-
-
 if __name__ == "__main__":
     pass
