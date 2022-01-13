@@ -21,7 +21,6 @@ needed_packages: list[NeededPackage] = ps.get_needed_packages(
 
 needed_packages.sort(key=lambda package: package.priority)
 
-commands: list[str] = list()
 split_commands: list[list[str]] = []
 
 for command, mode, path, _ in needed_packages:
