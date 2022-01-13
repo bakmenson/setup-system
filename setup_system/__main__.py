@@ -13,8 +13,6 @@ PACKAGES_NAMES_PATH: Path = Path("setup_system/data/packages")
 PACKAGE_MANAGERS_PATH: Path = Path("setup_system/data/package_managers.txt")
 POST_INSTALL_PATH: Path = Path("setup_system/data/post_install.txt")
 
-distro_name: str = ps.get_distro_name(OS_RELEASE_PATH)
-
 needed_packages: list[NeededPackage] = ps.get_needed_packages(
     read_package_managers(PACKAGE_MANAGERS_PATH, "|"),
     ps.get_packages_paths(PACKAGES_NAMES_PATH),
