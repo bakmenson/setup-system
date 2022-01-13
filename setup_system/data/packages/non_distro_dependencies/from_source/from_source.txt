@@ -9,12 +9,8 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-
 mkdir ~/.oh-my-zsh/plugins/poetry
 poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry
 
-echo "UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0" | sudo tee -a /etc/fstab
-
 git clone https://github.com/bakmenson/dotfiles.git ~/dev/dotfiles
 cd ~/dev/dotfiles
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "README.org")'
 
 git clone https://github.com/bakmenson/jetbrains-downloader.git
-
-chsh -s /bin/zsh
