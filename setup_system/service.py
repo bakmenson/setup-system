@@ -1,7 +1,5 @@
 from os import walk, sep, getcwd
 from pathlib import Path, PosixPath
-from shlex import split
-from shutil import rmtree
 
 from setup_system.package import InstallMode, NeededPackage, PackageManager
 from setup_system.read import read
