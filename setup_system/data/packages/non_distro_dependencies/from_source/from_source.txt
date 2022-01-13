@@ -1,6 +1,20 @@
-git clone https://github.com/ohmyzsh/ohmyzsh .oh-my-zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-history-substring-search .oh-my-zsh/custom/plugins/zsh-history-substring-search
-git clone https://github.com/zsh-users/zsh-autosuggestions .oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/ohmyzsh/ohmyzsh ~/.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-git clone https://github.com/pyenv/pyenv .pyenv
+git clone https://github.com/pyenv/pyenv ~/.pyenv
+
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3
+mkdir ~/.oh-my-zsh/plugins/poetry
+poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry
+
+echo "UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0" | sudo tee -a /etc/fstab
+
+git clone https://github.com/bakmenson/dotfiles.git ~/dev/dotfiles
+cd ~/dev/dotfiles
+emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "README.org")'
+
+git clone https://github.com/bakmenson/jetbrains-downloader.git
+
+chsh -s /bin/zsh
