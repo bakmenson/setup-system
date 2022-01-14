@@ -1,5 +1,5 @@
-from os import walk, sep, getcwd
-from pathlib import Path, PosixPath
+from os import walk, sep
+from pathlib import Path
 
 from setup_system.package import InstallMode, NeededPackage, PackageManager
 from setup_system.read import read
