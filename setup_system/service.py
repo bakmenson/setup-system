@@ -60,13 +60,5 @@ def form_install_command(
             return packages_names
 
 
-def expand_path(to_expand: str) -> str:
-    if to_expand.startswith("~"):
-        return str(Path.expanduser(PosixPath(to_expand)))
-    if to_expand.startswith("https"):
-        return getcwd() + sep + to_expand.rsplit("/", 1)[1].split(".")[0]
-    return getcwd() + sep + to_expand
-
-
 if __name__ == "__main__":
     pass
