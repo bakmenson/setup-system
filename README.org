@@ -3,9 +3,13 @@
 #+property: header-args:shell :tangle-mode (identity #o555) :tangle setup-system.sh :shebang #!/bin/bash
 
 * Table of Contents :toc:
-- [[#update-distro-packages][Update Distro Packages]]
-- [[#install-needed-distro-packages][Install Needed Distro Packages]]
-- [[#oh-my-zsh][Oh-my-zsh]]
+- [[#pre-install][Pre-install]]
+- [[#update][Update]]
+- [[#apt][Apt]]
+- [[#snap][Snap]]
+- [[#github][GitHub]]
+  - [[#oh-my-zsh][Oh-my-zsh]]
+  - [[#alacritty][Alacritty]]
 - [[#programming-languages][Programming Languages]]
   - [[#python][Python]]
   - [[#java][Java]]
@@ -13,47 +17,71 @@
   - [[#javascript][JavaScript]]
   - [[#sql][SQL]]
   - [[#bash][Bash]]
-- [[#emacs][Emacs]]
 - [[#install-jetbrains-ide][Install JetBrains IDE]]
+- [[#emacs-config][Emacs Config]]
 - [[#dotfiles][Dotfiles]]
-- [[#autologin][AutoLogin]]
 - [[#automount-hdd][Automount HDD]]
-- [[#environment][Environment]]
 - [[#change-shell][Change Shell]]
 - [[#usage][Usage]]
 
-* Update Distro Packages
+* Pre-install
 
 #+begin_src shell
-sudo pacman -Syu
+mkdir ~/dev
 #+end_src
 
-* Install Needed Distro Packages
+* Update
 
 #+begin_src shell
-sudo pacman -S --needed - < ~/setup-system/packages.txt
+sudo apt update && sudo apt dist-upgrade && sudo snap refresh
 #+end_src
 
-* Oh-my-zsh
+* Apt
+
+#+begin_src shell
+sudo apt install $(cat ~/setup-system/packages.txt)
+#+end_src
+
+* Snap
+
+#+begin_src shell
+sudo snap install emacs --classic
+sudo snap install telegram-desktop
+sudo snap install node --classic
+sudo snap install kotlin --classic
+#+end_src
+
+* GitHub
+** Oh-my-zsh
 
 #+begin_src shell
 if [ -d ~/.oh-my-zsh ]; then rm -rf ~/.oh-my-zsh; fi
+git clone https://github.com/ohmyzsh/ohmyzsh ~/.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+#+end_src
 
-git clone https://github.com/ohmyzsh/ohmyzsh .oh-my-zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-history-substring-search .oh-my-zsh/custom/plugins/zsh-history-substring-search
-git clone https://github.com/zsh-users/zsh-autosuggestions .oh-my-zsh/custom/plugins/zsh-autosuggestions
+** Alacritty
+
+#+begin_src shell
+if [ -d ~/.alacritty ]; then rm -rf ~/.alacritty; fi
+git clone https://github.com/alacritty/alacritty.git ~/.alacritty
+cd ~/.alacritty
+cargo build --release
+sudo cp target/release/alacritty /usr/local/bin
+cd ~/
 #+end_src
 
 * Programming Languages
 ** Python
-*** pip
+*** Pip
 
 #+begin_src shell
-pip3 install --upgrade ipython pytest nose isort
+python3 -m pip install ipython
 #+end_src
 
-*** pyenv
+*** Pyenv
 
 #+begin_src shell
 if [ -d ~/.pyenv ]; then rm -rf ~/.pyenv; fi
@@ -61,18 +89,12 @@ if [ -d ~/.pyenv ]; then rm -rf ~/.pyenv; fi
 git clone https://github.com/pyenv/pyenv .pyenv
 #+end_src
 
-*** poetry
+*** Poetry
 
 #+begin_src shell
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 -
 mkdir ~/.oh-my-zsh/plugins/poetry
 poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry
-#+end_src
-
-*** npm
-
-#+begin_src shell
-sudo npm install -g pyright
 #+end_src
 
 ** Java
@@ -86,38 +108,23 @@ sudo npm install -g pyright
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 #+end_src
 
-#+begin_src shell
-sudo pacman -S rust-analyzer
-#+end_src
-
 ** JavaScript
-*** npm
+*** NPM
 
 #+begin_src shell
 sudo npm install -g typescript typescript-language-server js-beautify
 #+end_src
 
 ** SQL
-*** MariaDB
+*** PostgreSQL
 
 #+begin_src shell
-sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-sudo systemctl enable mariadb.service
-sudo systemctl start mariadb.service
 #+end_src
 
 ** Bash
 
 #+begin_src shell
 sudo npm i -g bash-language-server
-#+end_src
-
-* Emacs
-
-#+begin_src shell
-if [ -d ~/emacs-config ]; then rm -rf ~/emacs-config; fi
-git clone https://github.com/bakmenson/emacs-config.git
-emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "emacs-config/README.org")'
 #+end_src
 
 * Install JetBrains IDE
@@ -135,23 +142,20 @@ done
 rm -rf jetbrains-downloader
 #+end_src
 
+* Emacs Config
+
+#+begin_src shell
+if [ -d ~/dev/emacs-config ]; then rm -rf ~/dev/emacs-config; fi
+git clone https://github.com/bakmenson/emacs-config.git ~/dev/emacs-config
+emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emacs-config/README.org")'
+#+end_src
+
 * Dotfiles
 
 #+begin_src shell
-if [ -d ~/dotfiles ]; then rm -rf ~/dotfiles; fi
-git clone https://github.com/bakmenson/dotfiles.git
-emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "dotfiles/README.org")'
-#+end_src
-
-* AutoLogin
-
-#+begin_src shell
-if [ -d /etc/systemd/system/getty@tty1.service.d ]; then sudo rm -rf /etc/systemd/system/getty@tty1.service.d; fi
-sudo tee /etc/systemd/system/getty@tty1.service.d/override.conf > /dev/null <<EOT
-[Service]
-ExecStart=
-ExecStart=-/usr/bin/agetty --autologin solus --noclear %I $TERM
-EOT
+if [ -d ~/dev/dotfiles ]; then rm -rf ~/dev/dotfiles; fi
+git clone https://github.com/bakmenson/dotfiles.git ~/dev/dotfiles
+emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/dotfiles/README.org")'
 #+end_src
 
 * Automount HDD
@@ -159,28 +163,6 @@ EOT
 #+begin_src shell
 sudo tee -a /etc/fstab > /dev/null <<EOT
 UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
-EOT
-#+end_src
-
-* Environment
-
-#+begin_src shell
-sudo tee -a /etc/environment > /dev/null <<EOT
-
-QT_AUTO_SCREEN_SCALE_FACTOR=1
-
-#QT_QPA_PLATFORMTHEME="gnome"
-QT_QPA_PLATFORMTHEME=qt5ct
-#QT_STYLE_OVERRIDE="kvantum"
-
-# Force to use Xwayland backend
-# QT_QPA_PLATFORM=xcb
-# QT_QPA_PLATFORM=wayland
-
-#Not tested: this should disable window decorations
-# QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-
-MOZ_ENABLE_WAYLAND=1
 EOT
 #+end_src
 
