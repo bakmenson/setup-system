@@ -172,7 +172,6 @@ EOT
 chsh -s /bin/zsh
 #+end_src
 
-
 * Usage
 
 #+begin_src shell :tangle no 
