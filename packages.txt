@@ -40,7 +40,8 @@ libpulse-dev
 libsigc++-2.0-dev
 libspdlog-dev
 libwayland-dev
-libxkbregistry-dev
+libxkbcommon-dev
+wayland-protocols
 mpv
 htop
 neofetch
