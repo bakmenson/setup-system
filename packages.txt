@@ -41,6 +41,7 @@ libsigc++-2.0-dev
 libspdlog-dev
 libwayland-dev
 libxkbcommon-dev
+fbxkb
 wayland-protocols
 mpv
 htop
