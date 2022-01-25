@@ -1,7 +1,0 @@
-emacs --classic
-telegram-desktop
-node --classic
-kotlin --classic
-sway
-brave
-intellij-idea-community --classic

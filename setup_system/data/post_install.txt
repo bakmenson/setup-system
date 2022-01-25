@@ -1,3 +1,0 @@
-echo "UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0" | sudo tee -a /etc/fstab
-
-chsh -s /bin/zsh

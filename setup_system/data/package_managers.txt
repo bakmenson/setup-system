@@ -1,9 +1,0 @@
-priority|name|command|install_mode|is_distro_dependence|distro_id
-1|apt|sudo apt install|MULTIPLE|True|debian,ubuntu
-1|pacman|sudo pacman -S|MULTIPLE|True|arch
-1|dnf|sudo dnf install|MULTIPLE|True|fedora,rhel
-1|zypper|sudo zypper install|MULTIPLE|True|suse
-2|snap|sudo snap install|SINGLE|False|
-3|npm|sudo npm install -g|MULTIPLE|False|
-3|pip|python3 -m pip install|MULTIPLE|False|
-4|from_source||SOURCE|False|
