@@ -6,10 +6,10 @@
 - [[#pre-install][Pre-install]]
 - [[#update][Update]]
 - [[#apt][Apt]]
+- [[#base-packages][Base packages]]
+- [[#wm][WM]]
+  - [[#i3-gaps][i3-gaps]]
 - [[#snap][Snap]]
-- [[#github][GitHub]]
-  - [[#oh-my-zsh][Oh-my-zsh]]
-  - [[#alacritty][Alacritty]]
 - [[#programming-languages][Programming Languages]]
   - [[#python][Python]]
   - [[#java][Java]]
@@ -18,6 +18,9 @@
   - [[#sql][SQL]]
   - [[#bash][Bash]]
 - [[#install-jetbrains-ide][Install JetBrains IDE]]
+- [[#from-source][From source]]
+  - [[#oh-my-zsh][Oh-my-zsh]]
+  - [[#alacritty][Alacritty]]
 - [[#emacs-config][Emacs Config]]
 - [[#dotfiles][Dotfiles]]
 - [[#automount-hdd][Automount HDD]]
@@ -39,7 +42,30 @@ sudo apt update && sudo apt dist-upgrade && sudo snap refresh
 * Apt
 
 #+begin_src shell
-sudo apt install $(cat ~/setup-system/packages.txt)
+#sudo apt install $(cat ~/setup-system/packages.txt)
+#+end_src
+
+* Base packages
+
+#+begin_src shell
+sudo apt install cmake curl mpv htop neofetch npm python3-pip python3-venv vim tree gparted inxi \
+ripgrep xfce4-power-manager sqlite3 zsh fzf alacritty papirus-icon-theme youtube-dl
+#+end_src
+
+* WM
+** i3-gaps
+
+#+begin_src shell
+sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
+libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
+libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake \
+libxcb-shape0-dev
+
+sudo apt install rofi feh dmune polybar scrot unclutter picom lxappearance
+
+sudo add-apt-repository ppa:regolith-linux/release
+sudo apt update
+sudo apt install i3-gaps
 #+end_src
 
 * Snap
@@ -49,28 +75,6 @@ sudo snap install emacs --classic
 sudo snap install telegram-desktop
 sudo snap install node --classic
 sudo snap install kotlin --classic
-#+end_src
-
-* GitHub
-** Oh-my-zsh
-
-#+begin_src shell
-if [ -d ~/.oh-my-zsh ]; then rm -rf ~/.oh-my-zsh; fi
-git clone https://github.com/ohmyzsh/ohmyzsh ~/.oh-my-zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-#+end_src
-
-** Alacritty
-
-#+begin_src shell
-if [ -d ~/.alacritty ]; then rm -rf ~/.alacritty; fi
-git clone https://github.com/alacritty/alacritty.git ~/.alacritty
-cd ~/.alacritty
-cargo build --release
-sudo cp target/release/alacritty /usr/local/bin
-cd ~/
 #+end_src
 
 * Programming Languages
@@ -84,6 +88,10 @@ python3 -m pip install ipython
 *** Pyenv
 
 #+begin_src shell
+sudo apt-get install make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
 if [ -d ~/.pyenv ]; then rm -rf ~/.pyenv; fi
 
 git clone https://github.com/pyenv/pyenv .pyenv
@@ -99,8 +107,9 @@ poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry
 
 ** Java
 
-  #+begin_src shell
-  #+end_src
+#+begin_src shell
+sudo apt install openjdk-8-jdk openjdk-8-source openjdk-8-doc openjdk-17-jdk openjdk-17-source openjdk-17-doc
+#+end_src
 
 ** Rust
 
@@ -119,6 +128,7 @@ sudo npm install -g typescript typescript-language-server js-beautify
 *** PostgreSQL
 
 #+begin_src shell
+sudo apt install postgresql postgresql-contrib
 #+end_src
 
 ** Bash
@@ -142,10 +152,40 @@ done
 rm -rf jetbrains-downloader
 #+end_src
 
+* From source
+** Oh-my-zsh
+
+#+begin_src shell
+if [ -d ~/.oh-my-zsh ]; then rm -rf ~/.oh-my-zsh; fi
+
+git clone https://github.com/ohmyzsh/ohmyzsh ~/.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+#+end_src
+
+** Alacritty
+
+#+begin_src shell
+sudo apt install pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev
+
+if [ -d ~/.alacritty ]; then rm -rf ~/.alacritty; fi
+
+git clone https://github.com/alacritty/alacritty.git ~/.alacritty
+
+cd ~/.alacritty
+cargo build --release
+sudo cp target/release/alacritty /usr/local/bin
+cd ~/
+#+end_src
+
 * Emacs Config
 
 #+begin_src shell
+sudo apt install libvterm-dev
+
 if [ -d ~/dev/emacs-config ]; then rm -rf ~/dev/emacs-config; fi
+
 git clone https://github.com/bakmenson/emacs-config.git ~/dev/emacs-config
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emacs-config/README.org")'
 #+end_src
@@ -154,7 +194,9 @@ emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emac
 
 #+begin_src shell
 if [ -d ~/dev/dotfiles ]; then rm -rf ~/dev/dotfiles; fi
+
 git clone https://github.com/bakmenson/dotfiles.git ~/dev/dotfiles
+
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/dotfiles/README.org")'
 #+end_src
 
