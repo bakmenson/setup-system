@@ -30,7 +30,7 @@
 * Pre-install
 
 #+begin_src shell
-mkdir ~/dev
+mkdir -p ~/dev
 #+end_src
 
 * Update
