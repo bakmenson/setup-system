@@ -49,7 +49,7 @@ sudo apt update && sudo apt dist-upgrade && sudo snap refresh
 
 #+begin_src shell
 sudo apt install cmake curl mpv htop neofetch npm python3-pip python3-venv vim tree gparted inxi \
-ripgrep xfce4-power-manager sqlite3 zsh fzf papirus-icon-theme youtube-dl arc-theme
+ripgrep xfce4-power-manager sqlite3 zsh fzf papirus-icon-theme youtube-dl arc-theme fonts-jetbrains-mono
 #+end_src
 
 * WM
