@@ -150,6 +150,8 @@ while true; do
 	[[ $answer == "" || $answer == "y" ]] || break
 done
 rm -rf jetbrains-downloader
+
+if [ -f ~/.profile ]; then echo export _JAVA_AWT_WM_NONREPARENTING=1 >> ~/.profile; fi
 #+end_src
 
 * From source
