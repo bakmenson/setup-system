@@ -192,6 +192,7 @@ git clone https://github.com/cask/cask ~/.cask
 git clone https://github.com/politza/pdf-tools .pdf-tools
 cd .pdf-tools
 make -s
+cd ~/
 
 if [ -d ~/dev/emacs-config ]; then rm -rf ~/dev/emacs-config; fi
 
