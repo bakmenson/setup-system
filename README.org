@@ -22,7 +22,6 @@
   - [[#oh-my-zsh][Oh-my-zsh]]
   - [[#alacritty][Alacritty]]
 - [[#emacs-config][Emacs Config]]
-- [[#nyxt][Nyxt]]
 - [[#dotfiles][Dotfiles]]
 - [[#automount-hdd][Automount HDD]]
 - [[#change-shell][Change Shell]]
@@ -205,30 +204,6 @@ emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emac
 mkdir -p ~/.config/emacs/exwm
 echo "[Desktop Entry]\nName=Emacs\nExec=emacs\nType=Application" >> ~/.config/emacs/exwm/emacs.desktop
 sudo ln -sf ~/.config/emacs/exwm/emacs.desktop /usr/share/xsessions
-#+end_src
-
-* Nyxt
-
-- =dependencies=
-
-#+begin_src shell
-sudo apt install libfixposix-dev libwebkit2gtk-4.0-dev xclip libfixposix3 libsoup2.4-dev libjavascriptcoregtk-4.0-dev libbrotli-dev libpsl-dev
-#+end_src
-
-- =download and install latest nyxt release=
-
-#+begin_src shell
-last_version=$(curl -s https://api.github.com/repos/atlas-engineer/nyxt/releases/latest | grep '"name":' | sed -E 's/.*"([^"]+)".*/\1/' | head -n 1)
-
-package_name="nyxt_"${last_version}"_amd64.deb"
-
-link="https://github.com/atlas-engineer/nyxt/releases/download/"${last_version}"/"${package_name}
-
-wget ${link}
-
-sudo apt install ./${package_name}
-
-rm ${package_name}
 #+end_src
 
 * Dotfiles
