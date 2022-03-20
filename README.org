@@ -200,6 +200,13 @@ git clone https://github.com/bakmenson/emacs-config.git ~/dev/emacs-config
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emacs-config/README.org")'
 #+end_src
 
+- =EXWM Desktop=
+#+begin_src shell
+mkdir -p ~/.config/emacs/exwm
+echo "[Desktop Entry]\nName=Emacs\nExec=emacs\nType=Application" >> ~/.config/emacs/exwm/emacs.desktop
+sudo ln -sf ~/.config/emacs/exwm/emacs.desktop /usr/share/xsessions
+#+end_src
+
 * Nyxt
 
 - =dependencies=
