@@ -206,6 +206,17 @@ echo "[Desktop Entry]\nName=Emacs\nExec=emacs\nType=Application" >> ~/.config/em
 sudo ln -sf ~/.config/emacs/exwm/emacs.desktop /usr/share/xsessions
 #+end_src
 
+- =TDLib for telega=
+
+#+begin_src shell
+git clone https://github.com/tdlib/td.git
+cd td
+mkdir build && cd build && cmake ../
+make -j2
+sudo make install
+
+#+end_src
+
 * Dotfiles
 
 #+begin_src shell
