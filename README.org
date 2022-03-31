@@ -1,6 +1,6 @@
 #+title: Setup System
 
-#+property: header-args:shell :tangle-mode (identity #o555) :tangle setup-system.sh :shebang #!/bin/bash
+#+property: header-args:shell :tangle-mode (identity #o555) :tangle setup-system.sh :shebang #!/bin/zsh
 
 * Table of Contents :toc:
 - [[#pre-install][Pre-install]]
@@ -41,7 +41,7 @@ mkdir -p ~/dev
 * Update
 
 #+begin_src shell
-sudo apt update && sudo apt dist-upgrade && sudo snap refresh
+#sudo apt update && sudo apt dist-upgrade && sudo snap refresh
 #+end_src
 
 * Apt
@@ -174,6 +174,7 @@ git clone https://github.com/pyenv/pyenv .pyenv
 *** poetry
 
 #+begin_src shell
+source ~/.zshrc
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 -
 mkdir -p ~/.oh-my-zsh/plugins/poetry
 poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry || exit 1
@@ -200,6 +201,7 @@ sudo snap install kotlin --classic
 
 #+begin_src shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
 #+end_src
 
 ** javascript
@@ -237,6 +239,7 @@ if [ -d ~/.alacritty ]; then rm -rf ~/.alacritty; fi
 git clone https://github.com/alacritty/alacritty.git ~/.alacritty
 
 cd ~/.alacritty
+source ~/.zshrc
 cargo build --release || exit 1
 sudo cp target/release/alacritty /usr/local/bin
 cd ~/
@@ -269,7 +272,7 @@ if [ -f ~/.profile ]; then echo export _JAVA_AWT_WM_NONREPARENTING=1 >> ~/.profi
 ** emacs
 
 #+begin_src shell
-sudo snap install emacs --classic
+#sudo snap install emacs --classic
 
 if [ -d ~/dev/emacs-config ]; then rm -rf ~/dev/emacs-config; fi
 
@@ -308,9 +311,9 @@ sudo apt install -y build-essential \
      automake \
      autoconf
 
-source ~/.zshrc
 git clone https://github.com/politza/pdf-tools.git
 cd pdf-tools
+source ~/.zshrc
 make -s || exit 1
 cd ~/
 #+end_src
@@ -324,10 +327,10 @@ sudo apt install -y build-essential \
      gperf \
      cmake
 
-source ~/.zshrc
 git clone https://github.com/tdlib/td.git
 cd td
 mkdir build && cd build
+source ~/.zshrc
 cmake ../ || exit 1
 make -j2 || exit 1
 sudo make install || exit 1
@@ -347,8 +350,8 @@ EOT
 #+begin_src shell :tangle no 
 git clone https://github.com/bakmenson/setup-system
 
-bash setup-system/zsh.sh
+bash setup-system/pre-install.sh
 
 # after reboot
-bash setup-system/install.sh
+zsh setup-system/install.sh
 #+end_src
