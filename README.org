@@ -30,7 +30,6 @@
   - [[#pdf-tools][pdf-tools]]
   - [[#tdlib-for-telega][tdlib for telega]]
 - [[#automount-hdd][Automount HDD]]
-- [[#change-shell][Change Shell]]
 - [[#usage][Usage]]
 
 * Pre-install
@@ -341,12 +340,6 @@ cd ~/
 sudo tee -a /etc/fstab > /dev/null <<EOT
 UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
 EOT
-#+end_src
-
-* Change Shell
-
-#+begin_src shell
-chsh -s /bin/zsh
 #+end_src
 
 * Usage
