@@ -288,7 +288,7 @@ sudo ln -sf ~/.config/emacs/exwm/emacs.desktop /usr/share/xsessions
 ** cask
 
 #+begin_src shell
-source ~/.bashrc
+source ~/.zshrc
 curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python3
 git clone https://github.com/cask/cask.git
 make -C cask install || exit 1
@@ -308,7 +308,7 @@ sudo apt install -y build-essential \
      automake \
      autoconf
 
-source ~/.bashrc
+source ~/.zshrc
 git clone https://github.com/politza/pdf-tools.git
 cd pdf-tools
 make -s || exit 1
@@ -324,7 +324,7 @@ sudo apt install -y build-essential \
      gperf \
      cmake
 
-source ~/.bashrc
+source ~/.zshrc
 git clone https://github.com/tdlib/td.git
 cd td
 mkdir build && cd build
