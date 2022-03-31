@@ -177,7 +177,7 @@ git clone https://github.com/pyenv/pyenv .pyenv
 #+begin_src shell
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 -
 mkdir -p ~/.oh-my-zsh/plugins/poetry
-poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry
+poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry || exit 1
 #+end_src
 
 ** java
@@ -238,7 +238,7 @@ if [ -d ~/.alacritty ]; then rm -rf ~/.alacritty; fi
 git clone https://github.com/alacritty/alacritty.git ~/.alacritty
 
 cd ~/.alacritty
-cargo build --release
+cargo build --release || exit 1
 sudo cp target/release/alacritty /usr/local/bin
 cd ~/
 #+end_src
@@ -292,7 +292,7 @@ sudo ln -sf ~/.config/emacs/exwm/emacs.desktop /usr/share/xsessions
 source ~/.bashrc
 curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python3
 git clone https://github.com/cask/cask.git
-make -C cask install
+make -C cask install || exit 1
 #+end_src
 
 ** pdf-tools
@@ -312,7 +312,7 @@ sudo apt install build-essential \
 source ~/.bashrc
 git clone https://github.com/politza/pdf-tools.git
 cd pdf-tools
-make -s
+make -s || exit 1
 cd ~/
 #+end_src
 
@@ -328,9 +328,11 @@ sudo apt install build-essential \
 source ~/.bashrc
 git clone https://github.com/tdlib/td.git
 cd td
-mkdir build && cd build && cmake ../
-make -j2
-sudo make install
+mkdir build && cd build
+cmake ../ || exit 1
+make -j2 || exit 1
+sudo make install || exit 1
+cd ~/
 #+end_src
 
 * Automount HDD
