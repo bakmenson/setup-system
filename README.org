@@ -53,7 +53,7 @@ sudo apt update && sudo apt dist-upgrade && sudo snap refresh
 * Base packages
 
 #+begin_src shell
-sudo apt install cmake \
+sudo apt install -y cmake \
      make \
      wget \
      curl \
@@ -73,14 +73,14 @@ sudo apt install cmake \
      fzf \
      papirus-icon-theme \
      arc-theme \
-     fonts-jetbrains-mono \
+     fonts-jetbrains-mono
 #+end_src
 
 * WM
 ** i3-gaps
 
 #+begin_src shell
-# sudo apt install libxcb1-dev \
+# sudo apt install -y libxcb1-dev \
 #      libxcb-keysyms1-dev \
 #      libpango1.0-dev \
 #      libxcb-util0-dev \
@@ -100,7 +100,7 @@ sudo apt install cmake \
 #      automake \
 #      libxcb-shape0-dev
 
-# sudo apt install rofi \
+# sudo apt install -y rofi \
 #      feh \
 #      dmune \
 #      polybar \
@@ -148,7 +148,7 @@ python3 -m pip install ipython
 *** pyenv
 
 #+begin_src shell
-sudo apt install make \
+sudo apt install -y make \
      build-essential \
      libssl-dev \
      zlib1g-dev \
@@ -182,7 +182,7 @@ poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry || exit 1
 ** java
 
 #+begin_src shell
-sudo apt install openjdk-8-jdk \
+sudo apt install -y openjdk-8-jdk \
      openjdk-8-source \
      openjdk-8-doc \
      openjdk-17-jdk \
@@ -213,7 +213,7 @@ sudo npm install -g typescript typescript-language-server js-beautify
 *** postgresql
 
 #+begin_src shell
-sudo apt install postgresql postgresql-contrib
+sudo apt install -y postgresql postgresql-contrib
 #+end_src
 
 ** bash
@@ -226,7 +226,7 @@ sudo npm i -g bash-language-server
 ** alacritty
 
 #+begin_src shell
-sudo apt install pkg-config \
+sudo apt install -y pkg-config \
      libfreetype6-dev \
      libfontconfig1-dev \
      libxcb-xfixes0-dev \
@@ -297,7 +297,7 @@ make -C cask install || exit 1
 ** pdf-tools
 
 #+begin_src shell
-sudo apt install build-essential \
+sudo apt install -y build-essential \
      libvterm-dev \
      libglib2.0-dev \
      libpng-dev \
@@ -318,7 +318,7 @@ cd ~/
 ** tdlib for telega
 
 #+begin_src shell
-sudo apt install build-essential \
+sudo apt install -y build-essential \
      openssl \
      zlib1g \
      gperf \
