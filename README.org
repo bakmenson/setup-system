@@ -9,20 +9,26 @@
 - [[#base-packages][Base packages]]
 - [[#wm][WM]]
   - [[#i3-gaps][i3-gaps]]
-- [[#snap][Snap]]
-- [[#programming-languages][Programming Languages]]
-  - [[#python][Python]]
-  - [[#java][Java]]
-  - [[#rust][Rust]]
-  - [[#javascript][JavaScript]]
-  - [[#sql][SQL]]
-  - [[#bash][Bash]]
-- [[#install-jetbrains-ide][Install JetBrains IDE]]
-- [[#from-source][From source]]
-  - [[#oh-my-zsh][Oh-my-zsh]]
-  - [[#alacritty][Alacritty]]
-- [[#emacs-config][Emacs Config]]
+- [[#oh-my-zsh][Oh-my-zsh]]
 - [[#dotfiles][Dotfiles]]
+- [[#programming-languages][Programming Languages]]
+  - [[#python][python]]
+  - [[#java][java]]
+  - [[#kotlin][kotlin]]
+  - [[#rust][rust]]
+  - [[#javascript][javascript]]
+  - [[#sql][sql]]
+  - [[#bash][bash]]
+- [[#terminal][Terminal]]
+  - [[#alacritty][alacritty]]
+- [[#snap][Snap]]
+- [[#install-jetbrains-ide][Install JetBrains IDE]]
+- [[#emacs-config][Emacs Config]]
+  - [[#emacs][emacs]]
+  - [[#exwm][exwm]]
+  - [[#cask][cask]]
+  - [[#pdf-tools][pdf-tools]]
+  - [[#tdlib-for-telega][tdlib for telega]]
 - [[#automount-hdd][Automount HDD]]
 - [[#change-shell][Change Shell]]
 - [[#usage][Usage]]
@@ -48,93 +54,201 @@ sudo apt update && sudo apt dist-upgrade && sudo snap refresh
 * Base packages
 
 #+begin_src shell
-sudo apt install cmake curl mpv htop neofetch npm python3-pip python3-venv vim tree gparted inxi \
-ripgrep xfce4-power-manager sqlite3 zsh fzf papirus-icon-theme youtube-dl arc-theme fonts-jetbrains-mono
+sudo apt install cmake \
+     make \
+     wget \
+     curl \
+     mpv \
+     htop \
+     neofetch \
+     python3-pip \
+     python3-venv \
+     vim \
+     tree \
+     gparted \
+     inxi \
+     ripgrep \
+     xfce4-power-manager \
+     sqlite3 \
+     zsh \
+     fzf \
+     papirus-icon-theme \
+     arc-theme \
+     fonts-jetbrains-mono \
 #+end_src
 
 * WM
 ** i3-gaps
 
 #+begin_src shell
-sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
-libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
-libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake \
-libxcb-shape0-dev
+# sudo apt install libxcb1-dev \
+#      libxcb-keysyms1-dev \
+#      libpango1.0-dev \
+#      libxcb-util0-dev \
+#      libxcb-icccm4-dev \
+#      libyajl-dev \
+#      libstartup-notification0-dev \
+#      libxcb-randr0-dev \
+#      libev-dev \
+#      libxcb-cursor-dev \
+#      libxcb-xinerama0-dev \
+#      libxcb-xkb-dev \
+#      libxkbcommon-dev \
+#      libxkbcommon-x11-dev \
+#      autoconf \
+#      libxcb-xrm0 \
+#      libxcb-xrm-dev \
+#      automake \
+#      libxcb-shape0-dev
 
-sudo apt install rofi feh dmune polybar scrot unclutter picom lxappearance
+# sudo apt install rofi \
+#      feh \
+#      dmune \
+#      polybar \
+#      scrot \
+#      unclutter \
+#      picom \
+#      lxappearance
 
-sudo add-apt-repository ppa:regolith-linux/release
-sudo apt update
-sudo apt install i3-gaps
+# sudo add-apt-repository ppa:regolith-linux/release
+# sudo apt update
+# sudo apt install i3-gaps
 #+end_src
 
-* Snap
+* Oh-my-zsh
 
 #+begin_src shell
-sudo snap install emacs --classic
-sudo snap install telegram-desktop
-sudo snap install node --classic
-sudo snap install kotlin --classic
+if [ -d ~/.oh-my-zsh ]; then rm -rf ~/.oh-my-zsh; fi
+
+git clone https://github.com/ohmyzsh/ohmyzsh ~/.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+#+end_src
+
+* Dotfiles
+
+#+begin_src shell
+if [ -d ~/dev/dotfiles ]; then rm -rf ~/dev/dotfiles; fi
+
+git clone https://github.com/bakmenson/dotfiles.git ~/dev/dotfiles
+
+emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/dotfiles/README.org")'
+
+sudo chmod +x ~/.config/polybar/polybar.sh
 #+end_src
 
 * Programming Languages
-** Python
-*** Pip
+** python
+*** ipython
 
 #+begin_src shell
 python3 -m pip install ipython
 #+end_src
 
-*** Pyenv
+*** pyenv
 
 #+begin_src shell
-sudo apt-get install make build-essential libssl-dev zlib1g-dev \
-libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+sudo apt install make \
+     build-essential \
+     libssl-dev \
+     zlib1g-dev \
+     libbz2-dev \
+     libreadline-dev \
+     libsqlite3-dev \
+     wget \
+     curl \
+     llvm \
+     libncursesw5-dev \
+     xz-utils \
+     tk-dev \
+     libxml2-dev \
+     libxmlsec1-dev \
+     libffi-dev \
+     liblzma-dev
 
 if [ -d ~/.pyenv ]; then rm -rf ~/.pyenv; fi
 
 git clone https://github.com/pyenv/pyenv .pyenv
 #+end_src
 
-*** Poetry
+*** poetry
 
 #+begin_src shell
+zsh
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 -
-mkdir ~/.oh-my-zsh/plugins/poetry
+mkdir -p ~/.oh-my-zsh/plugins/poetry
 poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry
+exit
 #+end_src
 
-** Java
+** java
 
 #+begin_src shell
-sudo apt install openjdk-8-jdk openjdk-8-source openjdk-8-doc openjdk-17-jdk openjdk-17-source openjdk-17-doc
+sudo apt install openjdk-8-jdk \
+     openjdk-8-source \
+     openjdk-8-doc \
+     openjdk-17-jdk \
+     openjdk-17-source \
+     openjdk-17-doc
 #+end_src
 
-** Rust
+** kotlin
+
+#+begin_src shell
+sudo snap install kotlin --classic
+#+end_src
+
+** rust
 
 #+begin_src shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 #+end_src
 
-** JavaScript
-*** NPM
+** javascript
 
 #+begin_src shell
+sudo snap install node --classic
 sudo npm install -g typescript typescript-language-server js-beautify
 #+end_src
 
-** SQL
-*** PostgreSQL
+** sql
+*** postgresql
 
 #+begin_src shell
 sudo apt install postgresql postgresql-contrib
 #+end_src
 
-** Bash
+** bash
 
 #+begin_src shell
 sudo npm i -g bash-language-server
+#+end_src
+
+* Terminal
+** alacritty
+
+#+begin_src shell
+sudo apt install pkg-config \
+     libfreetype6-dev \
+     libfontconfig1-dev \
+     libxcb-xfixes0-dev \
+     libxkbcommon-dev
+
+if [ -d ~/.alacritty ]; then rm -rf ~/.alacritty; fi
+
+git clone https://github.com/alacritty/alacritty.git ~/.alacritty
+
+cd ~/.alacritty
+cargo build --release
+sudo cp target/release/alacritty /usr/local/bin
+cd ~/
+#+end_src
+
+* Snap
+
+#+begin_src shell
+sudo snap install telegram-desktop
 #+end_src
 
 * Install JetBrains IDE
@@ -154,44 +268,11 @@ rm -rf jetbrains-downloader
 if [ -f ~/.profile ]; then echo export _JAVA_AWT_WM_NONREPARENTING=1 >> ~/.profile; fi
 #+end_src
 
-* From source
-** Oh-my-zsh
-
-#+begin_src shell
-if [ -d ~/.oh-my-zsh ]; then rm -rf ~/.oh-my-zsh; fi
-
-git clone https://github.com/ohmyzsh/ohmyzsh ~/.oh-my-zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-#+end_src
-
-** Alacritty
-
-#+begin_src shell
-sudo apt install pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev
-
-if [ -d ~/.alacritty ]; then rm -rf ~/.alacritty; fi
-
-git clone https://github.com/alacritty/alacritty.git ~/.alacritty
-
-cd ~/.alacritty
-cargo build --release
-sudo cp target/release/alacritty /usr/local/bin
-cd ~/
-#+end_src
-
 * Emacs Config
+** emacs
 
 #+begin_src shell
-sudo apt install libvterm-dev
-
-git clone https://github.com/cask/cask ~/.cask
-
-git clone https://github.com/politza/pdf-tools .pdf-tools
-cd .pdf-tools
-make -s
-cd ~/
+sudo snap install emacs --classic
 
 if [ -d ~/dev/emacs-config ]; then rm -rf ~/dev/emacs-config; fi
 
@@ -199,34 +280,62 @@ git clone https://github.com/bakmenson/emacs-config.git ~/dev/emacs-config
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emacs-config/README.org")'
 #+end_src
 
-- =EXWM Desktop=
+** exwm
+
 #+begin_src shell
 mkdir -p ~/.config/emacs/exwm
 echo "[Desktop Entry]\nName=Emacs\nExec=emacs\nType=Application" >> ~/.config/emacs/exwm/emacs.desktop
 sudo ln -sf ~/.config/emacs/exwm/emacs.desktop /usr/share/xsessions
 #+end_src
 
-- =TDLib for telega=
+** cask
 
 #+begin_src shell
+zsh
+curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python3
+git clone https://github.com/cask/cask.git
+make -C cask install
+exit
+#+end_src
+
+** pdf-tools
+
+#+begin_src shell
+sudo apt install build-essential \
+     libvterm-dev \
+     libglib2.0-dev \
+     libpng-dev \
+     zlib1g-dev \
+     libpoppler-glib-dev \
+     libpoppler-private-dev \
+     imagemagick \
+     automake \
+     autoconf
+
+zsh
+git clone https://github.com/politza/pdf-tools.git
+cd pdf-tools
+make -s
+exit
+cd ~/
+#+end_src
+
+** tdlib for telega
+
+#+begin_src shell
+sudo apt install build-essential \
+     openssl \
+     zlib1g \
+     gperf \
+     cmake
+
 git clone https://github.com/tdlib/td.git
+zsh
 cd td
 mkdir build && cd build && cmake ../
 make -j2
 sudo make install
-
-#+end_src
-
-* Dotfiles
-
-#+begin_src shell
-if [ -d ~/dev/dotfiles ]; then rm -rf ~/dev/dotfiles; fi
-
-git clone https://github.com/bakmenson/dotfiles.git ~/dev/dotfiles
-
-emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/dotfiles/README.org")'
-
-sudo chmod +x ~/.config/polybar/polybar.sh
+exit
 #+end_src
 
 * Automount HDD
