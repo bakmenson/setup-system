@@ -175,11 +175,9 @@ git clone https://github.com/pyenv/pyenv .pyenv
 *** poetry
 
 #+begin_src shell
-zsh
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 -
 mkdir -p ~/.oh-my-zsh/plugins/poetry
 poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry
-exit
 #+end_src
 
 ** java
@@ -291,11 +289,10 @@ sudo ln -sf ~/.config/emacs/exwm/emacs.desktop /usr/share/xsessions
 ** cask
 
 #+begin_src shell
-zsh
+source ~/.bashrc
 curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python3
 git clone https://github.com/cask/cask.git
 make -C cask install
-exit
 #+end_src
 
 ** pdf-tools
@@ -312,11 +309,10 @@ sudo apt install build-essential \
      automake \
      autoconf
 
-zsh
+source ~/.bashrc
 git clone https://github.com/politza/pdf-tools.git
 cd pdf-tools
 make -s
-exit
 cd ~/
 #+end_src
 
@@ -329,13 +325,12 @@ sudo apt install build-essential \
      gperf \
      cmake
 
+source ~/.bashrc
 git clone https://github.com/tdlib/td.git
-zsh
 cd td
 mkdir build && cd build && cmake ../
 make -j2
 sudo make install
-exit
 #+end_src
 
 * Automount HDD
