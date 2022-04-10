@@ -77,8 +77,7 @@ sudo apt install -y cmake \
      feh \
      picom \
      lxappearance \
-     unclutter \
-     brightnessctl
+     unclutter
 #+end_src
 
 * WM
