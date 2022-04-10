@@ -1,6 +1,6 @@
 #+title: Setup System
 
-#+property: header-args:shell :tangle-mode (identity #o555) :tangle setup-system.sh :shebang #!/bin/zsh
+#+property: header-args:shell :tangle setup-system.sh :shebang #!/bin/zsh
 
 * Table of Contents :toc:
 - [[#pre-install][Pre-install]]
@@ -59,10 +59,10 @@ sudo apt install -y cmake \
      curl \
      mpv \
      htop \
+     vim \
      neofetch \
      python3-pip \
-     python3-venv \
-     vim \
+     python3.8-venv \
      tree \
      gparted \
      inxi \
@@ -73,45 +73,59 @@ sudo apt install -y cmake \
      fzf \
      papirus-icon-theme \
      arc-theme \
-     fonts-jetbrains-mono
+     fonts-jetbrains-mono \
+     feh \
+     picom \
+     lxappearance \
+     unclutter \
+     brightnessctl
 #+end_src
 
 * WM
 ** i3-gaps
 
 #+begin_src shell
-# sudo apt install -y libxcb1-dev \
-#      libxcb-keysyms1-dev \
-#      libpango1.0-dev \
-#      libxcb-util0-dev \
-#      libxcb-icccm4-dev \
-#      libyajl-dev \
-#      libstartup-notification0-dev \
-#      libxcb-randr0-dev \
-#      libev-dev \
-#      libxcb-cursor-dev \
-#      libxcb-xinerama0-dev \
-#      libxcb-xkb-dev \
-#      libxkbcommon-dev \
-#      libxkbcommon-x11-dev \
-#      autoconf \
-#      libxcb-xrm0 \
-#      libxcb-xrm-dev \
-#      automake \
-#      libxcb-shape0-dev
+#sudo apt install -y libxcb1-dev \
+#     libxcb-keysyms1-dev \
+#     libpango1.0-dev \
+#     libxcb-util0-dev \
+#     libxcb-icccm4-dev \
+#     libyajl-dev \
+#     libstartup-notification0-dev \
+#     libxcb-randr0-dev \
+#     libev-dev \
+#     libxcb-cursor-dev \
+#     libxcb-xinerama0-dev \
+#     libxcb-xkb-dev \
+#     libxkbcommon-dev \
+#     libxkbcommon-x11-dev \
+#     autoconf \
+#     libxcb-xrm0 \
+#     libxcb-xrm-dev \
+#     automake \
+#     libxcb-shape0-dev
 
-# sudo apt install -y rofi \
-#      feh \
-#      dmune \
-#      polybar \
-#      scrot \
-#      unclutter \
-#      picom \
-#      lxappearance
+#sudo apt install -y rofi \
+#     feh \
+#     dmune \
+#     scrot \
+#     unclutter \
+#     picom \
+#     lxappearance
 
-# sudo add-apt-repository ppa:regolith-linux/release
-# sudo apt update
-# sudo apt install i3-gaps
+#sudo add-apt-repository ppa:regolith-linux/release
+#sudo apt update
+#sudo apt install i3-gaps
+
+#sudo apt install -y build-essential git cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev
+
+#sudo apt install -y libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev
+
+# Make sure to type the `git' command as-is to clone all git submodules too
+#git clone --recursive https://github.com/polybar/polybar
+#cd polybar
+#cmake -DCMAKE_CXX_COMPILER="clang++" ..
+#cd
 #+end_src
 
 * Oh-my-zsh
@@ -134,7 +148,7 @@ git clone https://github.com/bakmenson/dotfiles.git ~/dev/dotfiles
 
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/dotfiles/README.org")'
 
-sudo chmod +x ~/.config/polybar/polybar.sh
+#sudo chmod +x ~/.config/polybar/polybar.sh
 #+end_src
 
 * Programming Languages
@@ -228,21 +242,21 @@ sudo npm i -g bash-language-server
 ** alacritty
 
 #+begin_src shell
-sudo apt install -y pkg-config \
-     libfreetype6-dev \
-     libfontconfig1-dev \
-     libxcb-xfixes0-dev \
-     libxkbcommon-dev
+#sudo apt install -y pkg-config \
+#     libfreetype6-dev \
+#     libfontconfig1-dev \
+#     libxcb-xfixes0-dev \
+#     libxkbcommon-dev
 
-if [ -d ~/.alacritty ]; then rm -rf ~/.alacritty; fi
+#if [ -d ~/.alacritty ]; then rm -rf ~/.alacritty; fi
 
-git clone https://github.com/alacritty/alacritty.git ~/.alacritty
+#git clone https://github.com/alacritty/alacritty.git ~/.alacritty
 
-cd ~/.alacritty
-source ~/.zshrc
-cargo build --release || exit 1
-sudo cp target/release/alacritty /usr/local/bin
-cd ~/
+#cd ~/.alacritty
+#source ~/.zshrc
+#cargo build --release || exit 1
+#sudo cp target/release/alacritty /usr/local/bin
+#cd ~/
 #+end_src
 
 * Snap
@@ -277,6 +291,7 @@ if [ -f ~/.profile ]; then echo export _JAVA_AWT_WM_NONREPARENTING=1 >> ~/.profi
 if [ -d ~/dev/emacs-config ]; then rm -rf ~/dev/emacs-config; fi
 
 git clone https://github.com/bakmenson/emacs-config.git ~/dev/emacs-config
+mkdir -p ~/.config/emacs
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emacs-config/README.org")'
 #+end_src
 
@@ -284,8 +299,8 @@ emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emac
 
 #+begin_src shell
 mkdir -p ~/.config/emacs/exwm
-echo "[Desktop Entry]\nName=Emacs\nExec=emacs\nType=Application" >> ~/.config/emacs/exwm/emacs.desktop
-sudo ln -sf ~/.config/emacs/exwm/emacs.desktop /usr/share/xsessions
+sudo echo "[Desktop Entry]\nName=Emacs\nExec=emacs\nType=Application" >> /usr/share/xsessions/emacs.desktop
+#sudo ln -sf ~/.config/emacs/exwm/emacs.desktop /usr/share/xsessions
 #+end_src
 
 ** cask
@@ -341,6 +356,8 @@ cd ~/
 sudo tee -a /etc/fstab > /dev/null <<EOT
 UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
 EOT
+
+echo "\n\nDone"
 #+end_src
 
 * Usage
