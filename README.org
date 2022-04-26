@@ -62,7 +62,6 @@ reboot
 mkdir -p ~/dev
 sudo apt install -y zsh
 touch ~/.zshrc
-sudo snap install emacs --classic
 chsh -s /bin/zsh
 reboot
 #+end_src
