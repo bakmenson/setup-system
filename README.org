@@ -38,6 +38,8 @@ sudo snap install emacs --classic
 
 git clone https://github.com/bakmenson/setup-system
 
+bash setup-system/tangle.sh
+
 bash setup-system/update.sh
 
 # after reboot
