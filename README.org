@@ -34,6 +34,9 @@
 #+begin_src shell :tangle no
 git clone https://github.com/bakmenson/setup-system
 
+bash setup-system/update.sh
+
+# after reboot
 bash setup-system/pre-install.sh
 
 # after reboot
