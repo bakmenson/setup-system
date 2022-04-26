@@ -6,6 +6,7 @@
 - [[#usage][Usage]]
 - [[#update][Update]]
 - [[#pre-install][Pre-install]]
+- [[#install][Install]]
 - [[#base-packages][Base packages]]
 - [[#oh-my-zsh][Oh-my-zsh]]
 - [[#dotfiles][Dotfiles]]
@@ -59,6 +60,20 @@ touch ~/.zshrc
 sudo snap install emacs --classic
 chsh -s /bin/zsh
 reboot
+#+end_src
+
+* Install
+
+#+begin_src shell :tangle install.sh :shebang #!/bin/zsh
+zsh setup-system/setup-system.sh
+
+rm setup-system/update.sh
+rm setup-system/pre-install.sh
+rm setup-system/setup-system.sh
+
+mv ~/setup-system ~/dev/setup-system
+
+echo "\n\nDone"
 #+end_src
 
 * Base packages
