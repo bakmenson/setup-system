@@ -3,6 +3,7 @@
 #+property: header-args:shell :tangle setup-system.sh :shebang #!/bin/zsh
 
 * Table of Contents :toc:
+- [[#usage][Usage]]
 - [[#update][Update]]
 - [[#pre-install][Pre-install]]
 - [[#base-packages][Base packages]]
@@ -27,7 +28,17 @@
   - [[#pdf-tools][pdf-tools]]
   - [[#tdlib-for-telega][tdlib for telega]]
 - [[#automount-hdd][Automount HDD]]
-- [[#usage][Usage]]
+
+* Usage
+
+#+begin_src shell :tangle no
+git clone https://github.com/bakmenson/setup-system
+
+bash setup-system/pre-install.sh
+
+# after reboot
+zsh setup-system/install.sh
+#+end_src
 
 * Update
 
@@ -297,15 +308,4 @@ cd ~/
 sudo tee -a /etc/fstab > /dev/null <<EOT
 UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
 EOT
-#+end_src
-
-* Usage
-
-#+begin_src shell :tangle no 
-git clone https://github.com/bakmenson/setup-system
-
-bash setup-system/pre-install.sh
-
-# after reboot
-zsh setup-system/install.sh
 #+end_src
