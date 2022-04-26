@@ -4,7 +4,6 @@
 
 * Table of Contents :toc:
 - [[#pre-install][Pre-install]]
-- [[#apt][Apt]]
 - [[#base-packages][Base packages]]
 - [[#oh-my-zsh][Oh-my-zsh]]
 - [[#dotfiles][Dotfiles]]
@@ -33,12 +32,6 @@
 
 #+begin_src shell
 mkdir -p ~/dev
-#+end_src
-
-* Apt
-
-#+begin_src shell
-#sudo apt install $(cat ~/setup-system/packages.txt)
 #+end_src
 
 * Base packages
