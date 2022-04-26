@@ -33,6 +33,9 @@
 * Usage
 
 #+begin_src shell :tangle no
+sudo apt install -y git
+sudo snap install emacs --classic
+
 git clone https://github.com/bakmenson/setup-system
 
 bash setup-system/update.sh
