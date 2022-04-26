@@ -298,8 +298,6 @@ cd ~/
 sudo tee -a /etc/fstab > /dev/null <<EOT
 UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
 EOT
-
-echo "\n\nDone"
 #+end_src
 
 * Usage
