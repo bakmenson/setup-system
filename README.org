@@ -30,8 +30,13 @@
 
 * Pre-install
 
-#+begin_src shell
+#+begin_src shell :tangle pre-install.sh :shebang #!/bin/bash
 mkdir -p ~/dev
+sudo apt install -y zsh
+touch ~/.zshrc
+sudo snap install emacs --classic
+chsh -s /bin/zsh
+reboot
 #+end_src
 
 * Base packages
