@@ -297,9 +297,7 @@ emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emac
 ** exwm
 
 #+begin_src shell
-mkdir -p ~/.config/emacs/exwm
 sudo echo "[Desktop Entry]\nName=Emacs\nExec=emacs\nType=Application" >> /usr/share/xsessions/emacs.desktop
-#sudo ln -sf ~/.config/emacs/exwm/emacs.desktop /usr/share/xsessions
 #+end_src
 
 ** cask
