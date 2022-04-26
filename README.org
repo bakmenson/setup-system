@@ -3,6 +3,7 @@
 #+property: header-args:shell :tangle setup-system.sh :shebang #!/bin/zsh
 
 * Table of Contents :toc:
+- [[#update][Update]]
 - [[#pre-install][Pre-install]]
 - [[#base-packages][Base packages]]
 - [[#oh-my-zsh][Oh-my-zsh]]
@@ -27,6 +28,13 @@
   - [[#tdlib-for-telega][tdlib for telega]]
 - [[#automount-hdd][Automount HDD]]
 - [[#usage][Usage]]
+
+* Update
+
+#+begin_src shell :tangle update.sh :shebang #!/bin/bash
+sudo apt update && sudo apt dist-upgrade && sudo snap refresh
+reboot
+#+end_src
 
 * Pre-install
 
