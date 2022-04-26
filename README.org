@@ -219,15 +219,9 @@ sudo snap install telegram-desktop
 
 #+begin_src shell
 git clone https://github.com/bakmenson/jetbrains-downloader.git
-#while true; do
-#	printf "\n"
-#	python3 ~/jetbrains-downloader/downloader.py
-#
-#	printf "\nDo you want install another IDE? (y/n)"
-#	read -s -n 1 answer
-#	[[ $answer == "" || $answer == "y" ]] || break
-#done
-#rm -rf jetbrains-downloader
+
+python3 ~/jetbrains-downloader/downloader.py
+rm -rf jetbrains-downloader
 
 if [ -f ~/.profile ]; then echo export _JAVA_AWT_WM_NONREPARENTING=1 >> ~/.profile; fi
 #+end_src
