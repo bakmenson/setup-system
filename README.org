@@ -4,7 +4,6 @@
 
 * Table of Contents :toc:
 - [[#pre-install][Pre-install]]
-- [[#update][Update]]
 - [[#apt][Apt]]
 - [[#base-packages][Base packages]]
 - [[#oh-my-zsh][Oh-my-zsh]]
@@ -34,12 +33,6 @@
 
 #+begin_src shell
 mkdir -p ~/dev
-#+end_src
-
-* Update
-
-#+begin_src shell
-#sudo apt update && sudo apt dist-upgrade && sudo snap refresh
 #+end_src
 
 * Apt
