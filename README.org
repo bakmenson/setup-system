@@ -8,6 +8,8 @@
 - [[#pre-install][Pre-install]]
 - [[#install][Install]]
 - [[#base-packages][Base packages]]
+  - [[#apt][apt]]
+  - [[#snap][snap]]
 - [[#oh-my-zsh][Oh-my-zsh]]
 - [[#dotfiles][Dotfiles]]
 - [[#programming-languages][Programming Languages]]
@@ -78,6 +80,7 @@ echo "\n\nDone"
 #+end_src
 
 * Base packages
+** apt
 
 #+begin_src shell
 sudo apt install -y cmake \
@@ -106,6 +109,8 @@ sudo apt install -y cmake \
      lxappearance \
      unclutter
 #+end_src
+
+** snap
 
 #+begin_src shell
 sudo snap install telegram-desktop
