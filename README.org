@@ -18,8 +18,6 @@
   - [[#javascript][javascript]]
   - [[#sql][sql]]
   - [[#bash][bash]]
-- [[#terminal][Terminal]]
-  - [[#alacritty][alacritty]]
 - [[#snap][Snap]]
 - [[#install-jetbrains-ide][Install JetBrains IDE]]
 - [[#emacs-config][Emacs Config]]
@@ -216,27 +214,6 @@ sudo apt install -y postgresql postgresql-contrib
 
 #+begin_src shell
 sudo npm i -g bash-language-server
-#+end_src
-
-* Terminal
-** alacritty
-
-#+begin_src shell
-#sudo apt install -y pkg-config \
-#     libfreetype6-dev \
-#     libfontconfig1-dev \
-#     libxcb-xfixes0-dev \
-#     libxkbcommon-dev
-
-#if [ -d ~/.alacritty ]; then rm -rf ~/.alacritty; fi
-
-#git clone https://github.com/alacritty/alacritty.git ~/.alacritty
-
-#cd ~/.alacritty
-#source ~/.zshrc
-#cargo build --release || exit 1
-#sudo cp target/release/alacritty /usr/local/bin
-#cd ~/
 #+end_src
 
 * Snap
