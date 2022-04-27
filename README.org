@@ -129,8 +129,6 @@ if [ -d ~/dev/dotfiles ]; then rm -rf ~/dev/dotfiles; fi
 git clone https://github.com/bakmenson/dotfiles.git ~/dev/dotfiles
 
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/dotfiles/README.org")'
-
-#sudo chmod +x ~/.config/polybar/polybar.sh
 #+end_src
 
 * Programming Languages
