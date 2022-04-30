@@ -92,7 +92,7 @@ sudo apt install -y cmake \
      vim \
      neofetch \
      python3-pip \
-     python3.8-venv \
+     python3-venv \
      tree \
      gparted \
      inxi \
@@ -107,7 +107,8 @@ sudo apt install -y cmake \
      feh \
      picom \
      lxappearance \
-     unclutter
+     unclutter \
+     scrot
 #+end_src
 
 ** snap
