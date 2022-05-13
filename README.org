@@ -256,7 +256,7 @@ emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emac
 ** exwm
 
 #+begin_src shell
-sudo tee -a /usr/share/xsessions/emacs.desktop > /dev/null <<EOT
+sudo tee /usr/share/xsessions/emacs.desktop > /dev/null <<EOT
 [Desktop Entry]
 Name=Emacs
 Exec=emacs
