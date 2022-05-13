@@ -244,8 +244,6 @@ if [ -f ~/.profile ]; then echo export _JAVA_AWT_WM_NONREPARENTING=1 >> ~/.profi
 ** emacs
 
 #+begin_src shell
-#sudo snap install emacs --classic
-
 if [ -d ~/dev/emacs-config ]; then rm -rf ~/dev/emacs-config; fi
 
 git clone https://github.com/bakmenson/emacs-config.git ~/dev/emacs-config
