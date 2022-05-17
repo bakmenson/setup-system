@@ -10,6 +10,7 @@
 - [[#base-packages][Base packages]]
   - [[#apt][apt]]
   - [[#snap][snap]]
+  - [[#pip][pip]]
 - [[#oh-my-zsh][Oh-my-zsh]]
 - [[#dotfiles][Dotfiles]]
 - [[#programming-languages][Programming Languages]]
@@ -116,6 +117,12 @@ sudo apt install -y cmake \
 
 #+begin_src shell
 sudo snap install telegram-desktop
+#+end_src
+
+** pip
+
+#+begin_src shell
+python3 -m pip install graw
 #+end_src
 
 * Oh-my-zsh
