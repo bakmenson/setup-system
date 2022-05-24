@@ -110,7 +110,8 @@ sudo apt install -y cmake \
      picom \
      lxappearance \
      unclutter \
-     scrot
+     scrot \
+     bat
 #+end_src
 
 ** snap
