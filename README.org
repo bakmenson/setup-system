@@ -27,7 +27,6 @@
 - [[#install-jetbrains-ide][Install JetBrains IDE]]
 - [[#emacs-config][Emacs Config]]
   - [[#emacs][emacs]]
-  - [[#exwm][exwm]]
   - [[#cask][cask]]
   - [[#pdf-tools][pdf-tools]]
   - [[#tdlib-for-telega][tdlib for telega]]
@@ -302,17 +301,6 @@ if [ -d ~/dev/emacs-config ]; then rm -rf ~/dev/emacs-config; fi
 git clone https://github.com/bakmenson/emacs-config.git ~/dev/emacs-config
 mkdir -p ~/.config/emacs
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emacs-config/README.org")'
-#+end_src
-
-** exwm
-
-#+begin_src shell
-sudo tee /usr/share/xsessions/emacs.desktop > /dev/null <<EOT
-[Desktop Entry]
-Name=Emacs
-Exec=emacs
-Type=Application
-EOT
 #+end_src
 
 ** cask
