@@ -22,6 +22,8 @@
   - [[#javascript][javascript]]
   - [[#sql][sql]]
   - [[#bash][bash]]
+- [[#terminal][Terminal]]
+  - [[#alacritty][alacritty]]
 - [[#install-jetbrains-ide][Install JetBrains IDE]]
 - [[#emacs-config][Emacs Config]]
   - [[#emacs][emacs]]
@@ -271,6 +273,13 @@ sudo apt install -y postgresql postgresql-contrib
 
 #+begin_src shell
 sudo npm i -g bash-language-server
+#+end_src
+
+* Terminal
+** alacritty
+
+#+begin_src shell
+cargo install alacritty --no-default-features --features=x11
 #+end_src
 
 * Install JetBrains IDE
