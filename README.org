@@ -280,6 +280,7 @@ sudo npm i -g bash-language-server
 ** alacritty
 
 #+begin_src shell
+sudo apt install -y libxcb-xfixes0-dev
 cargo install alacritty --no-default-features --features=x11
 #+end_src
 
