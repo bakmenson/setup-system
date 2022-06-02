@@ -119,7 +119,6 @@ sudo apt install -y cmake \
 
 #+begin_src shell
 sudo snap install telegram-desktop
-
 sudo snap install emacs --classic
 #+end_src
 
