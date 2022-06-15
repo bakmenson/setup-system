@@ -112,14 +112,14 @@ sudo apt install -y cmake \
      lxappearance \
      unclutter \
      scrot \
-     bat \
-     bashtop
+     bat
 #+end_src
 
 ** snap
 
 #+begin_src shell
 sudo snap install telegram-desktop
+sudo snap install btop
 sudo snap install emacs --classic
 #+end_src
 
