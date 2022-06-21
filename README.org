@@ -112,7 +112,8 @@ sudo apt install -y cmake \
      lxappearance \
      unclutter \
      scrot \
-     bat
+     bat \
+     dunst
 #+end_src
 
 ** snap
