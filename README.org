@@ -1,18 +1,13 @@
 #+title: Setup System
 
-#+property: header-args:shell :tangle setup-system.sh :shebang #!/bin/zsh
+#+property: header-args:shell :tangle setup-system.sh :shebang #!/bin/fish
 
 * Table of Contents :toc:
 - [[#usage][Usage]]
-- [[#update][Update]]
-- [[#pre-install][Pre-install]]
 - [[#install][Install]]
 - [[#base-packages][Base packages]]
-  - [[#apt][apt]]
-  - [[#snap][snap]]
-  - [[#pip][pip]]
-- [[#i3-gaps][i3-gaps]]
-- [[#oh-my-zsh][Oh-my-zsh]]
+  - [[#pacman][pacman]]
+  - [[#yay][yay]]
 - [[#dotfiles][Dotfiles]]
 - [[#programming-languages][Programming Languages]]
   - [[#python][python]]
@@ -23,57 +18,30 @@
   - [[#sql][sql]]
   - [[#bash][bash]]
 - [[#terminal][Terminal]]
+  - [[#oh-my-fish][oh-my-fish]]
   - [[#alacritty][alacritty]]
 - [[#install-jetbrains-ide][Install JetBrains IDE]]
 - [[#emacs-config][Emacs Config]]
-  - [[#emacs][emacs]]
-  - [[#cask][cask]]
-  - [[#pdf-tools][pdf-tools]]
-  - [[#tdlib-for-telega][tdlib for telega]]
 - [[#automount-hdd][Automount HDD]]
 
 * Usage
 
 #+begin_src shell :tangle no
-sudo apt install -y git
+sudo pacman -S git
 
 git clone https://github.com/bakmenson/setup-system
 
-bash setup-system/tangle.sh
-
-bash setup-system/update.sh
-
-# after reboot
 bash setup-system/pre-install.sh
 
 # after reboot
-zsh setup-system/install.sh
-#+end_src
-
-* Update
-
-#+begin_src shell :tangle update.sh :shebang #!/bin/bash
-sudo apt update && sudo apt dist-upgrade && sudo snap refresh
-reboot
-#+end_src
-
-* Pre-install
-
-#+begin_src shell :tangle pre-install.sh :shebang #!/bin/bash
-mkdir -p ~/dev
-sudo apt install -y zsh
-touch ~/.zshrc
-chsh -s /bin/zsh
-reboot
+fish setup-system/install.sh
 #+end_src
 
 * Install
 
-#+begin_src shell :tangle install.sh :shebang #!/bin/zsh
-zsh setup-system/setup-system.sh
+#+begin_src shell :tangle install.sh :shebang #!/bin/fish
+fish setup-system/setup-system.sh
 
-rm setup-system/update.sh
-rm setup-system/pre-install.sh
 rm install.sh
 rm setup-system/setup-system.sh
 
@@ -83,10 +51,10 @@ echo "\n\nDone"
 #+end_src
 
 * Base packages
-** apt
+** pacman
 
 #+begin_src shell
-sudo apt install -y cmake \
+sudo pacman -S --needed cmake \
      make \
      wget \
      curl \
@@ -94,86 +62,39 @@ sudo apt install -y cmake \
      htop \
      vim \
      neofetch \
-     python3-pip \
-     python3-venv \
      tree \
      gparted \
-     inxi \
      ripgrep \
      xfce4-power-manager \
      sqlite3 \
-     zsh \
      fzf \
      papirus-icon-theme \
-     arc-theme \
-     fonts-jetbrains-mono \
+     ttf-jetbrains-mono \
+     ttf-font-icons \
+     ttf-font-awesome \
+     arc-gtk-theme \
      feh \
+     bspwm \
+     sxhkd \
+     rofi \
+     polybar \
      picom \
      lxappearance \
      unclutter \
      scrot \
      bat \
-     dunst
+     dunst \
+     libvterm \
+     telegram-desktop \
+     yay \
+     transmission-gtk
+
 #+end_src
 
-** snap
+** yay
 
 #+begin_src shell
-sudo snap install telegram-desktop
-sudo snap install btop
-sudo snap install emacs --classic
-#+end_src
-
-** pip
-
-#+begin_src shell
-python3 -m pip install graw
-#+end_src
-
-* i3-gaps
-
-#+begin_src shell
-sudo apt install meson \
-     dh-autoreconf \
-     libxcb-keysyms1-dev \
-     libpango1.0-dev \
-     libxcb-util0-dev \
-     xcb \
-     libxcb1-dev \
-     libxcb-icccm4-dev \
-     libyajl-dev \
-     libev-dev \
-     libxcb-xkb-dev \
-     libxcb-cursor-dev \
-     libxkbcommon-dev \
-     libxcb-xinerama0-dev \
-     libxkbcommon-x11-dev \
-     libstartup-notification0-dev \
-     libxcb-randr0-dev \
-     libxcb-xrm0 \
-     libxcb-xrm-dev \
-     libxcb-shape0 \
-     libxcb-shape0-dev
-
-cd /tmp
-git clone https://github.com/Airblader/i3 i3-gaps
-cd i3-gaps
-mkdir -p build && cd build
-meson --prefix /usr/local
-ninja
-sudo ninja install
-cd ~/
-#+end_src
-
-* Oh-my-zsh
-
-#+begin_src shell
-if [ -d ~/.oh-my-zsh ]; then rm -rf ~/.oh-my-zsh; fi
-
-git clone https://github.com/ohmyzsh/ohmyzsh ~/.oh-my-zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+#yay -S picom-ibhagwan-git
 #+end_src
 
 * Dotfiles
@@ -190,78 +111,58 @@ chmod +x ~/.config/polybar/polybar.sh
 
 * Programming Languages
 ** python
-*** ipython
+*** pip
 
 #+begin_src shell
+sudo pacman -S --needed python-pip
+python3 -m pip install graw
 python3 -m pip install ipython
+python3 -m pip install yt-dlp
 #+end_src
 
 *** pyenv
 
 #+begin_src shell
-sudo apt install -y make \
-     build-essential \
-     libssl-dev \
-     zlib1g-dev \
-     libbz2-dev \
-     libreadline-dev \
-     libsqlite3-dev \
-     wget \
-     curl \
-     llvm \
-     libncursesw5-dev \
-     xz-utils \
-     tk-dev \
-     libxml2-dev \
-     libxmlsec1-dev \
-     libffi-dev \
-     liblzma-dev
-
 if [ -d ~/.pyenv ]; then rm -rf ~/.pyenv; fi
 
-git clone https://github.com/pyenv/pyenv .pyenv
+curl https://pyenv.run | bash
+
+set -Ux PYENV_ROOT $HOME/.pyenv
+fish_add_path $PYENV_ROOT/bin
 #+end_src
 
 *** poetry
 
 #+begin_src shell
-source ~/.zshrc
 curl -sSL https://install.python-poetry.org | python3 -
-mkdir -p ~/.oh-my-zsh/plugins/poetry
-poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry || exit 1
+exec fish
+poetry completions fish > ~/.config/fish/completions/poetry.fish
 #+end_src
 
 ** java
 
 #+begin_src shell
-sudo apt install -y openjdk-11-jdk \
-     openjdk-11-source \
-     openjdk-11-doc \
-     openjdk-17-jdk \
-     openjdk-17-source \
-     openjdk-17-doc \
-     maven
-
-sudo snap install gradle --classic
+sudo pacman -S --needed openjdk17-src openjdk17-doc jdk17-openjdk kotlin maven gradle
 #+end_src
 
 ** kotlin
 
 #+begin_src shell
-sudo snap install kotlin --classic
+sudo pacman -S --needed kotlin
 #+end_src
 
 ** rust
 
 #+begin_src shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source $HOME/.cargo/env
+set -Ua fish_user_paths $HOME/.cargo/bin
+exec fish
 #+end_src
 
 ** javascript
 
 #+begin_src shell
-sudo snap install node --classic
+sudo pacman -S --needed nodejs npm
 sudo npm install -g typescript typescript-language-server js-beautify
 #+end_src
 
@@ -269,13 +170,13 @@ sudo npm install -g typescript typescript-language-server js-beautify
 *** postgresql
 
 #+begin_src shell
-sudo apt install -y postgresql postgresql-contrib
+sudo pacman -S --needed postgresql
 #+end_src
 
 *** sqlite3
 
 #+begin_src shell
-sudo apt install -y sqlite3 sqlite3-tools
+sudo pacman -S --needed sqlite
 #+end_src
 
 ** bash
@@ -285,6 +186,14 @@ sudo npm i -g bash-language-server
 #+end_src
 
 * Terminal
+** oh-my-fish
+
+#+begin_src shell
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+omf install pure
+omf install fzf
+#+end_src
+
 ** alacritty
 
 #+begin_src shell
@@ -299,12 +208,9 @@ git clone https://github.com/bakmenson/jetbrains-downloader.git
 
 python3 ~/jetbrains-downloader/downloader.py
 rm -rf jetbrains-downloader
-
-if [ -f ~/.profile ]; then echo export _JAVA_AWT_WM_NONREPARENTING=1 >> ~/.profile; fi
 #+end_src
 
 * Emacs Config
-** emacs
 
 #+begin_src shell
 if [ -d ~/dev/emacs-config ]; then rm -rf ~/dev/emacs-config; fi
@@ -312,53 +218,6 @@ if [ -d ~/dev/emacs-config ]; then rm -rf ~/dev/emacs-config; fi
 git clone https://github.com/bakmenson/emacs-config.git ~/dev/emacs-config
 mkdir -p ~/.config/emacs
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emacs-config/README.org")'
-#+end_src
-
-** cask
-
-#+begin_src shell
-git clone https://github.com/cask/cask.git ~/.cask
-source ~/.zshrc
-#+end_src
-
-** pdf-tools
-
-#+begin_src shell
-sudo apt install -y build-essential \
-     libvterm-dev \
-     libglib2.0-dev \
-     libpng-dev \
-     zlib1g-dev \
-     libpoppler-glib-dev \
-     libpoppler-private-dev \
-     imagemagick \
-     automake \
-     autoconf
-
-git clone https://github.com/politza/pdf-tools.git
-cd pdf-tools
-source ~/.zshrc
-make -s || exit 1
-cd ~/
-#+end_src
-
-** tdlib for telega
-
-#+begin_src shell
-sudo apt install -y build-essential \
-     openssl \
-     zlib1g \
-     gperf \
-     cmake
-
-git clone https://github.com/tdlib/td.git
-cd td
-mkdir build && cd build
-source ~/.zshrc
-cmake ../ || exit 1
-make -j2 || exit 1
-sudo make install || exit 1
-cd ~/
 #+end_src
 
 * Automount HDD
