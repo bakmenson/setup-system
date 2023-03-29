@@ -78,7 +78,6 @@ sudo pacman -S --needed cmake \
      sxhkd \
      rofi \
      polybar \
-     picom \
      lxappearance \
      unclutter \
      scrot \
@@ -94,7 +93,7 @@ sudo pacman -S --needed cmake \
 ** yay
 
 #+begin_src shell
-#yay -S picom-ibhagwan-git
+yay -S picom-ibhagwan-git
 #+end_src
 
 * Dotfiles
