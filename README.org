@@ -1,6 +1,6 @@
 #+title: Setup System
 
-#+property: header-args:shell :tangle setup-system.sh :shebang #!/bin/fish
+#+property: header-args:shell :tangle setup-system.sh :shebang #!/bin/bash
 
 * Table of Contents :toc:
 - [[#usage][Usage]]
@@ -38,8 +38,8 @@ fish setup-system/install.sh
 
 * Install
 
-#+begin_src shell :tangle install.sh :shebang #!/bin/fish
-fish setup-system/setup-system.sh
+#+begin_src shell :tangle install.sh :shebang #!/bin/bash
+bash setup-system/setup-system.sh
 
 rm install.sh
 rm setup-system/setup-system.sh
@@ -47,6 +47,9 @@ rm setup-system/setup-system.sh
 mv ~/setup-system ~/dev/setup-system
 
 echo "\n\nDone"
+
+chsh -s /bin/fish
+
 #+end_src
 
 * Base packages
@@ -87,7 +90,12 @@ sudo pacman -S --needed cmake \
      telegram-desktop \
      yay \
      transmission-gtk \
-     alacritty
+     alacritty \
+     base-devel \
+     libpng \
+     zlib \
+     poppler-glib \
+     fish
 
 #+end_src
 
@@ -123,7 +131,7 @@ python3 -m pip install yt-dlp
 *** pyenv
 
 #+begin_src shell
-if [ -d ~/.pyenv ]; then rm -rf ~/.pyenv; fi
+if [ -d ~/.pyenv ]; then rm -rf ~/.pyenv; end
 
 curl https://pyenv.run | bash
 
