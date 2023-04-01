@@ -33,7 +33,7 @@ git clone https://github.com/bakmenson/setup-system
 bash setup-system/pre-install.sh
 
 # after reboot
-fish setup-system/install.sh
+bash setup-system/install.sh
 #+end_src
 
 * Install
