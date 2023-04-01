@@ -59,6 +59,7 @@ sudo pacman -S --needed cmake \
      wget \
      curl \
      mpv \
+     vlc \
      htop \
      vim \
      neofetch \
