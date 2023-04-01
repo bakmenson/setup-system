@@ -19,7 +19,6 @@
   - [[#bash][bash]]
 - [[#terminal][Terminal]]
   - [[#oh-my-fish][oh-my-fish]]
-  - [[#alacritty][alacritty]]
 - [[#install-jetbrains-ide][Install JetBrains IDE]]
 - [[#emacs-config][Emacs Config]]
 - [[#automount-hdd][Automount HDD]]
@@ -87,7 +86,8 @@ sudo pacman -S --needed cmake \
      libvterm \
      telegram-desktop \
      yay \
-     transmission-gtk
+     transmission-gtk \
+     alacritty
 
 #+end_src
 
@@ -192,13 +192,6 @@ sudo npm i -g bash-language-server
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 omf install pure
 omf install fzf
-#+end_src
-
-** alacritty
-
-#+begin_src shell
-sudo apt install -y libxcb-xfixes0-dev
-cargo install alacritty --no-default-features --features=x11
 #+end_src
 
 * Install JetBrains IDE
