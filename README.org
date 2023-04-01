@@ -41,7 +41,7 @@ bash setup-system/install.sh
 #+begin_src shell :tangle install.sh :shebang #!/bin/bash
 bash setup-system/setup-system.sh
 
-rm install.sh
+rm setup-system/install.sh
 rm setup-system/setup-system.sh
 
 mv ~/setup-system ~/dev/setup-system
