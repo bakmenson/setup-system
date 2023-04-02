@@ -17,11 +17,11 @@
   - [[#javascript][javascript]]
   - [[#sql][sql]]
   - [[#bash][bash]]
-- [[#terminal][Terminal]]
-  - [[#oh-my-fish][oh-my-fish]]
 - [[#install-jetbrains-ide][Install JetBrains IDE]]
 - [[#emacs-config][Emacs Config]]
 - [[#automount-hdd][Automount HDD]]
+- [[#terminal][Terminal]]
+  - [[#oh-my-fish][oh-my-fish]]
 
 * Usage
 
@@ -194,15 +194,6 @@ sudo pacman -S --needed sqlite
 sudo npm i -g bash-language-server
 #+end_src
 
-* Terminal
-** oh-my-fish
-
-#+begin_src shell
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-omf install pure
-omf install fzf
-omf theme pure
-#+end_src
 
 * Install JetBrains IDE
 
@@ -229,4 +220,14 @@ emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emac
 
 #+begin_src shell
 echo "UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0" | sudo tee -a /etc/fstab > /dev/null
+#+end_src
+
+* Terminal
+** oh-my-fish
+
+#+begin_src shell
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+omf install pure
+omf install fzf
+omf theme pure
 #+end_src
