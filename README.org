@@ -99,7 +99,7 @@ sudo pacman -S --needed cmake \
 ** yay
 
 #+begin_src shell
-#yay -S picom-ibhagwan-git
+yay -S picom-ibhagwan-git
 #+end_src
 
 * Dotfiles
@@ -193,7 +193,6 @@ sudo pacman -S --needed sqlite
 #+begin_src shell
 sudo npm i -g bash-language-server
 #+end_src
-
 
 * Install JetBrains IDE
 
