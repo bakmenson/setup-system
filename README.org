@@ -1,6 +1,6 @@
 #+title: Setup System
 
-#+property: header-args:shell :tangle setup-system.sh :shebang #!/bin/bash
+#+property: header-args:shell :tangle setup-system.sh :shebang #!/bin/fish
 
 * Table of Contents :toc:
 - [[#usage][Usage]]
@@ -38,8 +38,8 @@ bash setup-system/install.sh
 
 * Install
 
-#+begin_src shell :tangle install.sh :shebang #!/bin/bash
-bash setup-system/setup-system.sh
+#+begin_src shell :tangle install.sh :shebang #!/bin/fish
+fish setup-system/setup-system.sh
 
 rm setup-system/install.sh
 rm setup-system/setup-system.sh
@@ -47,8 +47,6 @@ rm setup-system/setup-system.sh
 mv ~/setup-system ~/dev/setup-system
 
 echo "\n\nDone"
-
-chsh -s /bin/fish
 
 #+end_src
 
@@ -94,21 +92,22 @@ sudo pacman -S --needed cmake \
      base-devel \
      libpng \
      zlib \
-     poppler-glib \
-     fish
+     poppler-glib
 
 #+end_src
 
 ** yay
 
 #+begin_src shell
-yay -S picom-ibhagwan-git
+#yay -S picom-ibhagwan-git
 #+end_src
 
 * Dotfiles
 
 #+begin_src shell
-if [ -d ~/dev/dotfiles ]; then rm -rf ~/dev/dotfiles; fi
+if test -d ~/dev/dotfiles
+    rm -rf ~/dev/dotfiles
+end
 
 git clone https://github.com/bakmenson/dotfiles.git ~/dev/dotfiles
 
@@ -131,10 +130,11 @@ python3 -m pip install yt-dlp
 *** pyenv
 
 #+begin_src shell
-if [ -d ~/.pyenv ]; then rm -rf ~/.pyenv; end
+if test -d ~/.pyenv
+    rm -rf ~/.pyenv
+end
 
 curl https://pyenv.run | bash
-
 set -Ux PYENV_ROOT $HOME/.pyenv
 fish_add_path $PYENV_ROOT/bin
 #+end_src
@@ -143,7 +143,7 @@ fish_add_path $PYENV_ROOT/bin
 
 #+begin_src shell
 curl -sSL https://install.python-poetry.org | python3 -
-exec fish
+#exec fish
 poetry completions fish > ~/.config/fish/completions/poetry.fish
 #+end_src
 
@@ -164,7 +164,8 @@ sudo pacman -S --needed kotlin
 #+begin_src shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 set -Ua fish_user_paths $HOME/.cargo/bin
-exec fish
+#exec fish
+#source "$HOME/.cargo/env"
 #+end_src
 
 ** javascript
@@ -200,6 +201,7 @@ sudo npm i -g bash-language-server
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 omf install pure
 omf install fzf
+omf theme pure
 #+end_src
 
 * Install JetBrains IDE
@@ -214,7 +216,9 @@ rm -rf jetbrains-downloader
 * Emacs Config
 
 #+begin_src shell
-if [ -d ~/dev/emacs-config ]; then rm -rf ~/dev/emacs-config; fi
+if test -d ~/dev/emacs-config
+    rm -rf ~/dev/emacs-config
+end
 
 git clone https://github.com/bakmenson/emacs-config.git ~/dev/emacs-config
 mkdir -p ~/.config/emacs
@@ -224,7 +228,5 @@ emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/emac
 * Automount HDD
 
 #+begin_src shell
-sudo tee -a /etc/fstab > /dev/null <<EOT
-UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0
-EOT
+echo "UUID=6883E43D19D297F7 /run/media/solus/hdd/      ntfs  errors=remount-ro,auto,exec,rw,user 0   0" | sudo tee -a /etc/fstab > /dev/null
 #+end_src
