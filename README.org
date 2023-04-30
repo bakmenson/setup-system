@@ -114,6 +114,7 @@ git clone https://github.com/bakmenson/dotfiles.git ~/dev/dotfiles
 emacs --batch --eval "(require 'org)" --eval '(org-babel-tangle-file "~/dev/dotfiles/README.org")'
 
 chmod +x ~/.config/polybar/polybar.sh
+chmod +x ~/.before_sleep.sh
 #+end_src
 
 * Programming Languages
