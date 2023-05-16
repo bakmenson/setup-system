@@ -87,7 +87,7 @@ sudo pacman -S --needed cmake \
      libvterm \
      telegram-desktop \
      yay \
-     transmission-gtk \
+     transmission-qt \
      alacritty \
      base-devel \
      libpng \
